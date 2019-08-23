@@ -1,0 +1,800 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osm version="0.6" generator="CGImap 0.7.5 (21113 thorn-02.openstreetmap.org)" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+ <bounds minlat="37.9214600" minlon="-122.3557200" maxlat="37.9220700" maxlon="-122.3516100"/>
+ <node id="57794696" visible="true" version="6" changeset="2203497" timestamp="2009-08-19T18:15:02Z" user="woodpeck_fixbot" uid="147510" lat="37.9241529" lon="-122.3608063"/>
+ <node id="57811297" visible="true" version="5" changeset="2251743" timestamp="2009-08-25T04:28:46Z" user="Apo42" uid="25510" lat="37.9219200" lon="-122.3551227"/>
+ <node id="57834026" visible="true" version="5" changeset="2203497" timestamp="2009-08-19T18:22:13Z" user="woodpeck_fixbot" uid="147510" lat="37.9222283" lon="-122.3566287"/>
+ <node id="57834811" visible="true" version="5" changeset="2251743" timestamp="2009-08-25T04:28:43Z" user="Apo42" uid="25510" lat="37.9254771" lon="-122.3629699"/>
+ <node id="57854164" visible="true" version="4" changeset="2251743" timestamp="2009-08-25T04:28:56Z" user="Apo42" uid="25510" lat="37.9260677" lon="-122.3641168"/>
+ <node id="57884609" visible="true" version="5" changeset="2251743" timestamp="2009-08-25T04:28:56Z" user="Apo42" uid="25510" lat="37.9227669" lon="-122.3582606"/>
+ <node id="57889502" visible="true" version="7" changeset="56741373" timestamp="2018-02-28T03:18:50Z" user="Stephen214" uid="4018842" lat="37.9218207" lon="-122.3535597">
+  <tag k="highway" v="motorway_junction"/>
+  <tag k="ref" v="9B"/>
+  <tag k="source" v="http://www.dot.ca.gov/hq/traffops/signtech/calnexus/pdf/fiveeightyeast.pdf;http://www.dot.ca.gov/hq/traffops/signtech/calnexus/pdf/fiveeightywest.pdf"/>
+ </node>
+ <node id="57894838" visible="true" version="5" changeset="2203497" timestamp="2009-08-19T18:32:53Z" user="woodpeck_fixbot" uid="147510" lat="37.9232115" lon="-122.3592355"/>
+ <node id="57904242" visible="true" version="5" changeset="2251743" timestamp="2009-08-25T04:28:57Z" user="Apo42" uid="25510" lat="37.9218882" lon="-122.3468032"/>
+ <node id="57907695" visible="true" version="6" changeset="2203497" timestamp="2009-08-19T18:34:58Z" user="woodpeck_fixbot" uid="147510" lat="37.9247983" lon="-122.3618607"/>
+ <node id="57913362" visible="true" version="6" changeset="2251743" timestamp="2009-08-25T04:28:39Z" user="Apo42" uid="25510" lat="37.9244690" lon="-122.3613147"/>
+ <node id="57920409" visible="true" version="5" changeset="2251743" timestamp="2009-08-25T04:28:50Z" user="Apo42" uid="25510" lat="37.9218622" lon="-122.3512724"/>
+ <node id="57923225" visible="true" version="5" changeset="2203497" timestamp="2009-08-19T18:37:46Z" user="woodpeck_fixbot" uid="147510" lat="37.9237805" lon="-122.3602353"/>
+ <node id="57928193" visible="true" version="5" changeset="2203497" timestamp="2009-08-19T18:38:21Z" user="woodpeck_fixbot" uid="147510" lat="37.9218542" lon="-122.3543713"/>
+ <node id="57935353" visible="true" version="7" changeset="62021227" timestamp="2018-08-27T04:03:23Z" user="njtbusfan" uid="8107451" lat="37.9264612" lon="-122.3651124"/>
+ <node id="57935356" visible="true" version="4" changeset="2251743" timestamp="2009-08-25T04:28:41Z" user="Apo42" uid="25510" lat="37.9258151" lon="-122.3635859"/>
+ <node id="57935361" visible="true" version="6" changeset="2203497" timestamp="2009-08-19T18:39:26Z" user="woodpeck_fixbot" uid="147510" lat="37.9250842" lon="-122.3623176"/>
+ <node id="57935367" visible="true" version="5" changeset="2251743" timestamp="2009-08-25T04:28:43Z" user="Apo42" uid="25510" lat="37.9234511" lon="-122.3596741"/>
+ <node id="57935369" visible="true" version="5" changeset="2203497" timestamp="2009-08-19T18:39:27Z" user="woodpeck_fixbot" uid="147510" lat="37.9229618" lon="-122.3587217"/>
+ <node id="57935372" visible="true" version="5" changeset="2203497" timestamp="2009-08-19T18:39:27Z" user="woodpeck_fixbot" uid="147510" lat="37.9225684" lon="-122.3577172"/>
+ <node id="57935374" visible="true" version="5" changeset="2251743" timestamp="2009-08-25T04:28:43Z" user="Apo42" uid="25510" lat="37.9223928" lon="-122.3571977"/>
+ <node id="57935384" visible="true" version="5" changeset="2251743" timestamp="2009-08-25T04:28:43Z" user="Apo42" uid="25510" lat="37.9218530" lon="-122.3455417"/>
+ <node id="243683452" visible="true" version="3" changeset="36727672" timestamp="2016-01-21T19:55:08Z" user="DannyAiquipa" uid="2226712" lat="37.9217202" lon="-122.3467117"/>
+ <node id="243683479" visible="true" version="6" changeset="56741373" timestamp="2018-02-28T03:18:50Z" user="Stephen214" uid="4018842" lat="37.9217830" lon="-122.3430011">
+  <tag k="highway" v="motorway_junction"/>
+  <tag k="noref" v="yes"/>
+  <tag k="source" v="http://www.dot.ca.gov/hq/traffops/signtech/calnexus/pdf/fiveeightyeast.pdf;http://www.dot.ca.gov/hq/traffops/signtech/calnexus/pdf/fiveeightywest.pdf"/>
+ </node>
+ <node id="243683485" visible="true" version="2" changeset="189058" timestamp="2008-02-24T05:53:19Z" user="Speight" uid="24452" lat="37.9220794" lon="-122.3560205">
+  <tag k="created_by" v="JOSM"/>
+ </node>
+ <node id="249041870" visible="true" version="1" changeset="189058" timestamp="2008-02-24T05:52:05Z" user="Speight" uid="24452" lat="37.9217267" lon="-122.3481597">
+  <tag k="created_by" v="JOSM"/>
+ </node>
+ <node id="249041872" visible="true" version="1" changeset="189058" timestamp="2008-02-24T05:52:06Z" user="Speight" uid="24452" lat="37.9217001" lon="-122.3490785">
+  <tag k="created_by" v="JOSM"/>
+ </node>
+ <node id="249041874" visible="true" version="1" changeset="189058" timestamp="2008-02-24T05:52:06Z" user="Speight" uid="24452" lat="37.9217001" lon="-122.3501407">
+  <tag k="created_by" v="JOSM"/>
+ </node>
+ <node id="249041876" visible="true" version="1" changeset="189058" timestamp="2008-02-24T05:52:07Z" user="Speight" uid="24452" lat="37.9216683" lon="-122.3512773">
+  <tag k="created_by" v="JOSM"/>
+ </node>
+ <node id="249041878" visible="true" version="5" changeset="56741373" timestamp="2018-02-28T03:18:50Z" user="Stephen214" uid="4018842" lat="37.9216459" lon="-122.3538154">
+  <tag k="highway" v="motorway_junction"/>
+  <tag k="ref" v="10A"/>
+  <tag k="source" v="http://www.dot.ca.gov/hq/traffops/signtech/calnexus/pdf/fiveeightyeast.pdf;http://www.dot.ca.gov/hq/traffops/signtech/calnexus/pdf/fiveeightywest.pdf"/>
+ </node>
+ <node id="249041882" visible="true" version="1" changeset="189058" timestamp="2008-02-24T05:52:08Z" user="Speight" uid="24452" lat="37.9216736" lon="-122.3543684">
+  <tag k="created_by" v="JOSM"/>
+ </node>
+ <node id="249041883" visible="true" version="1" changeset="189058" timestamp="2008-02-24T05:52:08Z" user="Speight" uid="24452" lat="37.9217585" lon="-122.3551385">
+  <tag k="created_by" v="JOSM"/>
+ </node>
+ <node id="249041885" visible="true" version="1" changeset="189058" timestamp="2008-02-24T05:52:09Z" user="Speight" uid="24452" lat="37.9219073" lon="-122.3560527">
+  <tag k="created_by" v="JOSM"/>
+ </node>
+ <node id="249041888" visible="true" version="2" changeset="13280079" timestamp="2012-09-28T04:32:04Z" user="NE2" uid="207745" lat="37.9220033" lon="-122.3565693"/>
+ <node id="249041892" visible="true" version="1" changeset="189058" timestamp="2008-02-24T05:52:10Z" user="Speight" uid="24452" lat="37.9223906" lon="-122.3577569">
+  <tag k="created_by" v="JOSM"/>
+ </node>
+ <node id="249041894" visible="true" version="1" changeset="189058" timestamp="2008-02-24T05:52:10Z" user="Speight" uid="24452" lat="37.9225977" lon="-122.3583092">
+  <tag k="created_by" v="JOSM"/>
+ </node>
+ <node id="249041896" visible="true" version="1" changeset="189058" timestamp="2008-02-24T05:52:11Z" user="Speight" uid="24452" lat="37.9227942" lon="-122.3587713">
+  <tag k="created_by" v="JOSM"/>
+ </node>
+ <node id="249041898" visible="true" version="1" changeset="189058" timestamp="2008-02-24T05:52:11Z" user="Speight" uid="24452" lat="37.9230385" lon="-122.3592652">
+  <tag k="created_by" v="JOSM"/>
+ </node>
+ <node id="249041900" visible="true" version="1" changeset="189058" timestamp="2008-02-24T05:52:11Z" user="Speight" uid="24452" lat="37.9233039" lon="-122.3597435">
+  <tag k="created_by" v="JOSM"/>
+ </node>
+ <node id="249041902" visible="true" version="1" changeset="189058" timestamp="2008-02-24T05:52:12Z" user="Speight" uid="24452" lat="37.9239998" lon="-122.3609064">
+  <tag k="created_by" v="JOSM"/>
+ </node>
+ <node id="249041904" visible="true" version="1" changeset="189058" timestamp="2008-02-24T05:52:12Z" user="Speight" uid="24452" lat="37.9243026" lon="-122.3614162">
+  <tag k="created_by" v="JOSM"/>
+ </node>
+ <node id="249041905" visible="true" version="1" changeset="189058" timestamp="2008-02-24T05:52:12Z" user="Speight" uid="24452" lat="37.9246212" lon="-122.3619367">
+  <tag k="created_by" v="JOSM"/>
+ </node>
+ <node id="249041907" visible="true" version="2" changeset="343346" timestamp="2008-05-05T11:06:31Z" user="Speight" uid="24452" lat="37.9249405" lon="-122.3624408">
+  <tag k="created_by" v="JOSM"/>
+ </node>
+ <node id="249041909" visible="true" version="2" changeset="343346" timestamp="2008-05-05T11:06:32Z" user="Speight" uid="24452" lat="37.9254067" lon="-122.3632132">
+  <tag k="created_by" v="JOSM"/>
+ </node>
+ <node id="249041911" visible="true" version="2" changeset="343346" timestamp="2008-05-05T11:06:37Z" user="Speight" uid="24452" lat="37.9256739" lon="-122.3637113">
+  <tag k="created_by" v="JOSM"/>
+ </node>
+ <node id="249041913" visible="true" version="1" changeset="189058" timestamp="2008-02-24T05:52:14Z" user="Speight" uid="24452" lat="37.9258853" lon="-122.3641674">
+  <tag k="created_by" v="JOSM"/>
+ </node>
+ <node id="249041916" visible="true" version="2" changeset="343346" timestamp="2008-05-05T11:06:42Z" user="Speight" uid="24452" lat="37.9261035" lon="-122.3646932">
+  <tag k="created_by" v="JOSM"/>
+ </node>
+ <node id="249041918" visible="true" version="2" changeset="343346" timestamp="2008-05-05T11:06:33Z" user="Speight" uid="24452" lat="37.9262823" lon="-122.3651844">
+  <tag k="created_by" v="JOSM"/>
+ </node>
+ <node id="249041921" visible="true" version="2" changeset="343346" timestamp="2008-05-05T11:06:42Z" user="Speight" uid="24452" lat="37.9264637" lon="-122.3657275">
+  <tag k="created_by" v="JOSM"/>
+ </node>
+ <node id="249041923" visible="true" version="2" changeset="343346" timestamp="2008-05-05T11:06:33Z" user="Speight" uid="24452" lat="37.9266098" lon="-122.3662639">
+  <tag k="created_by" v="JOSM"/>
+ </node>
+ <node id="249041925" visible="true" version="3" changeset="6341184" timestamp="2010-11-11T05:07:43Z" user="Speight" uid="24452" lat="37.9267308" lon="-122.3667387"/>
+ <node id="249041927" visible="true" version="5" changeset="56741373" timestamp="2018-02-28T03:18:50Z" user="Stephen214" uid="4018842" lat="37.9268069" lon="-122.3670820">
+  <tag k="highway" v="motorway_junction"/>
+  <tag k="ref" v="9"/>
+  <tag k="source" v="http://www.dot.ca.gov/hq/traffops/signtech/calnexus/pdf/fiveeightyeast.pdf;http://www.dot.ca.gov/hq/traffops/signtech/calnexus/pdf/fiveeightywest.pdf"/>
+ </node>
+ <node id="249041955" visible="true" version="1" changeset="189058" timestamp="2008-02-24T05:52:24Z" user="Speight" uid="24452" lat="37.9236436" lon="-122.3603146">
+  <tag k="created_by" v="JOSM"/>
+ </node>
+ <node id="249042026" visible="true" version="3" changeset="13280079" timestamp="2012-09-28T04:32:05Z" user="NE2" uid="207745" lat="37.9219029" lon="-122.3484976"/>
+ <node id="249042084" visible="true" version="2" changeset="36727672" timestamp="2016-01-21T19:55:09Z" user="DannyAiquipa" uid="2226712" lat="37.9223796" lon="-122.3480469"/>
+ <node id="249042092" visible="true" version="1" changeset="189058" timestamp="2008-02-24T05:52:52Z" user="Speight" uid="24452" lat="37.9222332" lon="-122.3487329">
+  <tag k="created_by" v="JOSM"/>
+ </node>
+ <node id="249042096" visible="true" version="2" changeset="36727672" timestamp="2016-01-21T19:55:09Z" user="DannyAiquipa" uid="2226712" lat="37.9221279" lon="-122.3496755"/>
+ <node id="249042098" visible="true" version="2" changeset="36727672" timestamp="2016-01-21T19:55:09Z" user="DannyAiquipa" uid="2226712" lat="37.9220096" lon="-122.3507485"/>
+ <node id="249042103" visible="true" version="2" changeset="10495224" timestamp="2012-01-25T16:35:28Z" user="Davidazus" uid="462373" lat="37.9218624" lon="-122.3519167"/>
+ <node id="249042107" visible="true" version="2" changeset="36727672" timestamp="2016-01-21T19:55:09Z" user="DannyAiquipa" uid="2226712" lat="37.9215993" lon="-122.3518193"/>
+ <node id="249042109" visible="true" version="2" changeset="36727672" timestamp="2016-01-21T19:55:09Z" user="DannyAiquipa" uid="2226712" lat="37.9215683" lon="-122.3511015"/>
+ <node id="249042111" visible="true" version="2" changeset="36727672" timestamp="2016-01-21T19:55:09Z" user="DannyAiquipa" uid="2226712" lat="37.9215423" lon="-122.3504440"/>
+ <node id="249042113" visible="true" version="2" changeset="36727672" timestamp="2016-01-21T19:55:09Z" user="DannyAiquipa" uid="2226712" lat="37.9215138" lon="-122.3499052"/>
+ <node id="249042115" visible="true" version="2" changeset="36727672" timestamp="2016-01-21T19:55:09Z" user="DannyAiquipa" uid="2226712" lat="37.9214923" lon="-122.3496740"/>
+ <node id="249042117" visible="true" version="2" changeset="36727672" timestamp="2016-01-21T19:55:09Z" user="DannyAiquipa" uid="2226712" lat="37.9214093" lon="-122.3493641"/>
+ <node id="249042119" visible="true" version="2" changeset="36727672" timestamp="2016-01-21T19:55:09Z" user="DannyAiquipa" uid="2226712" lat="37.9213238" lon="-122.3491738"/>
+ <node id="249042121" visible="true" version="1" changeset="189058" timestamp="2008-02-24T05:52:58Z" user="Speight" uid="24452" lat="37.9211709" lon="-122.3489432">
+  <tag k="created_by" v="JOSM"/>
+ </node>
+ <node id="249050579" visible="true" version="1" changeset="189058" timestamp="2008-02-24T06:26:09Z" user="Speight" uid="24452" lat="37.9221102" lon="-122.3557464">
+  <tag k="created_by" v="JOSM"/>
+ </node>
+ <node id="249050582" visible="true" version="1" changeset="189058" timestamp="2008-02-24T06:26:10Z" user="Speight" uid="24452" lat="37.9222359" lon="-122.3562252">
+  <tag k="created_by" v="JOSM"/>
+ </node>
+ <node id="249050585" visible="true" version="1" changeset="189058" timestamp="2008-02-24T06:26:10Z" user="Speight" uid="24452" lat="37.9225112" lon="-122.3570212">
+  <tag k="created_by" v="JOSM"/>
+ </node>
+ <node id="249050589" visible="true" version="2" changeset="6341184" timestamp="2010-11-11T05:01:28Z" user="Speight" uid="24452" lat="37.9229435" lon="-122.3580322"/>
+ <node id="249050592" visible="true" version="2" changeset="6341184" timestamp="2010-11-11T05:01:28Z" user="Speight" uid="24452" lat="37.9233371" lon="-122.3587859"/>
+ <node id="249050594" visible="true" version="3" changeset="36727672" timestamp="2016-01-21T19:55:10Z" user="DannyAiquipa" uid="2226712" lat="37.9239443" lon="-122.3597523"/>
+ <node id="249050605" visible="true" version="3" changeset="36727672" timestamp="2016-01-21T19:55:10Z" user="DannyAiquipa" uid="2226712" lat="37.9235704" lon="-122.3591874"/>
+ <node id="249050608" visible="true" version="2" changeset="6341184" timestamp="2010-11-11T05:01:28Z" user="Speight" uid="24452" lat="37.9231466" lon="-122.3584399"/>
+ <node id="249055252" visible="true" version="3" changeset="56741373" timestamp="2018-02-28T03:18:50Z" user="Stephen214" uid="4018842" lat="37.9231052" lon="-122.3590164">
+  <tag k="highway" v="motorway_junction"/>
+  <tag k="ref" v="9A"/>
+  <tag k="source" v="http://www.dot.ca.gov/hq/traffops/signtech/calnexus/pdf/fiveeightyeast.pdf;http://www.dot.ca.gov/hq/traffops/signtech/calnexus/pdf/fiveeightywest.pdf"/>
+ </node>
+ <node id="984960239" visible="true" version="1" changeset="6341184" timestamp="2010-11-11T05:01:42Z" user="Speight" uid="24452" lat="37.9227573" lon="-122.3576219"/>
+ <node id="1807972753" visible="true" version="1" changeset="12069512" timestamp="2012-06-30T19:59:33Z" user="dchiles" uid="153669" lat="37.9219570" lon="-122.3547378"/>
+ <node id="3958621772" visible="true" version="1" changeset="36727672" timestamp="2016-01-21T19:54:59Z" user="DannyAiquipa" uid="2226712" lat="37.9215790" lon="-122.3533722"/>
+ <node id="3958621774" visible="true" version="1" changeset="36727672" timestamp="2016-01-21T19:54:59Z" user="DannyAiquipa" uid="2226712" lat="37.9219792" lon="-122.3512674"/>
+ <node id="3958621776" visible="true" version="1" changeset="36727672" timestamp="2016-01-21T19:54:59Z" user="DannyAiquipa" uid="2226712" lat="37.9222814" lon="-122.3483801"/>
+ <node id="3958621777" visible="true" version="1" changeset="36727672" timestamp="2016-01-21T19:54:59Z" user="DannyAiquipa" uid="2226712" lat="37.9223176" lon="-122.3482026"/>
+ <node id="3958621778" visible="true" version="1" changeset="36727672" timestamp="2016-01-21T19:54:59Z" user="DannyAiquipa" uid="2226712" lat="37.9224854" lon="-122.3479112"/>
+ <way id="23073471" visible="true" version="7" changeset="39262460" timestamp="2016-05-12T09:50:42Z" user="poornibadrinath" uid="1597155">
+  <nd ref="3958621778"/>
+  <nd ref="249042084"/>
+  <nd ref="3958621777"/>
+  <nd ref="3958621776"/>
+  <nd ref="249042092"/>
+  <nd ref="249042096"/>
+  <nd ref="249042098"/>
+  <nd ref="3958621774"/>
+  <nd ref="249042103"/>
+  <tag k="highway" v="motorway_link"/>
+  <tag k="lanes" v="1"/>
+  <tag k="oneway" v="yes"/>
+ </way>
+ <way id="23073472" visible="true" version="13" changeset="56741373" timestamp="2018-02-28T03:18:51Z" user="Stephen214" uid="4018842">
+  <nd ref="249041878"/>
+  <nd ref="3958621772"/>
+  <nd ref="249042107"/>
+  <nd ref="249042109"/>
+  <nd ref="249042111"/>
+  <nd ref="249042113"/>
+  <nd ref="249042115"/>
+  <nd ref="249042117"/>
+  <nd ref="249042119"/>
+  <nd ref="249042121"/>
+  <tag k="destination:street" v="Marina Bay Parkway;South 23rd Street"/>
+  <tag k="highway" v="motorway_link"/>
+  <tag k="junction:ref" v="10A"/>
+  <tag k="lanes" v="1"/>
+  <tag k="oneway" v="yes"/>
+ </way>
+ <way id="23073514" visible="true" version="14" changeset="56741373" timestamp="2018-02-28T03:18:51Z" user="Stephen214" uid="4018842">
+  <nd ref="57889502"/>
+  <nd ref="1807972753"/>
+  <nd ref="249050579"/>
+  <nd ref="249050582"/>
+  <nd ref="249050585"/>
+  <nd ref="984960239"/>
+  <nd ref="249050589"/>
+  <nd ref="249050608"/>
+  <nd ref="249050592"/>
+  <nd ref="249050605"/>
+  <nd ref="249050594"/>
+  <tag k="destination:street" v="Harbour Way North"/>
+  <tag k="highway" v="motorway_link"/>
+  <tag k="junction:ref" v="9B"/>
+  <tag k="lanes" v="1"/>
+  <tag k="oneway" v="yes"/>
+ </way>
+ <way id="23073849" visible="true" version="18" changeset="67795928" timestamp="2019-03-05T08:52:55Z" user="doktorpixel14" uid="3232636">
+  <nd ref="243683479"/>
+  <nd ref="57935384"/>
+  <nd ref="57904242"/>
+  <nd ref="249042026"/>
+  <nd ref="57920409"/>
+  <nd ref="249042103"/>
+  <nd ref="57889502"/>
+  <nd ref="57928193"/>
+  <nd ref="57811297"/>
+  <nd ref="243683485"/>
+  <nd ref="57834026"/>
+  <nd ref="57935374"/>
+  <nd ref="57935372"/>
+  <nd ref="57884609"/>
+  <nd ref="57935369"/>
+  <nd ref="249055252"/>
+  <nd ref="57894838"/>
+  <nd ref="57935367"/>
+  <nd ref="57923225"/>
+  <nd ref="57794696"/>
+  <nd ref="57913362"/>
+  <nd ref="57907695"/>
+  <nd ref="57935361"/>
+  <nd ref="57834811"/>
+  <nd ref="57935356"/>
+  <nd ref="57854164"/>
+  <nd ref="57935353"/>
+  <tag k="bicycle" v="no"/>
+  <tag k="hgv" v="designated"/>
+  <tag k="hgv:national_network" v="yes"/>
+  <tag k="highway" v="motorway"/>
+  <tag k="lanes" v="4"/>
+  <tag k="maxspeed" v="65 mph"/>
+  <tag k="name" v="John T. Knox Freeway"/>
+  <tag k="oneway" v="yes"/>
+  <tag k="ref" v="I 580"/>
+  <tag k="tiger:cfcc" v="A11"/>
+  <tag k="tiger:county" v="Contra Costa, CA"/>
+  <tag k="tiger:name_base" v="I-580"/>
+  <tag k="tiger:reviewed" v="no"/>
+ </way>
+ <way id="23073855" visible="true" version="21" changeset="62021227" timestamp="2018-08-27T04:03:30Z" user="njtbusfan" uid="8107451">
+  <nd ref="249041927"/>
+  <nd ref="249041925"/>
+  <nd ref="249041923"/>
+  <nd ref="249041921"/>
+  <nd ref="249041918"/>
+  <nd ref="249041916"/>
+  <nd ref="249041913"/>
+  <nd ref="249041911"/>
+  <nd ref="249041909"/>
+  <nd ref="249041907"/>
+  <nd ref="249041905"/>
+  <nd ref="249041904"/>
+  <nd ref="249041902"/>
+  <nd ref="249041955"/>
+  <nd ref="249041900"/>
+  <nd ref="249041898"/>
+  <nd ref="249041896"/>
+  <nd ref="249041894"/>
+  <nd ref="249041892"/>
+  <nd ref="249041888"/>
+  <nd ref="249041885"/>
+  <nd ref="249041883"/>
+  <nd ref="249041882"/>
+  <nd ref="249041878"/>
+  <nd ref="249041876"/>
+  <nd ref="249041874"/>
+  <nd ref="249041872"/>
+  <nd ref="249041870"/>
+  <nd ref="243683452"/>
+  <tag k="bicycle" v="no"/>
+  <tag k="hgv" v="designated"/>
+  <tag k="hgv:national_network" v="yes"/>
+  <tag k="highway" v="motorway"/>
+  <tag k="lanes" v="3"/>
+  <tag k="maxspeed" v="65 mph"/>
+  <tag k="name" v="John T. Knox Freeway"/>
+  <tag k="oneway" v="yes"/>
+  <tag k="ref" v="I 580"/>
+  <tag k="tiger:cfcc" v="A11"/>
+  <tag k="tiger:county" v="Alameda, CA"/>
+  <tag k="tiger:name_base" v="I-580"/>
+  <tag k="tiger:name_base_1" v="State Highway 17"/>
+  <tag k="tiger:reviewed" v="no"/>
+ </way>
+ <relation id="156379" visible="true" version="112" changeset="71723956" timestamp="2019-06-28T22:50:38Z" user="clay_c" uid="119881">
+  <member type="way" ref="394139078" role=""/>
+  <member type="way" ref="12172082" role="forward"/>
+  <member type="way" ref="24316570" role="forward"/>
+  <member type="way" ref="24316572" role="forward"/>
+  <member type="way" ref="24316135" role="forward"/>
+  <member type="way" ref="620216038" role="forward"/>
+  <member type="way" ref="24316136" role="forward"/>
+  <member type="way" ref="24316580" role="forward"/>
+  <member type="way" ref="24316582" role="forward"/>
+  <member type="way" ref="24315544" role="forward"/>
+  <member type="way" ref="24315543" role="forward"/>
+  <member type="way" ref="183248244" role="forward"/>
+  <member type="way" ref="24224712" role="forward"/>
+  <member type="way" ref="24224713" role="forward"/>
+  <member type="way" ref="123867388" role="forward"/>
+  <member type="way" ref="183248246" role="forward"/>
+  <member type="way" ref="23074824" role="forward"/>
+  <member type="way" ref="23074825" role="forward"/>
+  <member type="way" ref="259381448" role="forward"/>
+  <member type="way" ref="23074810" role="forward"/>
+  <member type="way" ref="23074811" role="forward"/>
+  <member type="way" ref="23074797" role="forward"/>
+  <member type="way" ref="23074798" role="forward"/>
+  <member type="way" ref="23073923" role="forward"/>
+  <member type="way" ref="23073924" role="forward"/>
+  <member type="way" ref="416084623" role="forward"/>
+  <member type="way" ref="416084620" role="forward"/>
+  <member type="way" ref="23073854" role="forward"/>
+  <member type="way" ref="620216055" role="forward"/>
+  <member type="way" ref="23073855" role="forward"/>
+  <member type="way" ref="395382862" role="forward"/>
+  <member type="way" ref="395371216" role="forward"/>
+  <member type="way" ref="395371215" role="forward"/>
+  <member type="way" ref="699017005" role="forward"/>
+  <member type="way" ref="417707397" role="forward"/>
+  <member type="way" ref="123867387" role="forward"/>
+  <member type="way" ref="509143295" role="forward"/>
+  <member type="way" ref="6325652" role="forward"/>
+  <member type="way" ref="23874355" role="forward"/>
+  <member type="way" ref="392611974" role="forward"/>
+  <member type="way" ref="30471010" role="forward"/>
+  <member type="way" ref="10281628" role="forward"/>
+  <member type="way" ref="395412186" role="forward"/>
+  <member type="way" ref="395412180" role="forward"/>
+  <member type="way" ref="10281588" role="forward"/>
+  <member type="way" ref="10281587" role="forward"/>
+  <member type="way" ref="203395221" role="forward"/>
+  <member type="way" ref="203317481" role="forward"/>
+  <member type="way" ref="259082997" role="forward"/>
+  <member type="way" ref="9570479" role="forward"/>
+  <member type="way" ref="123741256" role="forward"/>
+  <member type="way" ref="517578333" role="forward"/>
+  <member type="way" ref="123741253" role="forward"/>
+  <member type="way" ref="123741263" role="forward"/>
+  <member type="way" ref="161453274" role="forward"/>
+  <member type="way" ref="202485360" role="forward"/>
+  <member type="way" ref="161453275" role="forward"/>
+  <member type="way" ref="123741247" role="forward"/>
+  <member type="way" ref="11189921" role="forward"/>
+  <member type="way" ref="11197878" role="forward"/>
+  <member type="way" ref="123867357" role="forward"/>
+  <member type="way" ref="52826116" role="forward"/>
+  <member type="way" ref="123867433" role="forward"/>
+  <member type="way" ref="10713933" role="forward"/>
+  <member type="way" ref="28411002" role="forward"/>
+  <member type="way" ref="28411003" role="forward"/>
+  <member type="way" ref="119058988" role="forward"/>
+  <member type="way" ref="119058975" role="forward"/>
+  <member type="way" ref="123867428" role="forward"/>
+  <member type="way" ref="119058972" role="forward"/>
+  <member type="way" ref="10719573" role="forward"/>
+  <member type="way" ref="123867430" role="forward"/>
+  <member type="way" ref="152932309" role="forward"/>
+  <member type="way" ref="152932307" role="forward"/>
+  <member type="way" ref="45382930" role="forward"/>
+  <member type="way" ref="45382931" role="forward"/>
+  <member type="way" ref="45382939" role="forward"/>
+  <member type="way" ref="45382937" role="forward"/>
+  <member type="way" ref="45382933" role="forward"/>
+  <member type="way" ref="126733925" role="forward"/>
+  <member type="way" ref="36744841" role="forward"/>
+  <member type="way" ref="101509694" role="forward"/>
+  <member type="way" ref="619117749" role="forward"/>
+  <member type="way" ref="76791894" role="forward"/>
+  <member type="way" ref="76791897" role="forward"/>
+  <member type="way" ref="59755368" role="forward"/>
+  <member type="way" ref="59755412" role="forward"/>
+  <member type="way" ref="137843195" role="forward"/>
+  <member type="way" ref="41168618" role="forward"/>
+  <member type="way" ref="41168615" role="forward"/>
+  <member type="way" ref="619117729" role="forward"/>
+  <member type="way" ref="41168562" role="forward"/>
+  <member type="way" ref="41168563" role="forward"/>
+  <member type="way" ref="41168565" role="forward"/>
+  <member type="way" ref="41168566" role="forward"/>
+  <member type="way" ref="41168568" role="forward"/>
+  <member type="way" ref="619076925" role="forward"/>
+  <member type="way" ref="41168569" role="forward"/>
+  <member type="way" ref="57070457" role="forward"/>
+  <member type="way" ref="57070435" role="forward"/>
+  <member type="way" ref="57070326" role="forward"/>
+  <member type="way" ref="57070344" role="forward"/>
+  <member type="way" ref="57070257" role="forward"/>
+  <member type="way" ref="57070272" role="forward"/>
+  <member type="way" ref="619076913" role="forward"/>
+  <member type="way" ref="47234181" role="forward"/>
+  <member type="way" ref="47234180" role="forward"/>
+  <member type="way" ref="47234091" role="forward"/>
+  <member type="way" ref="700434986" role="forward"/>
+  <member type="way" ref="47234089" role="forward"/>
+  <member type="way" ref="52044114" role="forward"/>
+  <member type="way" ref="52045909" role="forward"/>
+  <member type="way" ref="52050368" role="forward"/>
+  <member type="way" ref="52050367" role="forward"/>
+  <member type="way" ref="619076896" role="forward"/>
+  <member type="way" ref="108580832" role="forward"/>
+  <member type="way" ref="619076878" role="forward"/>
+  <member type="way" ref="108580826" role="forward"/>
+  <member type="way" ref="108580828" role="forward"/>
+  <member type="way" ref="108580834" role="forward"/>
+  <member type="way" ref="684441276" role="forward"/>
+  <member type="way" ref="684441277" role="forward"/>
+  <member type="way" ref="115726986" role="forward"/>
+  <member type="way" ref="22648526" role="forward"/>
+  <member type="way" ref="619076907" role="forward"/>
+  <member type="way" ref="119407475" role="forward"/>
+  <member type="way" ref="119407474" role="forward"/>
+  <member type="way" ref="119407738" role="forward"/>
+  <member type="way" ref="119407739" role="forward"/>
+  <member type="way" ref="137843204" role="forward"/>
+  <member type="way" ref="473018183" role="forward"/>
+  <member type="way" ref="473018185" role="forward"/>
+  <member type="way" ref="119558034" role="forward"/>
+  <member type="way" ref="619076872" role="forward"/>
+  <member type="way" ref="619076849" role="forward"/>
+  <member type="way" ref="119558028" role="forward"/>
+  <member type="way" ref="45767911" role="forward"/>
+  <member type="way" ref="45767915" role="forward"/>
+  <member type="way" ref="123867359" role="forward"/>
+  <member type="way" ref="45767916" role="forward"/>
+  <member type="way" ref="45767908" role="forward"/>
+  <member type="way" ref="22649357" role="forward"/>
+  <member type="way" ref="32028352" role="forward"/>
+  <member type="way" ref="185382477" role="forward"/>
+  <member type="way" ref="45311031" role="forward"/>
+  <member type="way" ref="126334976" role="forward"/>
+  <member type="way" ref="31980444" role="forward"/>
+  <member type="way" ref="45310298" role="forward"/>
+  <member type="way" ref="123867381" role="forward"/>
+  <member type="way" ref="183248245" role="forward"/>
+  <member type="way" ref="35922848" role="forward"/>
+  <member type="way" ref="35922849" role="forward"/>
+  <member type="way" ref="35922436" role="forward"/>
+  <member type="way" ref="35922437" role="forward"/>
+  <member type="way" ref="35922634" role="forward"/>
+  <member type="way" ref="35922639" role="forward"/>
+  <member type="way" ref="45310302" role="forward"/>
+  <member type="way" ref="45310287" role="forward"/>
+  <member type="way" ref="23761281" role="forward"/>
+  <member type="way" ref="51056951" role="forward"/>
+  <member type="way" ref="45310307" role="forward"/>
+  <member type="way" ref="45310274" role="forward"/>
+  <member type="way" ref="45330184" role="forward"/>
+  <member type="way" ref="45330185" role="forward"/>
+  <member type="way" ref="394103355" role="forward"/>
+  <member type="way" ref="394103341" role="forward"/>
+  <member type="way" ref="394103358" role="forward"/>
+  <member type="way" ref="394103377" role="forward"/>
+  <member type="way" ref="47160268" role="forward"/>
+  <member type="way" ref="47160267" role="forward"/>
+  <member type="way" ref="123867367" role="forward"/>
+  <member type="way" ref="394103347" role="forward"/>
+  <member type="way" ref="123867384" role="forward"/>
+  <member type="way" ref="394103345" role="forward"/>
+  <member type="way" ref="394103368" role="forward"/>
+  <member type="way" ref="45332093" role="forward"/>
+  <member type="way" ref="394130024" role="forward"/>
+  <member type="way" ref="394130026" role="forward"/>
+  <member type="way" ref="45332088" role="forward"/>
+  <member type="way" ref="695502369" role="forward"/>
+  <member type="way" ref="263690651" role="forward"/>
+  <member type="way" ref="47220146" role="forward"/>
+  <member type="way" ref="394139023" role="forward"/>
+  <member type="way" ref="394159808" role="forward"/>
+  <member type="way" ref="394165199" role="forward"/>
+  <member type="way" ref="394165202" role="forward"/>
+  <member type="way" ref="448080763" role="forward"/>
+  <member type="way" ref="394175775" role="forward"/>
+  <member type="way" ref="394175768" role="forward"/>
+  <member type="way" ref="394175764" role="forward"/>
+  <member type="way" ref="47220143" role="forward"/>
+  <member type="way" ref="394183399" role="forward"/>
+  <member type="way" ref="394183400" role="forward"/>
+  <member type="way" ref="119744073" role="forward"/>
+  <member type="way" ref="394183398" role="forward"/>
+  <member type="way" ref="119744078" role="forward"/>
+  <member type="way" ref="23761280" role="forward"/>
+  <member type="way" ref="119744072" role="forward"/>
+  <member type="way" ref="394200339" role="forward"/>
+  <member type="way" ref="119744071" role="forward"/>
+  <member type="way" ref="61359202" role="forward"/>
+  <member type="way" ref="394200338" role="forward"/>
+  <member type="way" ref="61359201" role="forward"/>
+  <member type="way" ref="24279165" role="forward"/>
+  <member type="way" ref="394216351" role="forward"/>
+  <member type="way" ref="24279167" role="forward"/>
+  <member type="way" ref="394216347" role="forward"/>
+  <member type="way" ref="394216345" role="forward"/>
+  <member type="way" ref="394216344" role="forward"/>
+  <member type="way" ref="394139077" role="forward"/>
+  <member type="way" ref="394139079" role="forward"/>
+  <member type="way" ref="24279169" role="forward"/>
+  <member type="way" ref="263693081" role="forward"/>
+  <member type="way" ref="24305393" role="forward"/>
+  <member type="way" ref="24307463" role="forward"/>
+  <member type="way" ref="94008292" role="forward"/>
+  <member type="way" ref="94008284" role="forward"/>
+  <member type="way" ref="496168690" role="forward"/>
+  <member type="way" ref="496168691" role="forward"/>
+  <member type="way" ref="32168615" role="forward"/>
+  <member type="way" ref="24307478" role="forward"/>
+  <member type="way" ref="47245596" role="forward"/>
+  <member type="way" ref="47245594" role="forward"/>
+  <member type="way" ref="123867362" role="forward"/>
+  <member type="way" ref="47245601" role="forward"/>
+  <member type="way" ref="47245598" role="forward"/>
+  <member type="way" ref="288987754" role="forward"/>
+  <member type="way" ref="10537814" role="forward"/>
+  <member type="way" ref="47245613" role="forward"/>
+  <member type="way" ref="47245583" role="forward"/>
+  <member type="way" ref="288987721" role="forward"/>
+  <member type="way" ref="288987750" role="forward"/>
+  <member type="way" ref="288987719" role="forward"/>
+  <member type="way" ref="288987724" role="forward"/>
+  <member type="way" ref="288987723" role="forward"/>
+  <member type="way" ref="288987757" role="forward"/>
+  <member type="way" ref="288987733" role="forward"/>
+  <member type="way" ref="288987715" role="forward"/>
+  <member type="way" ref="288987726" role="forward"/>
+  <member type="way" ref="288987737" role="forward"/>
+  <member type="way" ref="32708161" role="forward"/>
+  <member type="way" ref="32708160" role="forward"/>
+  <tag k="direction" v="East"/>
+  <tag k="is_in:state" v="CA"/>
+  <tag k="name" v="I 580 (CA eastbound)"/>
+  <tag k="network" v="US:I"/>
+  <tag k="ref" v="580"/>
+  <tag k="route" v="road"/>
+  <tag k="symbol" v="http://upload.wikimedia.org/wikipedia/commons/4/40/I-580_(CA).svg"/>
+  <tag k="type" v="route"/>
+ </relation>
+ <relation id="156380" visible="true" version="116" changeset="71500522" timestamp="2019-06-22T02:40:40Z" user="clay_c" uid="119881">
+  <member type="way" ref="28083998" role="forward"/>
+  <member type="way" ref="32708162" role="forward"/>
+  <member type="way" ref="183589104" role="forward"/>
+  <member type="way" ref="288987718" role="forward"/>
+  <member type="way" ref="288987716" role="forward"/>
+  <member type="way" ref="288987725" role="forward"/>
+  <member type="way" ref="288987714" role="forward"/>
+  <member type="way" ref="288987717" role="forward"/>
+  <member type="way" ref="288987730" role="forward"/>
+  <member type="way" ref="288987720" role="forward"/>
+  <member type="way" ref="288987746" role="forward"/>
+  <member type="way" ref="288987722" role="forward"/>
+  <member type="way" ref="288987760" role="forward"/>
+  <member type="way" ref="47245612" role="forward"/>
+  <member type="way" ref="392657169" role="forward"/>
+  <member type="way" ref="392657170" role="forward"/>
+  <member type="way" ref="47245591" role="forward"/>
+  <member type="way" ref="28083996" role="forward"/>
+  <member type="way" ref="172205588" role="forward"/>
+  <member type="way" ref="172205589" role="forward"/>
+  <member type="way" ref="172205587" role="forward"/>
+  <member type="way" ref="24308134" role="forward"/>
+  <member type="way" ref="6346473" role="forward"/>
+  <member type="way" ref="123867373" role="forward"/>
+  <member type="way" ref="123867360" role="forward"/>
+  <member type="way" ref="47245597" role="forward"/>
+  <member type="way" ref="47245593" role="forward"/>
+  <member type="way" ref="123867358" role="forward"/>
+  <member type="way" ref="24307484" role="forward"/>
+  <member type="way" ref="24307457" role="forward"/>
+  <member type="way" ref="24290323" role="forward"/>
+  <member type="way" ref="94008281" role="forward"/>
+  <member type="way" ref="94008275" role="forward"/>
+  <member type="way" ref="24305398" role="forward"/>
+  <member type="way" ref="24305397" role="forward"/>
+  <member type="way" ref="448060380" role="forward"/>
+  <member type="way" ref="263693077" role="forward"/>
+  <member type="way" ref="24279171" role="forward"/>
+  <member type="way" ref="24278985" role="forward"/>
+  <member type="way" ref="61359199" role="forward"/>
+  <member type="way" ref="61359198" role="forward"/>
+  <member type="way" ref="448074581" role="forward"/>
+  <member type="way" ref="119744080" role="forward"/>
+  <member type="way" ref="119744074" role="forward"/>
+  <member type="way" ref="24290024" role="forward"/>
+  <member type="way" ref="394200340" role="forward"/>
+  <member type="way" ref="394181698" role="forward"/>
+  <member type="way" ref="119744070" role="forward"/>
+  <member type="way" ref="119744075" role="forward"/>
+  <member type="way" ref="394181696" role="forward"/>
+  <member type="way" ref="394181697" role="forward"/>
+  <member type="way" ref="394181695" role="forward"/>
+  <member type="way" ref="394172393" role="forward"/>
+  <member type="way" ref="394172389" role="forward"/>
+  <member type="way" ref="394172391" role="forward"/>
+  <member type="way" ref="394172392" role="forward"/>
+  <member type="way" ref="394165200" role="forward"/>
+  <member type="way" ref="23761046" role="forward"/>
+  <member type="way" ref="394165201" role="forward"/>
+  <member type="way" ref="394159805" role="forward"/>
+  <member type="way" ref="394159807" role="forward"/>
+  <member type="way" ref="394159801" role="forward"/>
+  <member type="way" ref="394159797" role="forward"/>
+  <member type="way" ref="47220144" role="forward"/>
+  <member type="way" ref="47220145" role="forward"/>
+  <member type="way" ref="394127533" role="forward"/>
+  <member type="way" ref="394127525" role="forward"/>
+  <member type="way" ref="394127529" role="forward"/>
+  <member type="way" ref="263690659" role="forward"/>
+  <member type="way" ref="45332092" role="forward"/>
+  <member type="way" ref="45332091" role="forward"/>
+  <member type="way" ref="394103363" role="forward"/>
+  <member type="way" ref="394103360" role="forward"/>
+  <member type="way" ref="394103350" role="forward"/>
+  <member type="way" ref="394103365" role="forward"/>
+  <member type="way" ref="394103372" role="forward"/>
+  <member type="way" ref="45430009" role="forward"/>
+  <member type="way" ref="123867361" role="forward"/>
+  <member type="way" ref="45429990" role="forward"/>
+  <member type="way" ref="394103353" role="forward"/>
+  <member type="way" ref="394108522" role="forward"/>
+  <member type="way" ref="394108521" role="forward"/>
+  <member type="way" ref="394110912" role="forward"/>
+  <member type="way" ref="123867366" role="forward"/>
+  <member type="way" ref="45330187" role="forward"/>
+  <member type="way" ref="45330189" role="forward"/>
+  <member type="way" ref="45310305" role="forward"/>
+  <member type="way" ref="45310291" role="forward"/>
+  <member type="way" ref="51056980" role="forward"/>
+  <member type="way" ref="51056999" role="forward"/>
+  <member type="way" ref="35922675" role="forward"/>
+  <member type="way" ref="35922644" role="forward"/>
+  <member type="way" ref="35922439" role="forward"/>
+  <member type="way" ref="35922435" role="forward"/>
+  <member type="way" ref="35922851" role="forward"/>
+  <member type="way" ref="35922852" role="forward"/>
+  <member type="way" ref="123867365" role="forward"/>
+  <member type="way" ref="45310301" role="forward"/>
+  <member type="way" ref="45310282" role="forward"/>
+  <member type="way" ref="45311032" role="forward"/>
+  <member type="way" ref="45311016" role="forward"/>
+  <member type="way" ref="45311024" role="forward"/>
+  <member type="way" ref="45311004" role="forward"/>
+  <member type="way" ref="123867431" role="forward"/>
+  <member type="way" ref="45767917" role="forward"/>
+  <member type="way" ref="45767912" role="forward"/>
+  <member type="way" ref="45767919" role="forward"/>
+  <member type="way" ref="45767905" role="forward"/>
+  <member type="way" ref="619076854" role="forward"/>
+  <member type="way" ref="619076861" role="forward"/>
+  <member type="way" ref="119558032" role="forward"/>
+  <member type="way" ref="473018186" role="forward"/>
+  <member type="way" ref="473018184" role="forward"/>
+  <member type="way" ref="119558031" role="forward"/>
+  <member type="way" ref="119407740" role="forward"/>
+  <member type="way" ref="119407736" role="forward"/>
+  <member type="way" ref="119407476" role="forward"/>
+  <member type="way" ref="619076901" role="forward"/>
+  <member type="way" ref="119407478" role="forward"/>
+  <member type="way" ref="115726989" role="forward"/>
+  <member type="way" ref="619076888" role="forward"/>
+  <member type="way" ref="115726994" role="forward"/>
+  <member type="way" ref="108580835" role="forward"/>
+  <member type="way" ref="108580830" role="forward"/>
+  <member type="way" ref="108580827" role="forward"/>
+  <member type="way" ref="619076883" role="forward"/>
+  <member type="way" ref="108580829" role="forward"/>
+  <member type="way" ref="52050205" role="forward"/>
+  <member type="way" ref="52050199" role="forward"/>
+  <member type="way" ref="52044110" role="forward"/>
+  <member type="way" ref="52044109" role="forward"/>
+  <member type="way" ref="47234090" role="forward"/>
+  <member type="way" ref="36744839" role="forward"/>
+  <member type="way" ref="47234182" role="forward"/>
+  <member type="way" ref="619076919" role="forward"/>
+  <member type="way" ref="47234179" role="forward"/>
+  <member type="way" ref="656405793" role="forward"/>
+  <member type="way" ref="656405794" role="forward"/>
+  <member type="way" ref="57070216" role="forward"/>
+  <member type="way" ref="57070206" role="forward"/>
+  <member type="way" ref="57070296" role="forward"/>
+  <member type="way" ref="57070303" role="forward"/>
+  <member type="way" ref="57070417" role="forward"/>
+  <member type="way" ref="57070479" role="forward"/>
+  <member type="way" ref="41168571" role="forward"/>
+  <member type="way" ref="41168570" role="forward"/>
+  <member type="way" ref="41168572" role="forward"/>
+  <member type="way" ref="41168564" role="forward"/>
+  <member type="way" ref="41168561" role="forward"/>
+  <member type="way" ref="619117726" role="forward"/>
+  <member type="way" ref="41168560" role="forward"/>
+  <member type="way" ref="41168616" role="forward"/>
+  <member type="way" ref="41168617" role="forward"/>
+  <member type="way" ref="137843200" role="forward"/>
+  <member type="way" ref="59755246" role="forward"/>
+  <member type="way" ref="59755337" role="forward"/>
+  <member type="way" ref="76791896" role="forward"/>
+  <member type="way" ref="76791895" role="forward"/>
+  <member type="way" ref="101509652" role="forward"/>
+  <member type="way" ref="10721310" role="forward"/>
+  <member type="way" ref="45382935" role="forward"/>
+  <member type="way" ref="45382934" role="forward"/>
+  <member type="way" ref="45382927" role="forward"/>
+  <member type="way" ref="45382936" role="forward"/>
+  <member type="way" ref="45382929" role="forward"/>
+  <member type="way" ref="45382928" role="forward"/>
+  <member type="way" ref="152932308" role="forward"/>
+  <member type="way" ref="119058977" role="forward"/>
+  <member type="way" ref="123867427" role="forward"/>
+  <member type="way" ref="11162455" role="forward"/>
+  <member type="way" ref="119058995" role="forward"/>
+  <member type="way" ref="123867429" role="forward"/>
+  <member type="way" ref="119058986" role="forward"/>
+  <member type="way" ref="28411014" role="forward"/>
+  <member type="way" ref="6391210" role="forward"/>
+  <member type="way" ref="123867375" role="forward"/>
+  <member type="way" ref="119058996" role="forward"/>
+  <member type="way" ref="11300316" role="forward"/>
+  <member type="way" ref="11163691" role="forward"/>
+  <member type="way" ref="202485363" role="forward"/>
+  <member type="way" ref="517561019" role="forward"/>
+  <member type="way" ref="123741259" role="forward"/>
+  <member type="way" ref="123741260" role="forward"/>
+  <member type="way" ref="161453273" role="forward"/>
+  <member type="way" ref="5165991" role="forward"/>
+  <member type="way" ref="518298699" role="forward"/>
+  <member type="way" ref="123741236" role="forward"/>
+  <member type="way" ref="259082998" role="forward"/>
+  <member type="way" ref="203317482" role="forward"/>
+  <member type="way" ref="203395220" role="forward"/>
+  <member type="way" ref="10281585" role="forward"/>
+  <member type="way" ref="10281586" role="forward"/>
+  <member type="way" ref="395412183" role="forward"/>
+  <member type="way" ref="395412188" role="forward"/>
+  <member type="way" ref="10281592" role="forward"/>
+  <member type="way" ref="10281621" role="forward"/>
+  <member type="way" ref="10281622" role="forward"/>
+  <member type="way" ref="10281593" role="forward"/>
+  <member type="way" ref="395371217" role="forward"/>
+  <member type="way" ref="699017004" role="forward"/>
+  <member type="way" ref="674609812" role="forward"/>
+  <member type="way" ref="23073849" role="forward"/>
+  <member type="way" ref="620216056" role="forward"/>
+  <member type="way" ref="23073848" role="forward"/>
+  <member type="way" ref="7876292" role="forward"/>
+  <member type="way" ref="620216054" role="forward"/>
+  <member type="way" ref="23073921" role="forward"/>
+  <member type="way" ref="23073922" role="forward"/>
+  <member type="way" ref="23074795" role="forward"/>
+  <member type="way" ref="23074796" role="forward"/>
+  <member type="way" ref="23074808" role="forward"/>
+  <member type="way" ref="23074809" role="forward"/>
+  <member type="way" ref="259381450" role="forward"/>
+  <member type="way" ref="23074822" role="forward"/>
+  <member type="way" ref="23074823" role="forward"/>
+  <member type="way" ref="183248247" role="forward"/>
+  <member type="way" ref="24224708" role="forward"/>
+  <member type="way" ref="24224709" role="forward"/>
+  <member type="way" ref="90077166" role="forward"/>
+  <member type="way" ref="24224706" role="forward"/>
+  <member type="way" ref="24224707" role="forward"/>
+  <member type="way" ref="259381447" role="forward"/>
+  <member type="way" ref="123867363" role="forward"/>
+  <member type="way" ref="395969182" role="forward"/>
+  <member type="way" ref="395969181" role="forward"/>
+  <member type="way" ref="393623386" role="forward"/>
+  <member type="way" ref="12181069" role="forward"/>
+  <member type="way" ref="24315761" role="forward"/>
+  <member type="way" ref="24316584" role="forward"/>
+  <member type="way" ref="23800421" role="forward"/>
+  <member type="way" ref="24316137" role="forward"/>
+  <member type="way" ref="24316138" role="forward"/>
+  <member type="way" ref="497517002" role=""/>
+  <member type="way" ref="497517001" role=""/>
+  <member type="way" ref="497517003" role=""/>
+  <tag k="direction" v="west"/>
+  <tag k="is_in:state" v="CA"/>
+  <tag k="name" v="I 580 (CA westbound)"/>
+  <tag k="network" v="US:I"/>
+  <tag k="ref" v="580"/>
+  <tag k="route" v="road"/>
+  <tag k="symbol" v="http://upload.wikimedia.org/wikipedia/commons/4/40/I-580_(CA).svg"/>
+  <tag k="type" v="route"/>
+ </relation>
+</osm>

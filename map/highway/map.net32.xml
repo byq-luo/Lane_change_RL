@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on Fri Jul 12 14:52:57 2019 by Eclipse SUMO netedit Version 1.2.0
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/netconvertConfiguration.xsd">
+
+    <input>
+        <sumo-net-file value="/Users/cxx/Desktop/SUMO/map2/map.net.xml"/>
+    </input>
+
+    <output>
+        <output-file value="/Users/cxx/Desktop/SUMO/map2/map.net.xml"/>
+    </output>
+
+    <processing>
+        <geometry.max-grade.fix value="false"/>
+        <offset.disable-normalization value="true"/>
+        <lefthand value="false"/>
+    </processing>
+
+    <junctions>
+        <no-internal-links value="true"/>
+        <no-turnarounds value="true"/>
+        <junctions.corner-detail value="5"/>
+        <junctions.limit-turn-speed value="5.5"/>
+        <rectangular-lane-cut value="false"/>
+    </junctions>
+
+    <pedestrian>
+        <walkingareas value="false"/>
+    </pedestrian>
+
+</configuration>
+-->
+
+<net version="1.1" junctionCornerDetail="5" limitTurnSpeed="5.50" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/net_file.xsd">
+
+    <location netOffset="0.00,0.00" convBoundary="0.00,0.00,200.00,0.00" origBoundary="-10000000000.00,-10000000000.00,10000000000.00,10000000000.00" projParameter="!"/>
+
+    <edge id="highway" from="entry" to="exit" priority="-1" spreadType="center">
+        <lane id="highway_0" index="0" speed="13.89" length="200.00" width="3.2" shape="0.00,-1.6 200.00,-1.6"/>
+        <lane id="highway_1" index="1" speed="13.89" length="200.00" width="3.2" shape="0.00,1.6 200.00,1.6"/>
+    </edge>
+
+    <junction id="entry" type="dead_end" x="0.00" y="0.00" incLanes="" intLanes="" shape="0.00,3.2 0.00,-3.2"/>
+    <junction id="exit" type="dead_end" x="200.00" y="0.00" incLanes="highway_0 highway_1" intLanes="" shape="200.00,-3.2 200.00,3.2"/>
+
+</net>

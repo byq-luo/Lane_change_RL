@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on Tue Jul  9 10:58:57 2019 by Eclipse SUMO netedit Version 1.2.0
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/netconvertConfiguration.xsd">
+
+    <output>
+        <plain-output-prefix value=""/>
+    </output>
+
+    <processing>
+        <offset.disable-normalization value="true"/>
+    </processing>
+
+    <junctions>
+        <no-turnarounds value="true"/>
+    </junctions>
+
+    <netedit>
+        <route-files value="/Users/cxx/demand.xml"/>
+    </netedit>
+
+</configuration>
+-->
+
+<!--Modifie Time Step Length!!!-->
+
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+    <vType id="car" probability="0.8" guiShape="passenger" speedFactor="normc(1,0.1,0.2,2)" carFollowModel="IDM"/><!--carFollowModel="IDM"-->
+    <vType id="bus" vClass="bus" probability="0.2" guiShape="bus" speedFactor="normc(1,0.1,0.2,2)" carFollowModel="IDM"/>
+    <vTypeDistribution id="typelist" vTypes="bus car"/>
+
+    <vType id="test" probability="0.8" guiShape="passenger" maxSpeed="0.1"/>
+
+    <route id="straight" edges="highway"/>
+    <!--vehicle id="1" type="test" route="straight" depart="0"/-->
+    <flow id="npc_lane" color='0, 1, 1' type="typelist" departLane="1" arrivalLane="1" begin="0.00" end="3600.00"
+          route="straight" probability="1.0" departSpeed="max"/>
+    <flow id="ego_lane" color='0, 1, 0' type="car" departLane="0" arrivalLane="current" begin="0.00" end="3600.00"
+          route="straight" probability="0.2" departSpeed="max"/>
+</routes>

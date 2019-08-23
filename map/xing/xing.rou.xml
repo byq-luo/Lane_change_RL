@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on Tue Jul  9 10:58:57 2019 by Eclipse SUMO netedit Version 1.2.0
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/netconvertConfiguration.xsd">
+
+    <output>
+        <plain-output-prefix value=""/>
+    </output>
+
+    <processing>
+        <offset.disable-normalization value="true"/>
+    </processing>
+
+    <junctions>
+        <no-turnarounds value="true"/>
+    </junctions>
+
+    <netedit>
+        <route-files value="/Users/cxx/demand.xml"/>
+    </netedit>
+
+</configuration>
+-->
+
+<!--Modifie Time Step Length!!!-->
+
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+    <vType id="car" probability="0.8" guiShape="passenger" />
+    <vType id="bus" vClass="bus" probability="0.2" guiShape="bus"/>
+    <vTypeDistribution id="typelist" vTypes="bus car"/>
+
+    <vType id="ped" vClass="pedestrian" probability="1" guiShape="bicycle"/>
+
+    <route id="straight" edges="left1 right1"/>
+    <route id="reverse" edges="right2 left2"/>
+
+    <route id="pedr" edges=":xing_c0"/>
+
+    <!--vehicle id="1" type="test" route="straight" depart="0"/-->
+    <flow id="npc_0" color='0, 1, 1' type="typelist" departLane="1" arrivalLane="1" begin="0.00" end="3600.00"
+          route="straight" probability="0.8"/>
+    <flow id="npc_1" color='0, 1, 0' type="typelist" departLane="1" arrivalLane="0" begin="0.00" end="3600.00"
+          route="reverse" probability="0.8"/>
+
+    <flow id="ped_flow" color='0, 1, 0' type="ped" departLane="0" arrivalLane="0" begin="0.00" end="3600.00"
+          route="pedr" period="10" />
+
+</routes>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on Wed Jul 31 15:27:25 2019 by Eclipse SUMO netedit Version 1.2.0
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/netconvertConfiguration.xsd">
+
+    <input>
+        <sumo-net-file value="/Users/cxx/Desktop/SUMO/map/ramp3/map.net.xml"/>
+    </input>
+
+    <output>
+        <output-file value="/Users/cxx/Desktop/SUMO/map/ramp3/map.net.xml"/>
+    </output>
+
+    <processing>
+        <geometry.max-grade.fix value="false"/>
+        <offset.disable-normalization value="true"/>
+        <lefthand value="false"/>
+    </processing>
+
+    <junctions>
+        <no-turnarounds value="true"/>
+        <junctions.corner-detail value="5"/>
+        <junctions.limit-turn-speed value="5.5"/>
+        <rectangular-lane-cut value="false"/>
+    </junctions>
+
+    <pedestrian>
+        <walkingareas value="false"/>
+    </pedestrian>
+
+    <netedit>
+        <route-files value="/Users/cxx/Desktop/SUMO/map/ramp3/map2.rou.xml"/>
+    </netedit>
+
+</configuration>
+-->
+
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+    <vType id="car" probability="0.8" guiShape="passenger" speedFactor="normc(1,0.1,0.2,2)" carFollowModel="IDM" emergencyDecel="4.5"/><!--carFollowModel="IDM"-->
+    <vType id="bus" vClass="bus" probability="0.2" guiShape="bus" speedFactor="normc(1,0.1,0.2,2)" carFollowModel="IDM" emergencyDecel="4.5"/>
+    <vTypeDistribution id="typelist" vTypes="bus car"/>
+    <vType id="fastcar" guiShape="passenger" speedFactor="normc(1.2,0.1,0.2,2)" carFollowModel="IDM" emergencyDecel="4.5"/><!--carFollowModel="IDM"-->
+
+
+
+    <route id="ramp_exit" edges="entranceEdge rampExit" color="blue"/>
+    <route id="keep_on_highway" edges="entranceEdge exit" color="blue"/>
+    <flow id="lane1" color='30, 144, 255' type="car" departLane="1" arrivalLane="current" begin="0.00" end="3600.00"
+          route="keep_on_highway" probability="0.25" departSpeed="max"/>
+    <flow id="lane0" color='30, 144, 255' type="typelist" departLane="0" arrivalLane="current" begin="0.00" end="3600.00"
+          route="keep_on_highway" probability="0.25" departSpeed="max"/>
+    <flow id="lane2" color='30, 144, 255' type="typelist" departLane="2" arrivalLane="current" begin="0.00" end="3600.00"
+          route="keep_on_highway" probability="0.25" departSpeed="max"/>
+
+</routes>

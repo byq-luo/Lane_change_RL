@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on Mon Jul 22 16:34:13 2019 by Eclipse SUMO netedit Version 1.2.0
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/netconvertConfiguration.xsd">
+
+    <input>
+        <sumo-net-file value="/Users/cxx/Desktop/SUMO/map2/crossing.net.xml"/>
+    </input>
+
+    <output>
+        <output-file value="/Users/cxx/Desktop/SUMO/map2/crossing.net.xml"/>
+    </output>
+
+    <processing>
+        <geometry.max-grade.fix value="false"/>
+        <offset.disable-normalization value="true"/>
+        <lefthand value="false"/>
+    </processing>
+
+    <junctions>
+        <no-internal-links value="false"/>
+        <no-turnarounds value="true"/>
+        <junctions.corner-detail value="5"/>
+        <junctions.limit-turn-speed value="5.5"/>
+        <rectangular-lane-cut value="false"/>
+    </junctions>
+
+    <pedestrian>
+        <walkingareas value="false"/>
+    </pedestrian>
+
+</configuration>
+-->
+
+<net version="1.1" junctionCornerDetail="5" limitTurnSpeed="5.50" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/net_file.xsd">
+
+    <location netOffset="0.00,0.00" convBoundary="0.00,-50.00,100.00,50.00" origBoundary="-10000000000.00,-10000000000.00,10000000000.00,10000000000.00" projParameter="!"/>
+
+    <edge id=":crossing_0" function="internal">
+        <lane id=":crossing_0_0" index="0" disallow="pedestrian" speed="6.51" length="5.92" shape="48.40,7.20 48.05,4.75 47.00,3.00 45.80,2.28"/>
+    </edge>
+    <edge id=":crossing_1" function="internal">
+        <lane id=":crossing_1_0" index="0" disallow="pedestrian" speed="13.89" length="14.40" shape="48.40,7.20 48.40,-7.20"/>
+    </edge>
+    <edge id=":crossing_2" function="internal">
+        <lane id=":crossing_2_0" index="0" disallow="pedestrian" speed="8.00" length="5.93" shape="48.40,7.20 48.95,3.35 50.00,1.60"/>
+    </edge>
+    <edge id=":crossing_12" function="internal">
+        <lane id=":crossing_12_0" index="0" disallow="pedestrian" speed="6.51" length="3.12" shape="45.80,2.28 45.25,1.95 42.80,1.60"/>
+    </edge>
+    <edge id=":crossing_13" function="internal">
+        <lane id=":crossing_13_0" index="0" disallow="pedestrian" speed="8.00" length="8.26" shape="50.00,1.60 50.60,0.60 53.35,-1.05 57.20,-1.60"/>
+    </edge>
+    <edge id=":crossing_3" function="internal">
+        <lane id=":crossing_3_0" index="0" disallow="pedestrian" speed="6.51" length="9.03" shape="57.20,1.60 54.75,1.95 53.00,3.00 51.95,4.75 51.60,7.20"/>
+    </edge>
+    <edge id=":crossing_4" function="internal">
+        <lane id=":crossing_4_0" index="0" disallow="pedestrian" speed="13.89" length="14.40" shape="57.20,1.60 42.80,1.60"/>
+    </edge>
+    <edge id=":crossing_5" function="internal">
+        <lane id=":crossing_5_0" index="0" disallow="pedestrian" speed="8.00" length="14.19" shape="57.20,1.60 53.35,1.05 50.60,-0.60 48.95,-3.35 48.40,-7.20"/>
+    </edge>
+    <edge id=":crossing_6" function="internal">
+        <lane id=":crossing_6_0" index="0" disallow="pedestrian" speed="6.51" length="5.92" shape="51.60,-7.20 51.95,-4.75 53.00,-3.00 54.20,-2.28"/>
+    </edge>
+    <edge id=":crossing_7" function="internal">
+        <lane id=":crossing_7_0" index="0" disallow="pedestrian" speed="13.89" length="14.40" shape="51.60,-7.20 51.60,7.20"/>
+    </edge>
+    <edge id=":crossing_8" function="internal">
+        <lane id=":crossing_8_0" index="0" disallow="pedestrian" speed="8.00" length="5.93" shape="51.60,-7.20 51.05,-3.35 50.00,-1.60"/>
+    </edge>
+    <edge id=":crossing_14" function="internal">
+        <lane id=":crossing_14_0" index="0" disallow="pedestrian" speed="6.51" length="3.12" shape="54.20,-2.28 54.75,-1.95 57.20,-1.60"/>
+    </edge>
+    <edge id=":crossing_15" function="internal">
+        <lane id=":crossing_15_0" index="0" disallow="pedestrian" speed="8.00" length="8.26" shape="50.00,-1.60 49.40,-0.60 46.65,1.05 42.80,1.60"/>
+    </edge>
+    <edge id=":crossing_9" function="internal">
+        <lane id=":crossing_9_0" index="0" disallow="pedestrian" speed="6.51" length="9.03" shape="42.80,-1.60 45.25,-1.95 47.00,-3.00 48.05,-4.75 48.40,-7.20"/>
+    </edge>
+    <edge id=":crossing_10" function="internal">
+        <lane id=":crossing_10_0" index="0" disallow="pedestrian" speed="13.89" length="14.40" shape="42.80,-1.60 57.20,-1.60"/>
+    </edge>
+    <edge id=":crossing_11" function="internal">
+        <lane id=":crossing_11_0" index="0" disallow="pedestrian" speed="8.00" length="14.19" shape="42.80,-1.60 46.65,-1.05 49.40,0.60 51.05,3.35 51.60,7.20"/>
+    </edge>
+    <edge id=":crossing_c0" function="crossing" crossingEdges="right1 right2">
+        <lane id=":crossing_c0_0" index="0" allow="pedestrian" speed="1.00" length="6.40" width="3.00" shape="55.70,-3.20 55.70,3.20"/>
+    </edge>
+    <edge id=":crossing_c1" function="crossing" crossingEdges="left2 left1">
+        <lane id=":crossing_c1_0" index="0" allow="pedestrian" speed="1.00" length="6.40" width="3.00" shape="44.30,3.20 44.30,-3.20"/>
+    </edge>
+    <edge id=":crossing_w0" function="walkingarea">
+        <lane id=":crossing_w0_0" index="0" allow="pedestrian" speed="1.00" length="3.44" width="3.00" shape="42.80,3.20 42.80,5.20 44.80,7.20 46.80,7.20 46.69,5.98 46.36,4.98 45.80,4.20 45.02,3.64 44.02,3.31"/>
+    </edge>
+    <edge id=":crossing_w1" function="walkingarea">
+        <lane id=":crossing_w1_0" index="0" allow="pedestrian" speed="1.00" length="3.44" width="3.00" shape="53.20,7.20 55.20,7.20 57.20,5.20 57.20,3.20 55.98,3.31 54.98,3.64 54.20,4.20 53.64,4.98 53.31,5.98"/>
+    </edge>
+    <edge id=":crossing_w2" function="walkingarea">
+        <lane id=":crossing_w2_0" index="0" allow="pedestrian" speed="1.00" length="3.44" width="3.00" shape="57.20,-3.20 57.20,-5.20 55.20,-7.20 53.20,-7.20 53.31,-5.98 53.64,-4.98 54.20,-4.20 54.98,-3.64 55.98,-3.31"/>
+    </edge>
+    <edge id=":crossing_w3" function="walkingarea">
+        <lane id=":crossing_w3_0" index="0" allow="pedestrian" speed="1.00" length="3.44" width="3.00" shape="46.80,-7.20 44.80,-7.20 42.80,-5.20 42.80,-3.20 44.02,-3.31 45.02,-3.64 45.80,-4.20 46.36,-4.98 46.69,-5.98"/>
+    </edge>
+    <edge id=":gneJ0_w0" function="walkingarea">
+        <lane id=":gneJ0_w0_0" index="0" allow="pedestrian" speed="1.00" length="8.40" width="2.00" shape="0.00,-3.20 0.00,-5.20 0.00,5.20 0.00,3.20"/>
+    </edge>
+    <edge id=":gneJ3_w0" function="walkingarea">
+        <lane id=":gneJ3_w0_0" index="0" allow="pedestrian" speed="1.00" length="8.40" width="2.00" shape="100.00,3.20 100.00,5.20 100.00,-5.20 100.00,-3.20"/>
+    </edge>
+    <edge id=":gneJ8_w0" function="walkingarea">
+        <lane id=":gneJ8_w0_0" index="0" allow="pedestrian" speed="1.00" length="8.40" width="2.00" shape="46.80,50.00 44.80,50.00 55.20,50.00 53.20,50.00"/>
+    </edge>
+    <edge id=":gneJ9_w0" function="walkingarea">
+        <lane id=":gneJ9_w0_0" index="0" allow="pedestrian" speed="1.00" length="8.40" width="2.00" shape="53.20,-50.00 55.20,-50.00 44.80,-50.00 46.80,-50.00"/>
+    </edge>
+
+    <edge id="down1" from="crossing" to="gneJ9" priority="-1">
+        <lane id="down1_0" index="0" allow="pedestrian" speed="13.89" length="42.80" width="2.00" shape="45.80,-7.20 45.80,-50.00"/>
+        <lane id="down1_1" index="1" disallow="pedestrian" speed="13.89" length="42.80" shape="48.40,-7.20 48.40,-50.00"/>
+    </edge>
+    <edge id="down2" from="gneJ9" to="crossing" priority="-1">
+        <lane id="down2_0" index="0" allow="pedestrian" speed="13.89" length="42.80" width="2.00" shape="54.20,-50.00 54.20,-7.20"/>
+        <lane id="down2_1" index="1" disallow="pedestrian" speed="13.89" length="42.80" shape="51.60,-50.00 51.60,-7.20"/>
+    </edge>
+    <edge id="left1" from="gneJ0" to="crossing" priority="-1">
+        <lane id="left1_0" index="0" allow="pedestrian" speed="13.89" length="42.80" width="2.00" shape="0.00,-4.20 42.80,-4.20"/>
+        <lane id="left1_1" index="1" disallow="pedestrian" speed="13.89" length="42.80" shape="0.00,-1.60 42.80,-1.60"/>
+    </edge>
+    <edge id="left2" from="crossing" to="gneJ0" priority="-1">
+        <lane id="left2_0" index="0" allow="pedestrian" speed="13.89" length="42.80" width="2.00" shape="42.80,4.20 0.00,4.20"/>
+        <lane id="left2_1" index="1" disallow="pedestrian" speed="13.89" length="42.80" shape="42.80,1.60 0.00,1.60"/>
+    </edge>
+    <edge id="right1" from="crossing" to="gneJ3" priority="-1">
+        <lane id="right1_0" index="0" allow="pedestrian" speed="13.89" length="42.80" width="2.00" shape="57.20,-4.20 100.00,-4.20"/>
+        <lane id="right1_1" index="1" disallow="pedestrian" speed="13.89" length="42.80" shape="57.20,-1.60 100.00,-1.60"/>
+    </edge>
+    <edge id="right2" from="gneJ3" to="crossing" priority="-1">
+        <lane id="right2_0" index="0" allow="pedestrian" speed="13.89" length="42.80" width="2.00" shape="100.00,4.20 57.20,4.20"/>
+        <lane id="right2_1" index="1" disallow="pedestrian" speed="13.89" length="42.80" shape="100.00,1.60 57.20,1.60"/>
+    </edge>
+    <edge id="up1" from="crossing" to="gneJ8" priority="-1">
+        <lane id="up1_0" index="0" allow="pedestrian" speed="13.89" length="42.80" width="2.00" shape="54.20,7.20 54.20,50.00"/>
+        <lane id="up1_1" index="1" disallow="pedestrian" speed="13.89" length="42.80" shape="51.60,7.20 51.60,50.00"/>
+    </edge>
+    <edge id="up2" from="gneJ8" to="crossing" priority="-1">
+        <lane id="up2_0" index="0" allow="pedestrian" speed="13.89" length="42.80" width="2.00" shape="45.80,50.00 45.80,7.20"/>
+        <lane id="up2_1" index="1" disallow="pedestrian" speed="13.89" length="42.80" shape="48.40,50.00 48.40,7.20"/>
+    </edge>
+
+    <junction id="crossing" type="priority" x="50.00" y="0.00" incLanes="up2_0 up2_1 right2_0 right2_1 down2_0 down2_1 left1_0 left1_1 :crossing_w2_0 :crossing_w0_0" intLanes=":crossing_12_0 :crossing_1_0 :crossing_13_0 :crossing_3_0 :crossing_4_0 :crossing_5_0 :crossing_14_0 :crossing_7_0 :crossing_15_0 :crossing_9_0 :crossing_10_0 :crossing_11_0 :crossing_c0_0 :crossing_c1_0" shape="44.80,7.20 55.20,7.20 55.42,6.09 55.70,5.70 56.09,5.42 56.59,5.26 57.20,5.20 57.20,-5.20 56.09,-5.42 55.70,-5.70 55.42,-6.09 55.26,-6.59 55.20,-7.20 44.80,-7.20 44.58,-6.09 44.30,-5.70 43.91,-5.42 43.41,-5.26 42.80,-5.20 42.80,5.20 43.91,5.42 44.30,5.70 44.58,6.09 44.74,6.59">
+        <request index="0"  response="10000000000000" foes="10000100010000" cont="1"/>
+        <request index="1"  response="00000000000000" foes="00111100110000" cont="0"/>
+        <request index="2"  response="01000011000000" foes="01110011110000" cont="1"/>
+        <request index="3"  response="00000010000000" foes="01100010000000" cont="0"/>
+        <request index="4"  response="00000110000111" foes="11100110000111" cont="0"/>
+        <request index="5"  response="00011110000110" foes="01011110000110" cont="0"/>
+        <request index="6"  response="01000000000000" foes="01010000000100" cont="1"/>
+        <request index="7"  response="00000000000000" foes="00110000111100" cont="0"/>
+        <request index="8"  response="10000000000011" foes="10110000110011" cont="1"/>
+        <request index="9"  response="00000000000010" foes="10000000100010" cont="0"/>
+        <request index="10" response="00000111000110" foes="11000111100110" cont="0"/>
+        <request index="11" response="00000110011110" foes="10000110011110" cont="0"/>
+        <request index="12" response="00010000111000" foes="00010001111100" cont="0"/>
+        <request index="13" response="00111000010000" foes="00111100010001" cont="0"/>
+    </junction>
+    <junction id="gneJ0" type="dead_end" x="0.00" y="0.00" incLanes="left2_0 left2_1" intLanes="" shape="0.00,0.00 0.00,5.20 0.00,0.00"/>
+    <junction id="gneJ3" type="dead_end" x="100.00" y="0.00" incLanes="right1_0 right1_1" intLanes="" shape="100.00,0.00 100.00,-5.20 100.00,0.00"/>
+    <junction id="gneJ8" type="dead_end" x="50.00" y="50.00" incLanes="up1_0 up1_1" intLanes="" shape="50.00,50.00 55.20,50.00 50.00,50.00"/>
+    <junction id="gneJ9" type="dead_end" x="50.00" y="-50.00" incLanes="down1_0 down1_1" intLanes="" shape="50.00,-50.00 44.80,-50.00 50.00,-50.00"/>
+
+    <junction id=":crossing_12_0" type="internal" x="45.80" y="2.28" incLanes=":crossing_0_0" intLanes=":crossing_4_0 :crossing_8_0 :crossing_c1_0"/>
+    <junction id=":crossing_13_0" type="internal" x="50.00" y="1.60" incLanes=":crossing_2_0 down2_1" intLanes=":crossing_4_0 :crossing_5_0 :crossing_6_0 :crossing_7_0 :crossing_10_0 :crossing_11_0 :crossing_c0_0"/>
+    <junction id=":crossing_14_0" type="internal" x="54.20" y="-2.28" incLanes=":crossing_6_0" intLanes=":crossing_2_0 :crossing_10_0 :crossing_c0_0"/>
+    <junction id=":crossing_15_0" type="internal" x="50.00" y="-1.60" incLanes=":crossing_8_0 up2_1" intLanes=":crossing_0_0 :crossing_1_0 :crossing_4_0 :crossing_5_0 :crossing_10_0 :crossing_11_0 :crossing_c1_0"/>
+
+    <connection from="down2" to="right1" fromLane="1" toLane="1" via=":crossing_6_0" dir="r" state="m"/>
+    <connection from="down2" to="up1" fromLane="1" toLane="1" via=":crossing_7_0" dir="s" state="M"/>
+    <connection from="down2" to="left2" fromLane="1" toLane="1" via=":crossing_8_0" dir="l" state="m"/>
+    <connection from="left1" to="down1" fromLane="1" toLane="1" via=":crossing_9_0" dir="r" state="m"/>
+    <connection from="left1" to="right1" fromLane="1" toLane="1" via=":crossing_10_0" dir="s" state="m"/>
+    <connection from="left1" to="up1" fromLane="1" toLane="1" via=":crossing_11_0" dir="l" state="m"/>
+    <connection from="right2" to="up1" fromLane="1" toLane="1" via=":crossing_3_0" dir="r" state="m"/>
+    <connection from="right2" to="left2" fromLane="1" toLane="1" via=":crossing_4_0" dir="s" state="m"/>
+    <connection from="right2" to="down1" fromLane="1" toLane="1" via=":crossing_5_0" dir="l" state="m"/>
+    <connection from="up2" to="left2" fromLane="1" toLane="1" via=":crossing_0_0" dir="r" state="m"/>
+    <connection from="up2" to="down1" fromLane="1" toLane="1" via=":crossing_1_0" dir="s" state="M"/>
+    <connection from="up2" to="right1" fromLane="1" toLane="1" via=":crossing_2_0" dir="l" state="m"/>
+
+    <connection from=":crossing_0" to="left2" fromLane="0" toLane="1" via=":crossing_12_0" dir="r" state="m"/>
+    <connection from=":crossing_12" to="left2" fromLane="0" toLane="1" dir="r" state="M"/>
+    <connection from=":crossing_1" to="down1" fromLane="0" toLane="1" dir="s" state="M"/>
+    <connection from=":crossing_2" to="right1" fromLane="0" toLane="1" via=":crossing_13_0" dir="l" state="m"/>
+    <connection from=":crossing_13" to="right1" fromLane="0" toLane="1" dir="l" state="M"/>
+    <connection from=":crossing_3" to="up1" fromLane="0" toLane="1" dir="r" state="M"/>
+    <connection from=":crossing_4" to="left2" fromLane="0" toLane="1" dir="s" state="M"/>
+    <connection from=":crossing_5" to="down1" fromLane="0" toLane="1" dir="l" state="M"/>
+    <connection from=":crossing_6" to="right1" fromLane="0" toLane="1" via=":crossing_14_0" dir="r" state="m"/>
+    <connection from=":crossing_14" to="right1" fromLane="0" toLane="1" dir="r" state="M"/>
+    <connection from=":crossing_7" to="up1" fromLane="0" toLane="1" dir="s" state="M"/>
+    <connection from=":crossing_8" to="left2" fromLane="0" toLane="1" via=":crossing_15_0" dir="l" state="m"/>
+    <connection from=":crossing_15" to="left2" fromLane="0" toLane="1" dir="l" state="M"/>
+    <connection from=":crossing_9" to="down1" fromLane="0" toLane="1" dir="r" state="M"/>
+    <connection from=":crossing_10" to="right1" fromLane="0" toLane="1" dir="s" state="M"/>
+    <connection from=":crossing_11" to="up1" fromLane="0" toLane="1" dir="l" state="M"/>
+
+    <connection from=":crossing_c0" to=":crossing_w1" fromLane="0" toLane="0" dir="s" state="M"/>
+    <connection from=":crossing_c1" to=":crossing_w3" fromLane="0" toLane="0" dir="s" state="M"/>
+    <connection from=":crossing_w0" to=":crossing_c1" fromLane="0" toLane="0" dir="s" state="m"/>
+    <connection from=":crossing_w0" to="left2" fromLane="0" toLane="0" dir="s" state="M"/>
+    <connection from="up2" to=":crossing_w0" fromLane="0" toLane="0" dir="s" state="M"/>
+    <connection from=":crossing_w1" to="up1" fromLane="0" toLane="0" dir="s" state="M"/>
+    <connection from="right2" to=":crossing_w1" fromLane="0" toLane="0" dir="s" state="M"/>
+    <connection from=":crossing_w2" to=":crossing_c0" fromLane="0" toLane="0" dir="s" state="m"/>
+    <connection from=":crossing_w2" to="right1" fromLane="0" toLane="0" dir="s" state="M"/>
+    <connection from="down2" to=":crossing_w2" fromLane="0" toLane="0" dir="s" state="M"/>
+    <connection from=":crossing_w3" to="down1" fromLane="0" toLane="0" dir="s" state="M"/>
+    <connection from="left1" to=":crossing_w3" fromLane="0" toLane="0" dir="s" state="M"/>
+    <connection from=":gneJ0_w0" to="left1" fromLane="0" toLane="0" dir="s" state="M"/>
+    <connection from="left2" to=":gneJ0_w0" fromLane="0" toLane="0" dir="s" state="M"/>
+    <connection from=":gneJ3_w0" to="right2" fromLane="0" toLane="0" dir="s" state="M"/>
+    <connection from="right1" to=":gneJ3_w0" fromLane="0" toLane="0" dir="s" state="M"/>
+    <connection from=":gneJ8_w0" to="up2" fromLane="0" toLane="0" dir="s" state="M"/>
+    <connection from="up1" to=":gneJ8_w0" fromLane="0" toLane="0" dir="s" state="M"/>
+    <connection from=":gneJ9_w0" to="down2" fromLane="0" toLane="0" dir="s" state="M"/>
+    <connection from="down1" to=":gneJ9_w0" fromLane="0" toLane="0" dir="s" state="M"/>
+</net>
