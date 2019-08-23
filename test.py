@@ -92,7 +92,7 @@ if __name__ == '__main__':
     f.write('egoid, lcStateM, lcStateR, lcMode, posX, posY, posLat, speed, acce, latSpeed, yaw_angle, dis2entrance, '
             'leader_dis, leader_delta_v'
             '\n')'''
-    f = open('data/data10.csv', 'a')
+    f = open('data/data11.csv', 'a')
     f.write('egoid, lanePos, latPos, speed, latSpeed, lcState\n')
 
     env = lcEnv.LaneChangeEnv()
@@ -107,5 +107,5 @@ if __name__ == '__main__':
         if 'lane2.6' in env.vehID_tuple_all:
             veh = env.veh_dict['lane2.6']
             f.write('%s, %s, %s, %s, %s, %s\n' % (veh.veh_id, veh.lanePos, veh.pos_lat, veh.speed, veh.latSpeed,
-                                                  bin(traci.vehicle.getLaneChangeState(veh.veh_id, -1)[1])))
+                                                  traci.vehicle.getLaneChangeState(veh.veh_id, -1)[1]))
             f.flush()
