@@ -314,7 +314,6 @@ class LaneChangeEnv(gym.Env):
         # episode in progress; 0:change back to original line; 1:lane change to target lane; 2:keep cureent
         # lane change to target lane
         if action == 1 and abs(self.ego.pos_lat - (0.5+self.ego.targetLane)*self.rd.laneWidth) > 0.01:
-
             self.ego.changeLane(True, self.ego.targetLane, self.rd)
             print('posLat', self.ego.pos_lat, 'lane', self.ego.laneIndex, 'rdWdith', self.rd.laneWidth)
             print('right', -(self.ego.pos_lat - 0.5*self.rd.laneWidth))
