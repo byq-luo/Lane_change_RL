@@ -40,12 +40,7 @@ def laneChange(low, high, origLane, tgtLane, rd):
                     #print('veh.dis2entrance', veh.dis2entrance)
                     veh.changeLane(False, veh.targetLane, rd)
                     traci.vehicle.setColor(veh.veh_id, (255, 69, 0))
-                    #traci.vehicle.changeLane(veh.veh_id, veh.targetLane, 1)
-                    #veh.change_times += 1
                     # todo check only 1 cmd
-                    #fs.write('%s, %s\n' % (vehID, veh.dis2entrance))
-                    #fs.flush()
-                    #f.close()
 
                 else:
                     if not veh.laneIndex == 0:
@@ -92,8 +87,8 @@ if __name__ == '__main__':
     f.write('egoid, lcStateM, lcStateR, lcMode, posX, posY, posLat, speed, acce, latSpeed, yaw_angle, dis2entrance, '
             'leader_dis, leader_delta_v'
             '\n')'''
-    f = open('data/data11.csv', 'a')
-    f.write('egoid, lanePos, latPos, speed, latSpeed, lcState\n')
+    f = open('data/data13.csv', 'a')
+    f.write('egoid, lanePos, latPos, speed, latSpeed, lcState, latAcce, action\n')
 
     env = lcEnv.LaneChangeEnv()
     # env.reset(egoid='lane2.1', tlane=0, tfc=1, is_gui=True)
@@ -106,6 +101,12 @@ if __name__ == '__main__':
 
         if 'lane2.6' in env.vehID_tuple_all:
             veh = env.veh_dict['lane2.6']
-            f.write('%s, %s, %s, %s, %s, %s\n' % (veh.veh_id, veh.lanePos, veh.pos_lat, veh.speed, veh.latSpeed,
-                                                  traci.vehicle.getLaneChangeState(veh.veh_id, -1)[1]))
+
+            if veh.latAcce < 0 or veh.latSpeed < 0 and abs(veh.latAcce) < 0.1:
+                action = 1
+            else:
+                action = 0
+
+            f.write('%s, %s, %s, %s, %s, %s, %s, %s\n' % (veh.veh_id, veh.lanePos, veh.pos_lat, veh.speed, veh.latSpeed,
+                                                  bin(traci.vehicle.getLaneChangeState(veh.veh_id, -1)[1]), veh.latAcce, action))
             f.flush()

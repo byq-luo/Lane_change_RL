@@ -44,8 +44,11 @@ class Vehicle:
     def __init__(self, veh_id, rd):
         self.veh_id = veh_id
         self.speed = None
-        self.latSpeed = None
-        self.acce = None
+        self.latSpeed = 0
+        self.latSpeed_last = 0
+        self.latAcce = 0
+        self.acce = 0
+
         self.pos = rd.startJunction
         self.pos_x = self.pos[0]
         self.pos_y = self.pos[1]
@@ -82,16 +85,17 @@ class Vehicle:
         self.laneIndex = traci.vehicle.getLaneIndex(self.veh_id)
         self.speed = traci.vehicle.getSpeed(self.veh_id)
         self.acce = traci.vehicle.getAcceleration(self.veh_id)
-        self.pos_lat_last = self.pos_lat
 
+        self.pos_lat_last = self.pos_lat
         self.pos_lat = traci.vehicle.getLateralLanePosition(self.veh_id) + (self.laneIndex+0.5)*rd.laneWidth
-        #print('LateralLanePosition', traci.vehicle.getLateralLanePosition(self.veh_id))
-        #print('laneIndex', self.laneIndex)
+        self.latSpeed_last = self.latSpeed
+        self.latSpeed = (self.pos_lat - self.pos_lat_last) / 0.1  # 0.1 for time step length
+        self.latAcce = (self.latSpeed - self.latSpeed_last) / 0.1
+
         self.pos = traci.vehicle.getPosition(self.veh_id)
         self.pos_x = self.pos[0]
         self.pos_y = self.pos[1]
         self.lanePos = traci.vehicle.getLanePosition(self.veh_id)
-        self.latSpeed = (self.pos_lat - self.pos_lat_last) / 0.1  # 0.1 for time step length
         self.yawAngle = math.atan(self.latSpeed / max(self.speed, 0.00000001))
 
         self.leader = traci.vehicle.getLeader(self.veh_id)
@@ -151,13 +155,13 @@ class LaneChangeEnv(gym.Env):
         # todo check traffic flow density
         if traffic == 0:
             # average 9 vehicles
-            self.cfg = '/Users/cxx/Desktop/SUMO/map/ramp3/mapFree.sumo.cfg'
+            self.cfg = '/Users/cxx/Desktop/lcEnv/map/ramp3/mapFree.sumo.cfg'
         elif traffic == 2:
             # average 19 vehicles
-            self.cfg = '/Users/cxx/Desktop/SUMO/map/ramp3/mapDense.sumo.cfg'
+            self.cfg = '/Users/cxx/Desktop/lcEnv/map/ramp3/mapDense.sumo.cfg'
         else:
             # average 14 vehicles
-            self.cfg = '/Users/cxx/Desktop/SUMO/map/ramp3/map.sumo.cfg'
+            self.cfg = '/Users/cxx/Desktop/lcEnv/map/ramp3/map.sumo.cfg'
 
         # arguments must be string, if float/int, must be converted to str(float/int), instead of '3.0'
         self.sumoBinary = "/usr/local/Cellar/sumo/1.2.0/bin/sumo"
