@@ -73,9 +73,9 @@ class Vehicle:
         self.origLane = self.laneIndex
 
         self.is_ego = 0
-        self.change_times = 0
+        self.changeTimes = 0
 
-        traci.vehicle.setLaneChangeMode(veh_id, 512)
+        traci.vehicle.setLaneChangeMode(veh_id, 512)  # 768
 
     def setTargetLane(self, tgl):
         self.targetLane = tgl
@@ -135,7 +135,7 @@ class Vehicle:
             # execute lane change with 'changeSublane'
             traci.vehicle.changeSublane(self.veh_id, (0.5 + self.targetLane) * rd.laneWidth - self.pos_lat)
         else:
-            traci.vehicle.setLaneChangeMode(self.veh_id, 512)
+            traci.vehicle.setLaneChangeMode(self.veh_id, 512)  # 768
             # traci.vehicle.changeLane(self.veh_id, self.targetLane, 1)
             traci.vehicle.changeSublane(self.veh_id, (0.5 + self.targetLane) * rd.laneWidth - self.pos_lat)
 

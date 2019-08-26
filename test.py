@@ -27,7 +27,7 @@ def normalSim():
 
 def laneChange(low, high, origLane, tgtLane, rd):
     for vehID in env.veh_dict.keys():
-        if int(vehID.split('.')[1]) % 3 == 0 and vehID.split('.')[0] == 'lane'+str(origLane):
+        if int(vehID.split('.')[1]) % 2 == 0 and vehID.split('.')[0] == 'lane'+str(origLane):
         #if vehID == 'lane1.0':
             veh = env.veh_dict[vehID]
             if veh.lcPos is None:
@@ -37,9 +37,19 @@ def laneChange(low, high, origLane, tgtLane, rd):
             if veh.dis2entrance < veh.lcPos and abs(veh.pos_lat - (0.5+veh.targetLane)*rd.laneWidth) > 0.01:
 
                 if abs(veh.dis2entrance > 20):
-                    #print('veh.dis2entrance', veh.dis2entrance)
                     veh.changeLane(False, veh.targetLane, rd)
                     traci.vehicle.setColor(veh.veh_id, (255, 69, 0))
+                    '''
+                    if veh.changeTimes < 15:
+                        veh.changeLane(True, veh.targetLane, rd)
+                        traci.vehicle.setColor(veh.veh_id, (255, 69, 0))
+                    elif 15 < veh.changeTimes < 30:
+                        #traci.vehicle.changeSublane(veh.veh_id, 0.0)
+                        veh.changeLane(True, veh.origLane, rd)
+                    else:
+                        traci.vehicle.changeSublane(veh.veh_id, 0.0)
+                    veh.changeTimes += 1
+                    '''
                     # todo check only 1 cmd
 
                 else:
@@ -87,21 +97,22 @@ if __name__ == '__main__':
     f.write('egoid, lcStateM, lcStateR, lcMode, posX, posY, posLat, speed, acce, latSpeed, yaw_angle, dis2entrance, '
             'leader_dis, leader_delta_v'
             '\n')'''
-    f = open('data/data13.csv', 'a')
+    f = open('data/data15.csv', 'a')
     f.write('egoid, lanePos, latPos, speed, latSpeed, lcState, latAcce, action\n')
 
     env = lcEnv.LaneChangeEnv()
     # env.reset(egoid='lane2.1', tlane=0, tfc=1, is_gui=True)
-    env.reset(None, tfc=1, sumoseed=3, randomseed=3)
+    env.reset(None, tfc=2, sumoseed=3, randomseed=3)
+    testid = 'lane1.0'
     for step in range(10000):
         # todo random --completed ?
         # todo emergency braking
-        laneChange(300, 350, 2, 0, env.rd)
+        laneChange(300, 350, 1, 0, env.rd)
         env.preStep()
 
-        if 'lane2.6' in env.vehID_tuple_all:
-            veh = env.veh_dict['lane2.6']
-
+        if testid in env.vehID_tuple_all:
+            veh = env.veh_dict[testid]
+            # todo complete action extraction
             if veh.latAcce < 0 or veh.latSpeed < 0 and abs(veh.latAcce) < 0.1:
                 action = 1
             else:
