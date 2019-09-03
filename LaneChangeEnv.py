@@ -124,20 +124,22 @@ class Vehicle:
 
     def changeLane(self, cps, tgtlane, rd):
         # make compulsory/default lane change, do not respect other vehicles
+        '''
         if tgtlane == 0:
             traci.vehicle.setRouteID(self.veh_id, rd.rampExitRouteID)
         else:
             traci.vehicle.setRouteID(self.veh_id, rd.highwayKeepRouteID)
         assert traci.vehicle.isRouteValid(self.veh_id) is True, 'route is not valid'
+        '''
         # set lane change mode
         if cps is True:
             traci.vehicle.setLaneChangeMode(self.veh_id, 0)
             # execute lane change with 'changeSublane'
-            traci.vehicle.changeSublane(self.veh_id, (0.5 + self.targetLane) * rd.laneWidth - self.pos_lat)
+            traci.vehicle.changeSublane(self.veh_id, (0.5 + tgtlane) * rd.laneWidth - self.pos_lat)
         else:
-            traci.vehicle.setLaneChangeMode(self.veh_id, 512)  # 768
+            traci.vehicle.setLaneChangeMode(self.veh_id, 513)  # 768:no speed adaption
             # traci.vehicle.changeLane(self.veh_id, self.targetLane, 1)
-            traci.vehicle.changeSublane(self.veh_id, (0.5 + self.targetLane) * rd.laneWidth - self.pos_lat)
+            traci.vehicle.changeSublane(self.veh_id, (0.5 + tgtlane) * rd.laneWidth - self.pos_lat)
 
     def update_reward(self):
         # todo define reward

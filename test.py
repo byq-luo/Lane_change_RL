@@ -37,21 +37,26 @@ def laneChange(low, high, origLane, tgtLane, rd):
             if veh.dis2entrance < veh.lcPos and abs(veh.pos_lat - (0.5+veh.targetLane)*rd.laneWidth) > 0.01:
 
                 if abs(veh.dis2entrance > 20):
-                    veh.changeLane(False, veh.targetLane, rd)
+                    #veh.changeLane(False, veh.targetLane, rd)
+                    traci.vehicle.moveToXY('entranceEdge_1')
+                    #traci.vehicle.changeLane(veh.veh_id, veh.targetLane, 1)
                     traci.vehicle.setColor(veh.veh_id, (255, 69, 0))
+                    # todo: set route affects lc behavior, changeSublane doesnt work, changeLane works
+                    #traci.vehicle.setRouteID(veh.veh_id, rd.rampExitRouteID)
                     '''
-                    if veh.changeTimes < 15:
+                    if veh.changeTimes < 25:
+                        #traci.vehicle.changeLane(veh.veh_id, veh.targetLane, 1)
                         veh.changeLane(True, veh.targetLane, rd)
                         traci.vehicle.setColor(veh.veh_id, (255, 69, 0))
-                    elif 15 < veh.changeTimes < 30:
-                        #traci.vehicle.changeSublane(veh.veh_id, 0.0)
-                        veh.changeLane(True, veh.origLane, rd)
+                    elif 25 <= veh.changeTimes < 45:
+                        #traci.vehicle.changeLane(veh.veh_id, veh.origLane, 1)
+                        veh.changeLane(True, veh.targetLane, rd)
                     else:
                         traci.vehicle.changeSublane(veh.veh_id, 0.0)
                     veh.changeTimes += 1
-                    '''
+                    
                     # todo check only 1 cmd
-
+'''
                 else:
                     if not veh.laneIndex == 0:
                         traci.vehicle.setRouteID(veh.veh_id, rd.highwayKeepRouteID)
@@ -97,12 +102,12 @@ if __name__ == '__main__':
     f.write('egoid, lcStateM, lcStateR, lcMode, posX, posY, posLat, speed, acce, latSpeed, yaw_angle, dis2entrance, '
             'leader_dis, leader_delta_v'
             '\n')'''
-    f = open('data/data15.csv', 'a')
-    f.write('egoid, lanePos, latPos, speed, latSpeed, lcState, latAcce, action\n')
+    f = open('data/data20.csv', 'a')
+    f.write('egoid, lanePos, latPos, speed, latSpeed, lcState, latAcce, action, laneIndex, tgtlane, origLane\n')
 
     env = lcEnv.LaneChangeEnv()
     # env.reset(egoid='lane2.1', tlane=0, tfc=1, is_gui=True)
-    env.reset(None, tfc=2, sumoseed=3, randomseed=3)
+    env.reset(None, tfc=1, sumoseed=3, randomseed=3)
     testid = 'lane1.0'
     for step in range(10000):
         # todo random --completed ?
@@ -118,6 +123,7 @@ if __name__ == '__main__':
             else:
                 action = 0
 
-            f.write('%s, %s, %s, %s, %s, %s, %s, %s\n' % (veh.veh_id, veh.lanePos, veh.pos_lat, veh.speed, veh.latSpeed,
-                                                  bin(traci.vehicle.getLaneChangeState(veh.veh_id, -1)[1]), veh.latAcce, action))
+            f.write('%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s\n' % (veh.veh_id, veh.lanePos, veh.pos_lat, veh.speed, veh.latSpeed,
+                                                          bin(traci.vehicle.getLaneChangeState(veh.veh_id, -1)[1]),
+                                                          veh.latAcce, action, veh.laneIndex, veh.targetLane, veh.origLane))
             f.flush()
