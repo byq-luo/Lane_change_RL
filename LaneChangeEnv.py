@@ -7,6 +7,7 @@ import gym
 from gym import spaces, logger
 from gym.utils import seeding
 import numpy as np
+from IDM import idm
 # add sumo/tools into python environment
 if 'SUMO_HOME' in os.environ:
     tools = os.path.join(os.environ['SUMO_HOME'], 'tools')
@@ -58,9 +59,9 @@ class Vehicle:
         self.lanePos = traci.vehicle.getLanePosition(self.veh_id)
         self.yawAngle = 0
 
-        self.leader = None
         self.leaderDis = None
         self.leaderID = None
+        self.leaderSpeed = None
 
         self.targetLeaderID = None
         self.targetFollowerID = None
@@ -75,7 +76,7 @@ class Vehicle:
         self.is_ego = 0
         self.changeTimes = 0
 
-        traci.vehicle.setLaneChangeMode(veh_id, 512)  # 768
+        traci.vehicle.setLaneChangeMode(veh_id, 1621)  # 768
 
     def setTargetLane(self, tgl):
         self.targetLane = tgl
@@ -103,9 +104,11 @@ class Vehicle:
         if traci.vehicle.getLeader(self.veh_id) is not None:
             self.leaderID = self.leader[0]
             self.leaderDis = self.leader[1]
+            self.leaderSpeed = traci.vehicle.getSpeed(self.leaderID)
         else:
             self.leaderID = None
             self.leaderDis = None
+            self.leaderSpeed = None
         # the following 2 all in list [(id1, distance1), (id2, distance2), ...], each tuple is a leader on one lane
         # for a single left lane, the list only contains 1 tuple, eg.[(id1, distance1)]
         if len(traci.vehicle.getNeighbors(self.veh_id, int(self.laneIndex > self.targetLane)+2+0)) != 0:
@@ -122,6 +125,16 @@ class Vehicle:
         if self.is_ego == 1:
             self.update_reward()
 
+    def updateLongitudinalSpeed(self):
+        # cannot acquire vNext, compute longitudinal speed on our own
+        # todo use Runge–Kutta methods to solve differential equations
+        if self.leaderID is not None:
+            acceNext = idm(self.speed, self.leaderDis, self.leaderSpeed)
+        else:
+            acceNext = idm(self.speed, None, None)
+
+        return acceNext
+
     def changeLane(self, cps, tgtlane, rd):
         # make compulsory/default lane change, do not respect other vehicles
         '''
@@ -137,7 +150,7 @@ class Vehicle:
             # execute lane change with 'changeSublane'
             traci.vehicle.changeSublane(self.veh_id, (0.5 + tgtlane) * rd.laneWidth - self.pos_lat)
         else:
-            traci.vehicle.setLaneChangeMode(self.veh_id, 513)  # 768:no speed adaption
+            traci.vehicle.setLaneChangeMode(self.veh_id, 1621)  # 768:no speed adaption
             # traci.vehicle.changeLane(self.veh_id, self.targetLane, 1)
             traci.vehicle.changeSublane(self.veh_id, (0.5 + tgtlane) * rd.laneWidth - self.pos_lat)
 
@@ -297,6 +310,18 @@ class LaneChangeEnv(gym.Env):
         traci.simulationStep()
         self.vehID_tuple_all = traci.edge.getLastStepVehicleIDs(self.rd.entranceEdgeID)
         self.update_veh_dict(self.vehID_tuple_all)
+
+    def demoStep(self):
+        # using idm to control longitudinal dynamics
+        assert self.egoID is not None
+        if self.egoID is not None:
+            acceNext = self.ego.updateLongitudinalSpeed()
+            vNext = self.ego.speed + acceNext*0.1
+            traci.vehicle.setSpeed(self.egoID, vNext)
+        #traci.vehicle.moveToXY()
+        traci.simulationStep()
+        # todo simplify network
+
 
     def step(self, action=None):
         """Run one timestep of the environment's dynamics. When end of

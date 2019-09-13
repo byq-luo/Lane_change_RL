@@ -26,6 +26,31 @@ def normalSim():
 
 
 def laneChange(low, high, origLane, tgtLane, rd):
+    def changeNback(veh, cps):
+        if veh.changeTimes < 25:
+            # traci.vehicle.changeLane(veh.veh_id, veh.targetLane, 1)
+            veh.changeLane(cps, veh.targetLane, rd)
+            traci.vehicle.setColor(veh.veh_id, (255, 69, 0))
+        elif 25 <= veh.changeTimes < 55:
+            # traci.vehicle.changeLane(veh.veh_id, veh.origLane, 1)
+            veh.changeLane(cps, veh.origLane, rd)
+        else:
+            traci.vehicle.changeSublane(veh.veh_id, 0.0)
+        veh.changeTimes += 1
+
+    def changeLane(mutiple, veh, cps):
+        traci.vehicle.setColor(veh.veh_id, (255, 69, 0))
+        if mutiple is True:
+            veh.changeLane(cps, veh.targetLane, rd)
+            # traci.vehicle.moveToXY('entranceEdge_1')
+            # traci.vehicle.changeLane(veh.veh_id, veh.targetLane, 1)
+            # todo: set route affects lc behavior, changeSublane doesn't work, changeLane works
+            # traci.vehicle.setRouteID(veh.veh_id, rd.rampExitRouteID)
+
+        elif veh.changeTimes == 0:
+            veh.changeLane(cps, veh.targetLane, rd)
+            veh.changeTimes += 1
+
     for vehID in env.veh_dict.keys():
         if int(vehID.split('.')[1]) % 2 == 0 and vehID.split('.')[0] == 'lane'+str(origLane):
         #if vehID == 'lane1.0':
@@ -36,27 +61,9 @@ def laneChange(low, high, origLane, tgtLane, rd):
 
             if veh.dis2entrance < veh.lcPos and abs(veh.pos_lat - (0.5+veh.targetLane)*rd.laneWidth) > 0.01:
 
-                if abs(veh.dis2entrance > 20):
-                    #veh.changeLane(False, veh.targetLane, rd)
-                    traci.vehicle.moveToXY('entranceEdge_1')
-                    #traci.vehicle.changeLane(veh.veh_id, veh.targetLane, 1)
-                    traci.vehicle.setColor(veh.veh_id, (255, 69, 0))
-                    # todo: set route affects lc behavior, changeSublane doesnt work, changeLane works
-                    #traci.vehicle.setRouteID(veh.veh_id, rd.rampExitRouteID)
-                    '''
-                    if veh.changeTimes < 25:
-                        #traci.vehicle.changeLane(veh.veh_id, veh.targetLane, 1)
-                        veh.changeLane(True, veh.targetLane, rd)
-                        traci.vehicle.setColor(veh.veh_id, (255, 69, 0))
-                    elif 25 <= veh.changeTimes < 45:
-                        #traci.vehicle.changeLane(veh.veh_id, veh.origLane, 1)
-                        veh.changeLane(True, veh.targetLane, rd)
-                    else:
-                        traci.vehicle.changeSublane(veh.veh_id, 0.0)
-                    veh.changeTimes += 1
-                    
-                    # todo check only 1 cmd
-'''
+                if abs(veh.dis2entrance) > 20:
+                    changeNback(veh, True)
+
                 else:
                     if not veh.laneIndex == 0:
                         traci.vehicle.setRouteID(veh.veh_id, rd.highwayKeepRouteID)
@@ -71,59 +78,39 @@ def laneChange(low, high, origLane, tgtLane, rd):
                 veh.change_times += 1
 '''
 
-def writeInfo(testid='lane1.0'):
-    assert testid in vehID_tuple_all, 'testid no in env'
-    testLane = traci.vehicle.getLaneIndex(testid)
-    ve = self.veh_dict_list[testLane][testid]
 
-    f = open(file_name, 'a')
+def extractAction(testid, env, f):
+    if testid in env.vehID_tuple_all:
+        veh = env.veh_dict[testid]
+        # todo complete action extraction
+        if veh.latAcce < 0 or veh.latSpeed < 0 and abs(veh.latAcce) < 0.1:
+            action = 1
+        else:
+            action = 0
 
-    data = '%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s' % (ve.veh_id,
-                                                         bin(traci.vehicle.getLaneChangeState(testid, 1)[0]),
-                                                         bin(traci.vehicle.getLaneChangeState(testid, 1)[1]),
-                                                         bin(traci.vehicle.getLaneChangeMode(testid)),
-                                                         ve.pos_x, ve.pos_y, ve.pos_lat, ve.speed, ve.acce,
-                                                         ve.latSpeed, ve.yawAngle, ve.dis2entrance)
-    if ve.leader is not None:
-        data += ', %s, %s' % (ve.leaderDis, ve.speed - traci.vehicle.getSpeed(ve.leaderID))
-    data += '\n'
-
-    #f.write(data)
-    f.flush()
-    f.close()
+        f.write('%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s\n' % (
+        veh.veh_id, veh.lanePos, veh.pos_lat, veh.speed, veh.latSpeed,
+        bin(traci.vehicle.getLaneChangeState(veh.veh_id, -1)[1]),
+        veh.latAcce, action, veh.laneIndex, veh.targetLane, veh.origLane))
+        f.flush()
 
 
 if __name__ == '__main__':
-    #fs = open('data/data6.csv', 'a')
-    #fe = open('data/data7.csv', 'a')
-    # fs.write('egoid, startDis\n')
-    # fe.write('egoid, endDis\n')
-    '''
-    f.write('egoid, lcStateM, lcStateR, lcMode, posX, posY, posLat, speed, acce, latSpeed, yaw_angle, dis2entrance, '
-            'leader_dis, leader_delta_v'
-            '\n')'''
-    f = open('data/data20.csv', 'a')
+
+    f = open('data/data21.csv', 'a')
     f.write('egoid, lanePos, latPos, speed, latSpeed, lcState, latAcce, action, laneIndex, tgtlane, origLane\n')
 
     env = lcEnv.LaneChangeEnv()
     # env.reset(egoid='lane2.1', tlane=0, tfc=1, is_gui=True)
-    env.reset(None, tfc=1, sumoseed=3, randomseed=3)
-    testid = 'lane1.0'
+    #env.reset(None, tfc=1, sumoseed=3, randomseed=3)
+    env.reset(egoid=None, tfc=1, sumoseed=3, randomseed=3)
+
     for step in range(10000):
-        # todo random --completed ?
         # todo emergency braking
+        # todo use sumo computed vNext to perform lateral control, use moveToXY to perform lateral control
         laneChange(300, 350, 1, 0, env.rd)
         env.preStep()
+        extractAction('lane1.0', env, f)
 
-        if testid in env.vehID_tuple_all:
-            veh = env.veh_dict[testid]
-            # todo complete action extraction
-            if veh.latAcce < 0 or veh.latSpeed < 0 and abs(veh.latAcce) < 0.1:
-                action = 1
-            else:
-                action = 0
-
-            f.write('%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s\n' % (veh.veh_id, veh.lanePos, veh.pos_lat, veh.speed, veh.latSpeed,
-                                                          bin(traci.vehicle.getLaneChangeState(veh.veh_id, -1)[1]),
-                                                          veh.latAcce, action, veh.laneIndex, veh.targetLane, veh.origLane))
-            f.flush()
+    #for step in range(10000):
+        #env.demoStep()
