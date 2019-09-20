@@ -59,6 +59,7 @@ class Vehicle:
         self.lanePos = traci.vehicle.getLanePosition(self.veh_id)
         self.yawAngle = 0
 
+        self.leader = None
         self.leaderDis = None
         self.leaderID = None
         self.leaderSpeed = None
@@ -82,7 +83,6 @@ class Vehicle:
         self.targetLane = tgl
 
     def update_info(self, rd):
-        # use subscriptions instead
         self.laneIndex = traci.vehicle.getLaneIndex(self.veh_id)
         self.speed = traci.vehicle.getSpeed(self.veh_id)
         self.acce = traci.vehicle.getAcceleration(self.veh_id)
@@ -236,7 +236,7 @@ class LaneChangeEnv(gym.Env):
         self.info = {'resetFlag': 0}  # (dict): contains auxiliary diagnostic information (helpful for debugging, and sometimes learning)
 
         self.action_space = spaces.Discrete(2)
-        self.observation_space = spaces.Box(low=-np.inf, high=np.inf, shape=(2, 4))
+        self.observation_space = spaces.Box(low=-np.inf, high=np.inf, shape=(4, 3))
         '''
         self.observation_space = spaces.Dict({'leader': spaces.Dict({'exist': spaces.Discrete(2),
                                                                      'speed': spaces.Box(-np.inf, np.inf, shape=(1,)),
@@ -260,7 +260,7 @@ class LaneChangeEnv(gym.Env):
             else:
                 self.veh_dict[veh_id].update_info(self.rd)
 
-    def _updateObservationSingle(self, name, id):
+    def _updateObservationSingle(self, name, id, veh_dict):
         """
         :param name: 0:ego; 1:leader; 2:target leader; 3:target follower
         :param id: vehicle id corresponding to name
@@ -269,21 +269,19 @@ class LaneChangeEnv(gym.Env):
         if id is not None:
             self.observation[name][0] = traci.vehicle.getLanePosition(id)
             self.observation[name][1] = traci.vehicle.getSpeed(id)
+            self.observation[name][2] = veh_dict[id].pos_lat
         else:
             self.observation[name][0] = np.inf
             self.observation[name][1] = np.inf
+            self.observation[name][2] = np.inf
             # todo check if rational
-        '''
-        self.observation[name]['exist'] = 1
-        self.observation[name]['speed'] = traci.vehicle.getSpeed(id)
-        self.observation[name]['pos'] = traci.vehicle.getLanePosition(id)
-    '''
+
 
     def updateObservation(self, egoid):
-        self._updateObservationSingle(0, egoid)
-        self._updateObservationSingle(1, self.ego.leaderID)
-        self._updateObservationSingle(2, self.ego.targetLeaderID)
-        self._updateObservationSingle(3, self.ego.targetFollowerID)
+        self._updateObservationSingle(0, egoid, self.veh_dict)
+        self._updateObservationSingle(1, self.ego.leaderID, self.veh_dict)
+        self._updateObservationSingle(2, self.ego.targetLeaderID, self.veh_dict)
+        self._updateObservationSingle(3, self.ego.targetFollowerID, self.veh_dict)
 
     def is_done(self):
         # lane change successfully executed, episode ends, reset env
