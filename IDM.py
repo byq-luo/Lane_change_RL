@@ -6,7 +6,7 @@ def idm(v, s, v_leader):
     decel_max = 4
     time_headway = 2
     v0 = 30
-    s0 = 50
+    s0 = 30
 
     acce_free = acce_max * (1 - (v / v0) ** 4)
     if v_leader is not None:

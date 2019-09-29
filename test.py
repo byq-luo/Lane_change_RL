@@ -95,22 +95,46 @@ def extractAction(testid, env, f):
         f.flush()
 
 
-if __name__ == '__main__':
+def IDM(env):
+    # todo why distance 100?
+    f = open('data/IDMCtr.csv', 'a')
+    f.write('egoid, lanePos, dis2leader, speed, acce\n')
 
-    f = open('data/data21.csv', 'a')
-    f.write('egoid, lanePos, latPos, speed, latSpeed, lcState, latAcce, action, laneIndex, tgtlane, origLane\n')
-
-    env = lcEnv.LaneChangeEnv()
-    # env.reset(egoid='lane2.1', tlane=0, tfc=1, is_gui=True)
-    #env.reset(None, tfc=1, sumoseed=3, randomseed=3)
-    env.reset(egoid=None, tfc=1, sumoseed=3, randomseed=3)
+    egoid = 'lane1.2'
+    env.reset(egoid=egoid, tfc=2, sumoseed=4, randomseed=3)
+    traci.vehicle.setColor(egoid, (255, 69, 0))
 
     for step in range(10000):
-        # todo emergency braking
-        # todo use sumo computed vNext to perform lateral control, use moveToXY to perform lateral control
-        laneChange(300, 350, 1, 0, env.rd)
-        env.preStep()
-        extractAction('lane1.0', env, f)
+        env.IDMStep()
+        #f.write('%s, %s, %s, %s, %s\n' % (egoid, env.veh_dict[egoid].lanePos,
+                                          #env.veh_dict[env.veh_dict[egoid].leaderID].lanePos - env.veh_dict[egoid].lanePos,
+                                          #env.veh_dict[egoid].speed, traci.vehicle.getAcceleration(egoid)))
+        f.flush()
 
-    #for step in range(10000):
-        #env.demoStep()
+def badLongiCtrl(env):
+    f = open('data/lateralCtr.csv', 'a')
+    f.write('egoid, lanePos, dis2leader, speed, acce\n')
+
+    egoid = 'lane1.2'
+    env.reset(egoid=egoid, tfc=2, sumoseed=4, randomseed=3)
+    traci.vehicle.setColor(egoid, (255, 69, 0))
+
+    for step in range(10000):
+        action = env.decision()
+        obs, rwd, done, info = env.step(action)
+
+        if done and info['resetFlag']:
+            env.reset(egoid)
+
+        #f.write('%s, %s, %s, %s, %s\n' % (egoid, obs[0][0], obs[1][0]-obs[0][0], obs[0][1], traci.vehicle.getAcceleration(egoid)))
+        f.flush()
+
+
+if __name__ == '__main__':
+
+    #f = open('data/data21.csv', 'a')
+    #f.write('egoid, lanePos, latPos, speed, latSpeed, lcState, latAcce, action, laneIndex, tgtlane, origLane\n')
+
+    env = lcEnv.LaneChangeEnv()
+    #badLongiCtrl(env)
+    IDM(env)

@@ -82,7 +82,7 @@ class Vehicle:
     def setTargetLane(self, tgl):
         self.targetLane = tgl
 
-    def update_info(self, rd):
+    def update_info(self, rd, veh_dict):
         self.laneIndex = traci.vehicle.getLaneIndex(self.veh_id)
         self.speed = traci.vehicle.getSpeed(self.veh_id)
         self.acce = traci.vehicle.getAcceleration(self.veh_id)
@@ -102,9 +102,14 @@ class Vehicle:
         self.leader = traci.vehicle.getLeader(self.veh_id)
 
         if traci.vehicle.getLeader(self.veh_id) is not None:
-            self.leaderID = self.leader[0]
-            self.leaderDis = self.leader[1]
-            self.leaderSpeed = traci.vehicle.getSpeed(self.leaderID)
+            if self.leader[0] in list(veh_dict.keys()):
+                self.leaderID = self.leader[0]
+                self.leaderDis = self.leader[1]
+                self.leaderSpeed = traci.vehicle.getSpeed(self.leaderID)
+            else:
+                self.leaderID = None
+                self.leaderDis = None
+                self.leaderSpeed = None
         else:
             self.leaderID = None
             self.leaderDis = None
@@ -113,10 +118,14 @@ class Vehicle:
         # for a single left lane, the list only contains 1 tuple, eg.[(id1, distance1)]
         if len(traci.vehicle.getNeighbors(self.veh_id, int(self.laneIndex > self.targetLane)+2+0)) != 0:
             self.targetLeaderID = traci.vehicle.getNeighbors(self.veh_id, int(self.laneIndex>self.targetLane)+2+0)[0][0]
+            if self.targetLeaderID not in list(veh_dict.keys()):
+                self.targetLeaderID = None
         else:
             self.targetLeaderID = None
         if len(traci.vehicle.getNeighbors(self.veh_id, int(self.laneIndex > self.targetLane)+0+0)) != 0:
             self.targetFollowerID = traci.vehicle.getNeighbors(self.veh_id, int(self.laneIndex>self.targetLane)+0+0)[0][0]
+            if self.targetFollowerID not in list(veh_dict.keys()):
+                self.targetLeaderID = None
         else:
             self.targetFollowerID = None
 
@@ -126,6 +135,10 @@ class Vehicle:
             self.update_reward()
 
     def updateLongitudinalSpeed(self):
+        """
+        use IDM to control vehicle speed
+        :return:
+        """
         # cannot acquire vNext, compute longitudinal speed on our own
         # todo use Runge–Kutta methods to solve differential equations
         if self.leaderID is not None:
@@ -227,10 +240,10 @@ class LaneChangeEnv(gym.Env):
                                                'speed': 0,
                                                'pos': 0}
                             }         # (object): agent's observation of the current environment'''
-        self.observation = [[0, 0],  # ego lane position and speed
-                            [0, 0],  # leader
-                            [0, 0],  # target lane leader
-                            [0, 0]]  # target lane follower
+        self.observation = [[0, 0, 0],  # ego lane position and speed
+                            [0, 0, 0],  # leader
+                            [0, 0, 0],  # target lane leader
+                            [0, 0, 0]]  # target lane follower
         self.reward = None            # (float) : amount of reward returned after previous action
         self.done = True              # (bool): whether the episode has ended, in which case further step() calls will return undefined results
         self.info = {'resetFlag': 0}  # (dict): contains auxiliary diagnostic information (helpful for debugging, and sometimes learning)
@@ -258,9 +271,9 @@ class LaneChangeEnv(gym.Env):
             if veh_id not in veh_id_tuple:
                 self.veh_dict.pop(veh_id)
             else:
-                self.veh_dict[veh_id].update_info(self.rd)
+                self.veh_dict[veh_id].update_info(self.rd, self.veh_dict)
 
-    def _updateObservationSingle(self, name, id, veh_dict):
+    def _updateObservationSingle(self, name, id):
         """
         :param name: 0:ego; 1:leader; 2:target leader; 3:target follower
         :param id: vehicle id corresponding to name
@@ -269,7 +282,7 @@ class LaneChangeEnv(gym.Env):
         if id is not None:
             self.observation[name][0] = traci.vehicle.getLanePosition(id)
             self.observation[name][1] = traci.vehicle.getSpeed(id)
-            self.observation[name][2] = veh_dict[id].pos_lat
+            self.observation[name][2] = self.veh_dict[id].pos_lat
         else:
             self.observation[name][0] = np.inf
             self.observation[name][1] = np.inf
@@ -278,10 +291,11 @@ class LaneChangeEnv(gym.Env):
 
 
     def updateObservation(self, egoid):
-        self._updateObservationSingle(0, egoid, self.veh_dict)
-        self._updateObservationSingle(1, self.ego.leaderID, self.veh_dict)
-        self._updateObservationSingle(2, self.ego.targetLeaderID, self.veh_dict)
-        self._updateObservationSingle(3, self.ego.targetFollowerID, self.veh_dict)
+        self._updateObservationSingle(0, egoid)
+        self._updateObservationSingle(1, self.ego.leaderID)
+        #print(self.ego.targetLeaderID)
+        self._updateObservationSingle(2, self.ego.targetLeaderID)
+        self._updateObservationSingle(3, self.ego.targetFollowerID)
 
     def is_done(self):
         # lane change successfully executed, episode ends, reset env
@@ -309,19 +323,60 @@ class LaneChangeEnv(gym.Env):
         self.vehID_tuple_all = traci.edge.getLastStepVehicleIDs(self.rd.entranceEdgeID)
         self.update_veh_dict(self.vehID_tuple_all)
 
-    def demoStep(self):
+    def IDMStep(self):
         # using idm to control longitudinal dynamics
         assert self.egoID is not None
         if self.egoID is not None:
             acceNext = self.ego.updateLongitudinalSpeed()
             vNext = self.ego.speed + acceNext*0.1
             traci.vehicle.setSpeed(self.egoID, vNext)
-        #traci.vehicle.moveToXY()
+
         traci.simulationStep()
+        self.vehID_tuple_all = traci.edge.getLastStepVehicleIDs(self.rd.entranceEdgeID)
+        self.update_veh_dict(self.vehID_tuple_all)
         # todo simplify network
 
+    def decision(self):
+        # only use self.observation
+        # lateral action -1:decelerate; 1:accelerate; 0: keep
+        if self.observation[1][0] != np.inf:
+            dis2leader = self.observation[1][0] - self.observation[0][0]
+            if dis2leader > 23:
+                act_longi = 1
+            elif dis2leader < 20:
+                act_longi = -1
+            else:
+                act_longi = 0
+        else:
+            act_longi = 0
 
-    def step(self, action=None):
+        act_lateral = 2
+        return act_longi, act_lateral
+
+    def clipVelocity(self, v):
+        if v < 15:
+            vClipped = 15
+        elif v > 35:
+            vClipped = 35
+        else:
+            vClipped = v
+        return vClipped
+
+    def longiCtrl(self, action_longi):
+        if action_longi == 1:
+            acce = 5
+        elif action_longi == -1:
+            acce = -4
+        else:
+            acce = 0
+
+        vNextCmd = self.ego.speed + acce * 0.1
+        vNext = self.clipVelocity(vNextCmd)
+
+        traci.vehicle.setSpeedMode(self.egoID, 0)
+        traci.vehicle.setSpeed(self.egoID, vNext)
+
+    def step(self, action=(0, 2)):
         """Run one timestep of the environment's dynamics. When end of
         episode is reached, call `reset()` outside env!! to reset this
         environment's state.
@@ -334,32 +389,38 @@ class LaneChangeEnv(gym.Env):
         Returns:
             described in __init__
         """
+        action_longi = action[0]
+        action_lateral = action[1]
+
         assert self.done is False, 'self.done is not False'
         assert action is not None, 'action is None'
         assert self.egoID in self.vehID_tuple_all, 'vehicle not in env'
 
         self.timestep += 1
-
-        # episode in progress; 0:change back to original line; 1:lane change to target lane; 2:keep cureent
+        # lateral control-------------------------
+        # episode in progress; 0:change back to original line; 1:lane change to target lane; 2:keep current
         # lane change to target lane
-        if action == 1 and abs(self.ego.pos_lat - (0.5+self.ego.targetLane)*self.rd.laneWidth) > 0.01:
+        if action_lateral == 1 and abs(self.ego.pos_lat - (0.5+self.ego.targetLane)*self.rd.laneWidth) > 0.01:
             self.ego.changeLane(True, self.ego.targetLane, self.rd)
             print('posLat', self.ego.pos_lat, 'lane', self.ego.laneIndex, 'rdWdith', self.rd.laneWidth)
             print('right', -(self.ego.pos_lat - 0.5*self.rd.laneWidth))
         # abort lane change, change back to ego's original lane
-        if action == 0 and abs(self.ego.pos_lat - (0.5+self.ego.origLane)*self.rd.laneWidth) > 0.01:
+        if action_lateral == 0 and abs(self.ego.pos_lat - (0.5+self.ego.origLane)*self.rd.laneWidth) > 0.01:
             self.ego.changeLane(True, self.ego.origLane, self.rd)
             print('left', 1.5 * self.rd.laneWidth - self.ego.pos_lat)
         #  keep current lateral position
-        if action == 2:
+        if action_lateral == 2:
             traci.vehicle.changeSublane(self.egoID, 0.0)
 
-        # todo check where simulation step and vhe_dict should be placed
+        # longitudinal control---------------------
+        self.longiCtrl(action_longi)
+
+
         # update info
         traci.simulationStep()
         self.vehID_tuple_all = traci.edge.getLastStepVehicleIDs(self.rd.entranceEdgeID)
         self.update_veh_dict(self.vehID_tuple_all)
-        # check episode ends or not
+        # check if episode ends
         self.is_done()
         if self.done is True:
             self.info['resetFlag'] = True
