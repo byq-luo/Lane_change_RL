@@ -132,6 +132,9 @@ def badLongiCtrl(env):
 
 
 def doubleCtrl(env):
+    f = open('data/doubleCtrl.csv', 'a')
+    f.write('egoid, lanePos, lateralPos, speed, acce\n')
+
     egoid = 'lane1.1'
     env.reset(egoid=egoid, tfc=1, sumoseed=1, randomseed=3)
     traci.vehicle.setColor(egoid, (255, 69, 0))
@@ -152,6 +155,8 @@ def doubleCtrl(env):
             env.reset(egoid=egoid, tfc=1, sumoseed=4, randomseed=3)
             traci.vehicle.setColor(egoid, (255, 69, 0))
 
+        f.write('%s, %s, %s, %s, %s\n' % (egoid, obs[0][0], obs[0][2], obs[0][1], traci.vehicle.getAcceleration(egoid)))
+        f.flush()
 
 
 if __name__ == '__main__':

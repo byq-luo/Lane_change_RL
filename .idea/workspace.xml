@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b0c90436-3db4-4a5e-b1d8-c94fa90c6d12" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LaneChangeEnv.py" beforeDir="false" afterPath="$PROJECT_DIR$/LaneChangeEnv.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/map/ramp3/map.rou.xml" beforeDir="false" afterPath="$PROJECT_DIR$/map/ramp3/map.rou.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -204,7 +202,14 @@
       <option name="project" value="LOCAL" />
       <updated>1569731089340</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="added combined lateral and longitudinal control, minor bugs fix">
+      <created>1569987495074</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1569987495074</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -225,7 +230,8 @@
     <MESSAGE value="extracted actions from expert demo" />
     <MESSAGE value="latest commit" />
     <MESSAGE value="add simple and IDM lateral control" />
-    <option name="LAST_COMMIT_MESSAGE" value="add simple and IDM lateral control" />
+    <MESSAGE value="added combined lateral and longitudinal control, minor bugs fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="added combined lateral and longitudinal control, minor bugs fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
