@@ -13,16 +13,16 @@ else:
 import traci
 
 
-def normalSim():
-    # randomly make lane change or abort/keep
-    if env.timestep < 130:
-        obs, rwd, done, info = env.step(2)
-    else:
-        obs, rwd, done, info = env.step(1)
+def normalSim(env):
+    egoid = 'lane1.2'
+    env.reset(egoid=egoid, tfc=1, sumoseed=1, randomseed=3)
+    traci.vehicle.setColor(egoid, (255, 69, 0))
 
-    print(env.timestep)
-    if done is True and info['resetFlag'] == 1:
-        env.reset(egoid='lane2.1', tlane=0, tfc=1, is_gui=True)
+    for i in range(10000):
+        obs, rwd, done, info = env.step()
+        if done is True and info['resetFlag'] == 1:
+            env.reset(egoid=egoid, tfc=1, sumoseed=4, randomseed=3)
+            traci.vehicle.setColor(egoid, (255, 69, 0))
 
 
 def laneChange(low, high, origLane, tgtLane, rd):
@@ -108,8 +108,9 @@ def IDM(env):
         env.IDMStep()
         #f.write('%s, %s, %s, %s, %s\n' % (egoid, env.veh_dict[egoid].lanePos,
                                           #env.veh_dict[env.veh_dict[egoid].leaderID].lanePos - env.veh_dict[egoid].lanePos,
-                                          #env.veh_dict[egoid].speed, traci.vehicle.getAcceleration(egoid)))
+                                          #genv.veh_dict[egoid].speed, traci.vehicle.getAcceleration(egoid)))
         f.flush()
+
 
 def badLongiCtrl(env):
     f = open('data/lateralCtr.csv', 'a')
@@ -130,11 +131,37 @@ def badLongiCtrl(env):
         f.flush()
 
 
+def doubleCtrl(env):
+    egoid = 'lane1.1'
+    env.reset(egoid=egoid, tfc=1, sumoseed=1, randomseed=3)
+    traci.vehicle.setColor(egoid, (255, 69, 0))
+
+    for i in range(10000):
+        print(env.is_success)
+        if env.ego.targetFollowerID != 'lane0.6' and env.ego.laneIndex == 1:
+            obs, rwd, done, info = env.step(action=(1, 2))
+        elif 2 > env.ego.lanePos - traci.vehicle.getLanePosition(env.ego.targetFollowerID) > -15:
+            obs, rwd, done, info = env.step(action=(-1, 2))
+        elif env.ego.lanePos - traci.vehicle.getLanePosition(env.ego.targetFollowerID) > 2 and not env.is_success:
+            env.ego.targetLane = 0
+            obs, rwd, done, info = env.step(action=(-1, 1))
+        else:
+            obs, rwd, done, info = env.step(action=(0, 2))
+
+        if done is True and info['resetFlag'] == 1:
+            env.reset(egoid=egoid, tfc=1, sumoseed=4, randomseed=3)
+            traci.vehicle.setColor(egoid, (255, 69, 0))
+
+
+
 if __name__ == '__main__':
 
     #f = open('data/data21.csv', 'a')
     #f.write('egoid, lanePos, latPos, speed, latSpeed, lcState, latAcce, action, laneIndex, tgtlane, origLane\n')
 
     env = lcEnv.LaneChangeEnv()
+
     #badLongiCtrl(env)
-    IDM(env)
+    #IDM(env)
+    #normalSim(env)
+    doubleCtrl(env)

@@ -77,7 +77,7 @@ class Vehicle:
         self.is_ego = 0
         self.changeTimes = 0
 
-        traci.vehicle.setLaneChangeMode(veh_id, 1621)  # 768
+        traci.vehicle.setLaneChangeMode(veh_id, 256)  # 768
 
     def setTargetLane(self, tgl):
         self.targetLane = tgl
@@ -125,7 +125,7 @@ class Vehicle:
         if len(traci.vehicle.getNeighbors(self.veh_id, int(self.laneIndex > self.targetLane)+0+0)) != 0:
             self.targetFollowerID = traci.vehicle.getNeighbors(self.veh_id, int(self.laneIndex>self.targetLane)+0+0)[0][0]
             if self.targetFollowerID not in list(veh_dict.keys()):
-                self.targetLeaderID = None
+                self.targetFollowerID = None
         else:
             self.targetFollowerID = None
 
@@ -158,14 +158,23 @@ class Vehicle:
         assert traci.vehicle.isRouteValid(self.veh_id) is True, 'route is not valid'
         '''
         # set lane change mode
-        if cps is True:
-            traci.vehicle.setLaneChangeMode(self.veh_id, 0)
-            # execute lane change with 'changeSublane'
+        if tgtlane != -1:
+            if cps is True:
+                traci.vehicle.setLaneChangeMode(self.veh_id, 0)
+                # execute lane change with 'changeSublane'
+            else:
+                traci.vehicle.setLaneChangeMode(self.veh_id, 1621)  # 768:no speed adaption
+                # traci.vehicle.changeLane(self.veh_id, self.targetLane, 1)
             traci.vehicle.changeSublane(self.veh_id, (0.5 + tgtlane) * rd.laneWidth - self.pos_lat)
         else:
-            traci.vehicle.setLaneChangeMode(self.veh_id, 1621)  # 768:no speed adaption
-            # traci.vehicle.changeLane(self.veh_id, self.targetLane, 1)
-            traci.vehicle.changeSublane(self.veh_id, (0.5 + tgtlane) * rd.laneWidth - self.pos_lat)
+            traci.vehicle.changeSublane(self.veh_id, 0.0)
+
+        if abs((0.5 + tgtlane) * rd.laneWidth - self.pos_lat) < 0.1:
+            return True
+        else:
+            return False
+
+
 
     def update_reward(self):
         # todo define reward
@@ -224,6 +233,7 @@ class LaneChangeEnv(gym.Env):
         self.egoID = id
         self.ego = None
         # self.tgtLane = tgtlane
+        self.is_success = False
 
         self.collision_num = 0
 
@@ -299,7 +309,9 @@ class LaneChangeEnv(gym.Env):
 
     def is_done(self):
         # lane change successfully executed, episode ends, reset env
-        if abs(self.ego.pos_lat - (0.5 + self.ego.targetLane) * self.rd.laneWidth) <= 0.01:
+        # todo modify
+        #if self.is_success:
+        if False:
             self.done = True
             print('reset on: successfully lane change, dis2targetlane:',
                   self.ego.pos_lat - (0.5 + self.ego.targetLane) * self.rd.laneWidth)
@@ -384,7 +396,13 @@ class LaneChangeEnv(gym.Env):
         Accepts an action and returns a tuple (observation, reward, done, info).
 
         Args:
-            action (object): an action provided by the agent
+            action (object): longitudinal: action[0] = 1: accelerate
+                                           action[0] = -1: decelerate
+                                           action[0] = 0: use SUMO default
+                                           action[0] = others: acce = 0.0
+                             lateral: action[1] = 1: lane change
+                                      action[1] = 0: abort lane change, change back to original lane
+                                      action[1] = 2: keep in current lateral position
 
         Returns:
             described in __init__
@@ -397,26 +415,31 @@ class LaneChangeEnv(gym.Env):
         assert self.egoID in self.vehID_tuple_all, 'vehicle not in env'
 
         self.timestep += 1
+        print(action)
+        if self.is_success is None:
+            n =1
         # lateral control-------------------------
         # episode in progress; 0:change back to original line; 1:lane change to target lane; 2:keep current
         # lane change to target lane
-        if action_lateral == 1 and abs(self.ego.pos_lat - (0.5+self.ego.targetLane)*self.rd.laneWidth) > 0.01:
-            self.ego.changeLane(True, self.ego.targetLane, self.rd)
-            print('posLat', self.ego.pos_lat, 'lane', self.ego.laneIndex, 'rdWdith', self.rd.laneWidth)
-            print('right', -(self.ego.pos_lat - 0.5*self.rd.laneWidth))
-        # abort lane change, change back to ego's original lane
-        if action_lateral == 0 and abs(self.ego.pos_lat - (0.5+self.ego.origLane)*self.rd.laneWidth) > 0.01:
-            self.ego.changeLane(True, self.ego.origLane, self.rd)
-            print('left', 1.5 * self.rd.laneWidth - self.ego.pos_lat)
-        #  keep current lateral position
-        if action_lateral == 2:
-            traci.vehicle.changeSublane(self.egoID, 0.0)
+        if not self.is_success:
+            if action_lateral == 1: #and abs(self.ego.pos_lat - (0.5+self.ego.targetLane)*self.rd.laneWidth) > 0.01:
+                self.is_success = self.ego.changeLane(True, self.ego.targetLane, self.rd)
+                print('posLat', self.ego.pos_lat, 'lane', self.ego.laneIndex, 'rdWdith', self.rd.laneWidth)
+                print('right', -(self.ego.pos_lat - 0.5*self.rd.laneWidth))
+            # abort lane change, change back to ego's original lane
+            if action_lateral == 0: #and abs(self.ego.pos_lat - (0.5+self.ego.origLane)*self.rd.laneWidth) > 0.01:
+                self.is_success = self.ego.changeLane(True, self.ego.origLane, self.rd)
+                print('left', 1.5 * self.rd.laneWidth - self.ego.pos_lat)
+            #  keep current lateral position
+            if action_lateral == 2:
+                self.is_success = self.ego.changeLane(True, -1, self.rd)
+
 
         # longitudinal control---------------------
-        self.longiCtrl(action_longi)
+        if action_longi != 0:
+            self.longiCtrl(action_longi)
 
-
-        # update info
+        # update info------------------------------
         traci.simulationStep()
         self.vehID_tuple_all = traci.edge.getLastStepVehicleIDs(self.rd.entranceEdgeID)
         self.update_veh_dict(self.vehID_tuple_all)

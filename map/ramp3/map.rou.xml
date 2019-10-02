@@ -46,10 +46,10 @@
     <route id="ramp_exit" edges="entranceEdge rampExit" color="blue"/>
     <route id="keep_on_highway" edges="entranceEdge exit" color="blue"/>
     <flow id="lane1" color='30, 144, 255' type="car" departLane="1" arrivalLane="current" begin="0.00" end="3600.00"
-          route="keep_on_highway" probability="0.25" departSpeed="max"/>
-    <!--flow id="lane0" color='30, 144, 255' type="typelist" departLane="0" arrivalLane="current" begin="0.00" end="3600.00"
-          route="keep_on_highway" probability="0.25" departSpeed="max"/-->
+          route="keep_on_highway" probability="0.3" departSpeed="max"/>
+    <flow id="lane0" color='30, 144, 255' type="typelist" departLane="0" arrivalLane="current" begin="0.00" end="3600.00"
+          route="keep_on_highway" probability="0.3" departSpeed="max"/>
     <flow id="lane2" color='30, 144, 255' type="typelist" departLane="2" arrivalLane="current" begin="0.00" end="3600.00"
-          route="keep_on_highway" probability="0.25" departSpeed="max"/>
+          route="keep_on_highway" probability="0.3" departSpeed="max"/>
 
 </routes>
