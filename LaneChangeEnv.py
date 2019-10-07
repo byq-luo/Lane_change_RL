@@ -7,7 +7,7 @@ import gym
 from gym import spaces, logger
 from gym.utils import seeding
 import numpy as np
-from IDM import idm
+from IDM import IDM
 # add sumo/tools into python environment
 if 'SUMO_HOME' in os.environ:
     tools = os.path.join(os.environ['SUMO_HOME'], 'tools')
@@ -76,6 +76,7 @@ class Vehicle:
 
         self.is_ego = 0
         self.changeTimes = 0
+        self.idm_obj = None
 
         traci.vehicle.setLaneChangeMode(veh_id, 256)  # 768
 
@@ -134,7 +135,7 @@ class Vehicle:
         if self.is_ego == 1:
             self.update_reward()
 
-    def updateLongitudinalSpeed(self):
+    def updateLongitudinalSpeedIDM(self):
         """
         use IDM to control vehicle speed
         :return:
@@ -142,9 +143,9 @@ class Vehicle:
         # cannot acquire vNext, compute longitudinal speed on our own
         # todo use Runge–Kutta methods to solve differential equations
         if self.leaderID is not None:
-            acceNext = idm(self.speed, self.leaderDis, self.leaderSpeed)
+            acceNext = self.idm_obj.calc_acce(self.speed, self.leaderDis, self.leaderSpeed)
         else:
-            acceNext = idm(self.speed, None, None)
+            acceNext = self.idm_obj.calc_acce(self.speed, None, None)
 
         return acceNext
 
@@ -173,8 +174,6 @@ class Vehicle:
             return True
         else:
             return False
-
-
 
     def update_reward(self):
         # todo define reward
@@ -339,7 +338,7 @@ class LaneChangeEnv(gym.Env):
         # using idm to control longitudinal dynamics
         assert self.egoID is not None
         if self.egoID is not None:
-            acceNext = self.ego.updateLongitudinalSpeed()
+            acceNext = self.ego.updateLongitudinalSpeedIDM()
             vNext = self.ego.speed + acceNext*0.1
             traci.vehicle.setSpeed(self.egoID, vNext)
 
@@ -484,6 +483,12 @@ class LaneChangeEnv(gym.Env):
             self.ego = self.veh_dict[self.egoID]
             self.ego.targetLane = tlane
             self.ego.is_ego = 1
+
+            ego_speedFactor = traci.vehicle.getSpeedFactor(egoid)
+            ego_speedLimit = ego_speedFactor * traci.lane.getMaxSpeed(traci.vehicle.getLaneID(self.egoID))
+            print(ego_speedLimit)
+            self.ego.idm_obj = IDM()
+            self.ego.idm_obj.__init__(ego_speedLimit)
             self.updateObservation(self.egoID)
             #self.step(2)  # todo
             return self.observation

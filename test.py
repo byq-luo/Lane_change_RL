@@ -13,16 +13,25 @@ else:
 import traci
 
 
-def normalSim(env):
+def normal(env):
+    f = open('data/original.csv', 'a')
+    f.write('egoid, lanePos, dis2leader, speed, acce\n')
+
     egoid = 'lane1.2'
-    env.reset(egoid=egoid, tfc=1, sumoseed=1, randomseed=3)
+    env.reset(egoid=egoid, tfc=2, sumoseed=4, randomseed=3)
     traci.vehicle.setColor(egoid, (255, 69, 0))
 
     for i in range(10000):
         obs, rwd, done, info = env.step()
         if done is True and info['resetFlag'] == 1:
-            env.reset(egoid=egoid, tfc=1, sumoseed=4, randomseed=3)
+            env.reset(egoid=egoid, tfc=2, sumoseed=4, randomseed=3)
             traci.vehicle.setColor(egoid, (255, 69, 0))
+
+        f.write('%s, %s, %s, %s, %s\n' % (egoid, env.veh_dict[egoid].lanePos,
+                                          env.veh_dict[env.veh_dict[egoid].leaderID].lanePos - env.veh_dict[
+                                              egoid].lanePos,
+                                          env.veh_dict[egoid].speed, traci.vehicle.getAcceleration(egoid)))
+        f.flush()
 
 
 def laneChange(low, high, origLane, tgtLane, rd):
@@ -95,9 +104,8 @@ def extractAction(testid, env, f):
         f.flush()
 
 
-def IDM(env):
-    # todo why distance 100?
-    f = open('data/IDMCtr.csv', 'a')
+def IDMCtrl(env):
+    f = open('data/IDM_mimic_original.csv', 'a')
     f.write('egoid, lanePos, dis2leader, speed, acce\n')
 
     egoid = 'lane1.2'
@@ -106,9 +114,9 @@ def IDM(env):
 
     for step in range(10000):
         env.IDMStep()
-        #f.write('%s, %s, %s, %s, %s\n' % (egoid, env.veh_dict[egoid].lanePos,
-                                          #env.veh_dict[env.veh_dict[egoid].leaderID].lanePos - env.veh_dict[egoid].lanePos,
-                                          #genv.veh_dict[egoid].speed, traci.vehicle.getAcceleration(egoid)))
+        f.write('%s, %s, %s, %s, %s\n' % (egoid, env.veh_dict[egoid].lanePos,
+                                          env.veh_dict[env.veh_dict[egoid].leaderID].lanePos - env.veh_dict[egoid].lanePos,
+                                          env.veh_dict[egoid].speed, traci.vehicle.getAcceleration(egoid)))
         f.flush()
 
 
@@ -167,6 +175,6 @@ if __name__ == '__main__':
     env = lcEnv.LaneChangeEnv()
 
     #badLongiCtrl(env)
-    #IDM(env)
-    #normalSim(env)
-    doubleCtrl(env)
+    #IDMCtrl(env)
+    normal(env)
+    #doubleCtrl(env)
