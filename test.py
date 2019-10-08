@@ -18,19 +18,21 @@ def normal(env):
     f.write('egoid, lanePos, dis2leader, speed, acce\n')
 
     egoid = 'lane1.2'
-    env.reset(egoid=egoid, tfc=2, sumoseed=4, randomseed=3)
+    ss = 6
+    env.reset(egoid=egoid, tfc=2, sumoseed=ss, randomseed=3)
     traci.vehicle.setColor(egoid, (255, 69, 0))
 
     for i in range(10000):
+        ss += 1
         obs, rwd, done, info = env.step()
         if done is True and info['resetFlag'] == 1:
-            env.reset(egoid=egoid, tfc=2, sumoseed=4, randomseed=3)
+            env.reset(egoid=egoid, tfc=2, sumoseed=ss, randomseed=3)
             traci.vehicle.setColor(egoid, (255, 69, 0))
 
-        f.write('%s, %s, %s, %s, %s\n' % (egoid, env.veh_dict[egoid].lanePos,
-                                          env.veh_dict[env.veh_dict[egoid].leaderID].lanePos - env.veh_dict[
-                                              egoid].lanePos,
-                                          env.veh_dict[egoid].speed, traci.vehicle.getAcceleration(egoid)))
+        # f.write('%s, %s, %s, %s, %s\n' % (egoid, env.veh_dict[egoid].lanePos,
+        #                                   env.veh_dict[env.veh_dict[egoid].leaderID].lanePos - env.veh_dict[
+        #                                       egoid].lanePos,
+        #                                   env.veh_dict[egoid].speed, traci.vehicle.getAcceleration(egoid)))
         f.flush()
 
 

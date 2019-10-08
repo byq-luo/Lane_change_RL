@@ -141,12 +141,28 @@ class Vehicle:
         :return:
         """
         # cannot acquire vNext, compute longitudinal speed on our own
-        # todo use Runge–Kutta methods to solve differential equations
         if self.leaderID is not None:
             acceNext = self.idm_obj.calc_acce(self.speed, self.leaderDis, self.leaderSpeed)
         else:
             acceNext = self.idm_obj.calc_acce(self.speed, None, None)
 
+        return acceNext
+
+    def calcAcce(self):
+        if self.leaderID is None and self.targetLeaderID is None:
+            acceNext = self.idm_obj.calc_acce(self.speed, None, None)
+        elif self.leaderID is None and self.targetLeaderID is not None:
+            acceNext = self.idm_obj.calc_acce(self.speed, traci.vehicle.getLanePosition(self.targetLeaderID) - self.lanePos, traci.vehicle.getSpeed(self.targetLeaderID))
+        elif self.leaderID is not None and self.targetLeaderID is None:
+            acceNext = self.idm_obj.calc_acce(self.speed, self.leaderDis, self.leaderSpeed)
+        else:
+            assert self.leaderID is not None and self.targetLeaderID is not None
+            if self.leaderDis > traci.vehicle.getLanePosition(self.targetLeaderID):
+                acceNext = self.idm_obj.calc_acce(self.speed,
+                                                  traci.vehicle.getLanePosition(self.targetLeaderID) - self.lanePos,
+                                                  traci.vehicle.getSpeed(self.targetLeaderID))
+            else:
+                acceNext = self.idm_obj.calc_acce(self.speed, self.leaderDis, self.leaderSpeed)
         return acceNext
 
     def changeLane(self, cps, tgtlane, rd):
@@ -298,7 +314,6 @@ class LaneChangeEnv(gym.Env):
             self.observation[name][2] = np.inf
             # todo check if rational
 
-
     def updateObservation(self, egoid):
         self._updateObservationSingle(0, egoid)
         self._updateObservationSingle(1, self.ego.leaderID)
@@ -387,7 +402,7 @@ class LaneChangeEnv(gym.Env):
         traci.vehicle.setSpeedMode(self.egoID, 0)
         traci.vehicle.setSpeed(self.egoID, vNext)
 
-    def step(self, action=(0, 2)):
+    def step(self, action=(1, 2)):
         """Run one timestep of the environment's dynamics. When end of
         episode is reached, call `reset()` outside env!! to reset this
         environment's state.
@@ -399,6 +414,9 @@ class LaneChangeEnv(gym.Env):
                                            action[0] = -1: decelerate
                                            action[0] = 0: use SUMO default
                                            action[0] = others: acce = 0.0
+
+                                           action[0] = 0: follow leader in current lane
+                                           action[0] = 1: follow argmin(dis2leader in current lane, dis2leader in target lane)
                              lateral: action[1] = 1: lane change
                                       action[1] = 0: abort lane change, change back to original lane
                                       action[1] = 2: keep in current lateral position
@@ -414,9 +432,7 @@ class LaneChangeEnv(gym.Env):
         assert self.egoID in self.vehID_tuple_all, 'vehicle not in env'
 
         self.timestep += 1
-        print(action)
-        if self.is_success is None:
-            n =1
+
         # lateral control-------------------------
         # episode in progress; 0:change back to original line; 1:lane change to target lane; 2:keep current
         # lane change to target lane
@@ -433,10 +449,20 @@ class LaneChangeEnv(gym.Env):
             if action_lateral == 2:
                 self.is_success = self.ego.changeLane(True, -1, self.rd)
 
-
         # longitudinal control---------------------
+        '''choice 1 of longitudinal actions
         if action_longi != 0:
             self.longiCtrl(action_longi)
+        '''
+        if action_longi == 0:
+            # follow leader in current lane
+            acceNext = self.ego.updateLongitudinalSpeedIDM()
+        else:
+            assert action_longi == 1, 'action_longi invalid!'
+            acceNext = self.ego.calcAcce()
+
+        vNext = self.ego.speed + acceNext * 0.1
+        traci.vehicle.setSpeed(self.egoID, vNext)
 
         # update info------------------------------
         traci.simulationStep()
