@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b0c90436-3db4-4a5e-b1d8-c94fa90c6d12" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/plot.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IDM.py" beforeDir="false" afterPath="$PROJECT_DIR$/IDM.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LaneChangeEnv.py" beforeDir="false" afterPath="$PROJECT_DIR$/LaneChangeEnv.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/IDMCtr.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/IDMCtr.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
-    </list>
+    <list default="true" id="b0c90436-3db4-4a5e-b1d8-c94fa90c6d12" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +25,7 @@
     <property name="TODO_SCOPE" value="All Places" />
     <property name="full.screen.before.presentation.mode" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -250,7 +243,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570001100245</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="use pandas and matplotlib to plot data">
+      <created>1570491242360</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1570491242360</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -272,7 +272,8 @@
     <MESSAGE value="latest commit" />
     <MESSAGE value="add simple and IDM lateral control" />
     <MESSAGE value="added combined lateral and longitudinal control, minor bugs fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="added combined lateral and longitudinal control, minor bugs fix" />
+    <MESSAGE value="use pandas and matplotlib to plot data" />
+    <option name="LAST_COMMIT_MESSAGE" value="use pandas and matplotlib to plot data" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
