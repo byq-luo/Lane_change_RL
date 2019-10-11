@@ -150,18 +150,24 @@ class Vehicle:
 
     def calcAcce(self):
         if self.leaderID is None and self.targetLeaderID is None:
+            print('no leader')
             acceNext = self.idm_obj.calc_acce(self.speed, None, None)
         elif self.leaderID is None and self.targetLeaderID is not None:
+            print('following target leader')
             acceNext = self.idm_obj.calc_acce(self.speed, traci.vehicle.getLanePosition(self.targetLeaderID) - self.lanePos, traci.vehicle.getSpeed(self.targetLeaderID))
         elif self.leaderID is not None and self.targetLeaderID is None:
+            print('following current leader')
             acceNext = self.idm_obj.calc_acce(self.speed, self.leaderDis, self.leaderSpeed)
         else:
+
             assert self.leaderID is not None and self.targetLeaderID is not None
-            if self.leaderDis > traci.vehicle.getLanePosition(self.targetLeaderID):
+            if self.leaderDis > (traci.vehicle.getLanePosition(self.targetLeaderID) - self.lanePos):
+                print('following closer leader: TARGET:%s' % self.targetLeaderID)
                 acceNext = self.idm_obj.calc_acce(self.speed,
                                                   traci.vehicle.getLanePosition(self.targetLeaderID) - self.lanePos,
                                                   traci.vehicle.getSpeed(self.targetLeaderID))
             else:
+                print('following closer leader: CURRENT LANE:%s' % self.leaderID)
                 acceNext = self.idm_obj.calc_acce(self.speed, self.leaderDis, self.leaderSpeed)
         return acceNext
 
@@ -295,8 +301,9 @@ class LaneChangeEnv(gym.Env):
         for veh_id in list(self.veh_dict.keys()):
             if veh_id not in veh_id_tuple:
                 self.veh_dict.pop(veh_id)
-            else:
-                self.veh_dict[veh_id].update_info(self.rd, self.veh_dict)
+
+        for veh_id in list(self.veh_dict.keys()):
+            self.veh_dict[veh_id].update_info(self.rd, self.veh_dict)
 
     def _updateObservationSingle(self, name, id):
         """
@@ -433,6 +440,8 @@ class LaneChangeEnv(gym.Env):
 
         self.timestep += 1
 
+        if self.timestep > 100 and 'lane0.4' not in list(self.veh_dict.keys()):
+            fuck =1
         # lateral control-------------------------
         # episode in progress; 0:change back to original line; 1:lane change to target lane; 2:keep current
         # lane change to target lane
@@ -512,7 +521,7 @@ class LaneChangeEnv(gym.Env):
 
             ego_speedFactor = traci.vehicle.getSpeedFactor(egoid)
             ego_speedLimit = ego_speedFactor * traci.lane.getMaxSpeed(traci.vehicle.getLaneID(self.egoID))
-            print(ego_speedLimit)
+
             self.ego.idm_obj = IDM()
             self.ego.idm_obj.__init__(ego_speedLimit)
             self.updateObservation(self.egoID)

@@ -25,6 +25,7 @@ def normal(env):
     for i in range(10000):
         ss += 1
         obs, rwd, done, info = env.step()
+
         if done is True and info['resetFlag'] == 1:
             env.reset(egoid=egoid, tfc=2, sumoseed=ss, randomseed=3)
             traci.vehicle.setColor(egoid, (255, 69, 0))
