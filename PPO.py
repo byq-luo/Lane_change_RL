@@ -1,19 +1,9 @@
-"""
-author: Morvan Zhou
-A simple version of Proximal Policy Optimization (PPO) using single thread.
-Based on:
-1. Emergence of Locomotion Behaviours in Rich Environments (Google Deepmind): [https://arxiv.org/abs/1707.02286]
-2. Proximal Policy Optimization Algorithms (OpenAI): [https://arxiv.org/abs/1707.06347]
-View more on my tutorial website: https://morvanzhou.github.io/tutorials
-Dependencies:
-tensorflow r1.2
-gym 0.9.2
-"""
-
 import tensorflow as tf
 import numpy as np
 import matplotlib.pyplot as plt
 import gym
+import random
+from LaneChangeEnv import LaneChangeEnv
 
 EP_MAX = 1000
 EP_LEN = 200
@@ -23,7 +13,8 @@ C_LR = 0.0002
 BATCH = 32
 A_UPDATE_STEPS = 10
 C_UPDATE_STEPS = 10
-S_DIM, A_DIM = 3, 1
+S_DIM = 12
+A_NUM = 6
 METHOD = [
     dict(name='kl_pen', kl_target=0.01, lam=0.5),   # KL penalty
     dict(name='clip', epsilon=0.2),                 # Clipped surrogate objective, find this is better
@@ -31,7 +22,6 @@ METHOD = [
 
 
 class PPO(object):
-
     def __init__(self):
         self.sess = tf.Session()
         self.tfs = tf.placeholder(tf.float32, [None, S_DIM], 'state')
@@ -39,7 +29,8 @@ class PPO(object):
         # critic
         with tf.variable_scope('critic'):
             l1 = tf.layers.dense(self.tfs, 100, tf.nn.relu)
-            self.v = tf.layers.dense(l1, 1)
+            l2 = tf.layers.dense(l1, 100, tf.nn.relu)
+            self.v = tf.layers.dense(l2, 1)
             self.tfdc_r = tf.placeholder(tf.float32, [None, 1], 'discounted_r')
             self.advantage = self.tfdc_r - self.v
             self.closs = tf.reduce_mean(tf.square(self.advantage))
@@ -53,22 +44,17 @@ class PPO(object):
         with tf.variable_scope('update_oldpi'):
             self.update_oldpi_op = [oldp.assign(p) for p, oldp in zip(pi_params, oldpi_params)]
 
-        self.tfa = tf.placeholder(tf.float32, [None, A_DIM], 'action')
+        self.tfa = tf.placeholder(tf.float32, [None, ], 'action')
         self.tfadv = tf.placeholder(tf.float32, [None, 1], 'advantage')
         with tf.variable_scope('loss'):
             with tf.variable_scope('surrogate'):
                 # ratio = tf.exp(pi.log_prob(self.tfa) - oldpi.log_prob(self.tfa))
                 ratio = pi.prob(self.tfa) / oldpi.prob(self.tfa)
                 surr = ratio * self.tfadv
-            if METHOD['name'] == 'kl_pen':
-                self.tflam = tf.placeholder(tf.float32, None, 'lambda')
-                kl = tf.distributions.kl_divergence(oldpi, pi)
-                self.kl_mean = tf.reduce_mean(kl)
-                self.aloss = -(tf.reduce_mean(surr - self.tflam * kl))
-            else:   # clipping method, find this is better
-                self.aloss = -tf.reduce_mean(tf.minimum(
-                    surr,
-                    tf.clip_by_value(ratio, 1.-METHOD['epsilon'], 1.+METHOD['epsilon'])*self.tfadv))
+            # clipping method, find this is better
+            self.aloss = -tf.reduce_mean(tf.minimum(
+                surr,
+                tf.clip_by_value(ratio, 1.-METHOD['epsilon'], 1.+METHOD['epsilon'])*self.tfadv))
 
         with tf.variable_scope('atrain'):
             self.atrain_op = tf.train.AdamOptimizer(A_LR).minimize(self.aloss)
@@ -83,20 +69,8 @@ class PPO(object):
         # adv = (adv - adv.mean())/(adv.std()+1e-6)     # sometimes helpful
 
         # update actor
-        if METHOD['name'] == 'kl_pen':
-            for _ in range(A_UPDATE_STEPS):
-                _, kl = self.sess.run(
-                    [self.atrain_op, self.kl_mean],
-                    {self.tfs: s, self.tfa: a, self.tfadv: adv, self.tflam: METHOD['lam']})
-                if kl > 4*METHOD['kl_target']:  # this in in google's paper
-                    break
-            if kl < METHOD['kl_target'] / 1.5:  # adaptive lambda, this is in OpenAI's paper
-                METHOD['lam'] /= 2
-            elif kl > METHOD['kl_target'] * 1.5:
-                METHOD['lam'] *= 2
-            METHOD['lam'] = np.clip(METHOD['lam'], 1e-4, 10)    # sometimes explode, this clipping is my solution
-        else:   # clipping method, find this is better (OpenAI's paper)
-            [self.sess.run(self.atrain_op, {self.tfs: s, self.tfa: a, self.tfadv: adv}) for _ in range(A_UPDATE_STEPS)]
+        # clipping method, find this is better (OpenAI's paper)
+        [self.sess.run(self.atrain_op, {self.tfs: s, self.tfa: a, self.tfadv: adv}) for _ in range(A_UPDATE_STEPS)]
 
         # update critic
         [self.sess.run(self.ctrain_op, {self.tfs: s, self.tfdc_r: r}) for _ in range(C_UPDATE_STEPS)]
@@ -104,6 +78,7 @@ class PPO(object):
     def _build_anet(self, name, trainable):
         with tf.variable_scope(name):
             l1 = tf.layers.dense(self.tfs, 100, tf.nn.relu, trainable=trainable)
+            l2 = tf.layers.dense(l1, 10, tf.nn.softmax, trainable=trainable)
             mu = 2 * tf.layers.dense(l1, A_DIM, tf.nn.tanh, trainable=trainable)
             sigma = tf.layers.dense(l1, A_DIM, tf.nn.softplus, trainable=trainable)
             norm_dist = tf.distributions.Normal(loc=mu, scale=sigma)
@@ -120,27 +95,29 @@ class PPO(object):
         return self.sess.run(self.v, {self.tfs: s})[0, 0]
 
 
-env = gym.make('Pendulum-v0').unwrapped
+env = LaneChangeEnv()
 ppo = PPO()
 all_ep_r = []
 
 for ep in range(EP_MAX):
-    s = env.reset()
+    egoid = 'lane1.' + random.randint(1, 5)
+    state = env.reset(egoid=egoid, tlane=0, tfc=2, is_gui=False, sumoseed=None, randomseed=None)
+
     buffer_s, buffer_a, buffer_r = [], [], []
     ep_r = 0
     for t in range(EP_LEN):    # in one episode
-        env.render()
-        a = ppo.choose_action(s)
-        s_, r, done, _ = env.step(a)
-        buffer_s.append(s)
-        buffer_a.append(a)
-        buffer_r.append((r+8)/8)    # normalize reward, find to be useful
-        s = s_
-        ep_r += r
+        action = ppo.choose_action(state)
+        state, reward, done, info = env.step((action % 3, action//3))  # need modification
+        buffer_s.append(np.asarray(state).flatten())
+        buffer_a.append(action)
+        buffer_r.append(reward)
+        #buffer_r.append((r+8)/8)    # normalize reward, find to be useful
+        #s = s_
+        ep_r += reward
 
         # update ppo
         if (t+1) % BATCH == 0 or t == EP_LEN-1:
-            v_s_ = ppo.get_v(s_)
+            v_s_ = ppo.get_v(state)
             discounted_r = []
             for r in buffer_r[::-1]:
                 v_s_ = r + GAMMA * v_s_

@@ -139,8 +139,6 @@ class Vehicle:
         self.dis2tgtLane = abs((0.5 + self.targetLane) * rd.laneWidth - self.pos_lat)
         self.dis2entrance = rd.laneLength - self.lanePos
         # self.dis2entrance = self.calculate_dis(self.pos_x, self.pos_y, enrtrance_x, entrance_y)
-        if self.is_ego == 1:
-            self.update_reward()
 
     def updateLongitudinalSpeedIDM(self):
         """
@@ -203,16 +201,6 @@ class Vehicle:
         else:
             return False
 
-    def update_reward(self):
-        # todo define reward
-        # reward related to comfort
-        wc1 = 1
-        wc2 = 1
-        r_comf = wc1*self.acce**2 + w2c*self.delta_acce**2
-        # reward related to efficiency
-        r_effi = -
-        self.reward = -abs(self.dis2entrance - 100)
-
     def calculate_dis(self, x, y, x0, y0):
         """
         calculate distance between 2 positions
@@ -259,6 +247,7 @@ class LaneChangeEnv(gym.Env):
         self.timestep = 0
         self.dt = traci.simulation.getDeltaT()
         self.randomseed = None
+        self.sumoseed = None
 
         self.veh_dict = {}
         self.vehID_tuple_all = ()
@@ -368,11 +357,15 @@ class LaneChangeEnv(gym.Env):
         if self.ego.targetLeaderID is not None:
             alpha = abs(self.ego.pos_lat - self.veh_dict[self.ego.targetLeaderID].pos_lat) / 3.2
             assert 0 <= alpha <= 1
-            r_safe_leader = w_lateral*alpha + w_longi*(1-alpha)*abs(self.ego.lanePos - self.veh_dict[self.ego.targetLeaderID].lanePos)
+            r_safe_tgtleader = w_lateral*alpha + w_longi*(1-alpha)*abs(self.ego.lanePos - self.veh_dict[self.ego.targetLeaderID].lanePos)
         else:
-            r_safe_leader = 0
+            r_safe_tgtleader = 0
+        r_safe = r_safe_leader + r_safe_tgtleader
 
+        # total reward
+        r_total = r_comf + r_effi_all + r_safe
 
+        return r_total
 
     def is_done(self):
         # lane change successfully executed, episode ends, reset env
@@ -531,7 +524,7 @@ class LaneChangeEnv(gym.Env):
             return self.observation, 0.0, self.done, self.info
         else:
             self.updateObservation(self.egoID)
-            self.reward = self.ego.reward
+            self.reward = self.updateReward()
             return self.observation, self.reward, self.done, self.info
 
     def seed(self, seed=None):
@@ -549,8 +542,11 @@ class LaneChangeEnv(gym.Env):
         :return: initial observation
         """
         self.seed(randomseed)
+        if sumoseed is None:
+            self.sumoseed = self.randomseed
+
         traci.close()
-        self.__init__(id=egoid, traffic=tfc, gui=is_gui, seed=sumoseed)
+        self.__init__(id=egoid, traffic=tfc, gui=is_gui, seed=self.sumoseed)
         # continue step until ego appears in env
         if self.egoID is not None:
             while self.egoID not in self.veh_dict.keys():
@@ -567,7 +563,7 @@ class LaneChangeEnv(gym.Env):
             self.ego.is_ego = 1
 
             self.ego_speedFactor = traci.vehicle.getSpeedFactor(egoid)
-            self.ego_speedLimit = ego_speedFactor * traci.lane.getMaxSpeed(traci.vehicle.getLaneID(self.egoID))
+            self.ego_speedLimit = self.ego_speedFactor * traci.lane.getMaxSpeed(traci.vehicle.getLaneID(self.egoID))
 
             self.ego.idm_obj = IDM()
             self.ego.idm_obj.__init__(self.ego_speedLimit)
