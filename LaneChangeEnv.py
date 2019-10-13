@@ -69,6 +69,7 @@ class Vehicle:
         self.targetLeaderID = None
         self.targetFollowerID = None
 
+        self.dis2tgtLane = None
         self.dis2entrance = None
         self.lcPos = None
         self.reward = 0
@@ -135,6 +136,7 @@ class Vehicle:
         else:
             self.targetFollowerID = None
 
+        self.dis2tgtLane = abs((0.5 + self.targetLane) * rd.laneWidth - self.pos_lat)
         self.dis2entrance = rd.laneLength - self.lanePos
         # self.dis2entrance = self.calculate_dis(self.pos_x, self.pos_y, enrtrance_x, entrance_y)
         if self.is_ego == 1:
@@ -196,7 +198,7 @@ class Vehicle:
         else:
             traci.vehicle.changeSublane(self.veh_id, 0.0)
 
-        if abs((0.5 + tgtlane) * rd.laneWidth - self.pos_lat) < 0.1:
+        if self.dis2tgtLane < 0.1:
             return True
         else:
             return False
@@ -265,6 +267,7 @@ class LaneChangeEnv(gym.Env):
         self.ego = None
         # self.tgtLane = tgtlane
         self.is_success = False
+        self.dis2tgtLane = None
 
         self.collision_num = 0
 
@@ -338,6 +341,39 @@ class LaneChangeEnv(gym.Env):
         self._updateObservationSingle(2, self.ego.targetLeaderID)
         self._updateObservationSingle(3, self.ego.targetFollowerID)
 
+    def updateReward(self):
+        wc1 = 1
+        wc2 = 1
+        wt = 1
+        ws = 1
+        we = 1
+        # reward related to comfort
+        r_comf = wc1 * self.ego.acce ** 2 + wc2 * self.ego.delta_acce ** 2
+
+        # reward related to efficiency
+        r_time = - wt * self.timestep
+        r_speed = ws * (self.ego.speed - self.ego_speedLimit)
+        r_effi = we * self.ego.dis2tgtLane / self.ego.dis2entrance
+        r_effi_all = r_time + r_speed + r_effi
+
+        # reward related to safety
+        w_lateral = 1
+        w_longi = 1
+        if self.ego.leaderID is not None:
+            alpha = abs(self.ego.pos_lat - self.veh_dict[self.ego.leaderID].pos_lat) / 3.2
+            assert 0 <= alpha <= 1
+            r_safe_leader = w_lateral*alpha + w_longi*(1-alpha)*abs(self.ego.leaderDis)
+        else:
+            r_safe_leader = 0
+        if self.ego.targetLeaderID is not None:
+            alpha = abs(self.ego.pos_lat - self.veh_dict[self.ego.targetLeaderID].pos_lat) / 3.2
+            assert 0 <= alpha <= 1
+            r_safe_leader = w_lateral*alpha + w_longi*(1-alpha)*abs(self.ego.lanePos - self.veh_dict[self.ego.targetLeaderID].lanePos)
+        else:
+            r_safe_leader = 0
+
+
+
     def is_done(self):
         # lane change successfully executed, episode ends, reset env
         # todo modify
@@ -345,12 +381,12 @@ class LaneChangeEnv(gym.Env):
         if False:
             self.done = True
             print('reset on: successfully lane change, dis2targetlane:',
-                  self.ego.pos_lat - (0.5 + self.ego.targetLane) * self.rd.laneWidth)
+                  self.dis2tgtLane)
         # too close to ramp entrance
         if self.ego.dis2entrance < 10.0:
             self.done = True
             print('reset on: too close to ramp entrance, dis2targetlane:',
-                  self.ego.pos_lat - (0.5 + self.ego.targetLane) * self.rd.laneWidth)
+                  self.dis2tgtLane)
         # ego vehicle out of env
         if self.egoID not in self.vehID_tuple_all:
             self.done = True
@@ -462,11 +498,12 @@ class LaneChangeEnv(gym.Env):
                 print('right', -(self.ego.pos_lat - 0.5*self.rd.laneWidth))
             # abort lane change, change back to ego's original lane
             if action_lateral == 0: #and abs(self.ego.pos_lat - (0.5+self.ego.origLane)*self.rd.laneWidth) > 0.01:
-                self.is_success = self.ego.changeLane(True, self.ego.origLane, self.rd)
+                self.is_success, self.dis2tgtLane = self.ego.changeLane(True, self.ego.origLane, self.rd)
                 print('left', 1.5 * self.rd.laneWidth - self.ego.pos_lat)
             #  keep current lateral position
             if action_lateral == 2:
                 self.is_success = self.ego.changeLane(True, -1, self.rd)
+
 
         # longitudinal control---------------------
         '''choice 1 of longitudinal actions
@@ -529,11 +566,11 @@ class LaneChangeEnv(gym.Env):
             self.ego.targetLane = tlane
             self.ego.is_ego = 1
 
-            ego_speedFactor = traci.vehicle.getSpeedFactor(egoid)
-            ego_speedLimit = ego_speedFactor * traci.lane.getMaxSpeed(traci.vehicle.getLaneID(self.egoID))
+            self.ego_speedFactor = traci.vehicle.getSpeedFactor(egoid)
+            self.ego_speedLimit = ego_speedFactor * traci.lane.getMaxSpeed(traci.vehicle.getLaneID(self.egoID))
 
             self.ego.idm_obj = IDM()
-            self.ego.idm_obj.__init__(ego_speedLimit)
+            self.ego.idm_obj.__init__(self.ego_speedLimit)
             self.updateObservation(self.egoID)
             #self.step(2)  # todo
             return self.observation
