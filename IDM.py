@@ -1,10 +1,10 @@
 import math
 
-
 class IDM():
     def __init__(self, v0=39.44):
         self.acce_max = 2.9
         self.decel_max = 4.5
+        # todo change time headway
         self.time_headway = 1
         self.v0 = v0
         self.s0 = 2.5

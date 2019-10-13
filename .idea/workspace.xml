@@ -2,10 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b0c90436-3db4-4a5e-b1d8-c94fa90c6d12" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/ppo_test/log/events.out.tfevents.1570904900.xuxinde-MateBook-Pro.local" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ppo_test/log/events.out.tfevents.1570915105.xuxinde-MateBook-Pro.local" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ppo_test/ppo_pendulum.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IDM.py" beforeDir="false" afterPath="$PROJECT_DIR$/IDM.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LaneChangeEnv.py" beforeDir="false" afterPath="$PROJECT_DIR$/LaneChangeEnv.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/original.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/original.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,8 +27,11 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1OeftzTy1XzNyxXY80mw0Nf63AU" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="TODO_SCOPE" value="All Places" />
     <property name="full.screen.before.presentation.mode" value="true" />
@@ -51,7 +57,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.test">
+  <component name="RunManager" selected="Python.ppo_pendulum">
     <configuration name="LaneChangeEnv" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="SUMO" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -65,27 +71,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/LaneChangeEnv.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="gym_test" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="SUMO" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/gym_test.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -136,6 +121,27 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="ppo_pendulum" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="SUMO" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ppo_test" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ppo_test/ppo_pendulum.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="SUMO" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -158,19 +164,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.gym_test" />
       <item itemvalue="Python.test" />
       <item itemvalue="Python.LaneChangeEnv" />
       <item itemvalue="Python.misc" />
       <item itemvalue="Python.plot" />
+      <item itemvalue="Python.ppo_pendulum" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.ppo_pendulum" />
         <item itemvalue="Python.test" />
         <item itemvalue="Python.plot" />
         <item itemvalue="Python.misc" />
         <item itemvalue="Python.LaneChangeEnv" />
-        <item itemvalue="Python.gym_test" />
       </list>
     </recent_temporary>
   </component>
@@ -269,7 +275,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570513789889</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="fixed bugs">
+      <created>1570833562864</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1570833562864</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -286,6 +299,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="test" />
     <MESSAGE value="extracted actions from expert demo" />
     <MESSAGE value="latest commit" />
@@ -293,7 +307,8 @@
     <MESSAGE value="added combined lateral and longitudinal control, minor bugs fix" />
     <MESSAGE value="use pandas and matplotlib to plot data" />
     <MESSAGE value="longitudinal action is to choose which leader to follow" />
-    <option name="LAST_COMMIT_MESSAGE" value="longitudinal action is to choose which leader to follow" />
+    <MESSAGE value="fixed bugs" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed bugs" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -305,8 +320,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/LaneChangeEnv.py</url>
-          <line>443</line>
+          <line>453</line>
           <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/ppo_test/ppo_pendulum.py</url>
+          <line>114</line>
+          <option name="timeStamp" value="15" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

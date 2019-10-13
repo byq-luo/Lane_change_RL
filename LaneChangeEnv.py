@@ -49,6 +49,8 @@ class Vehicle:
         self.latSpeed_last = 0
         self.latAcce = 0
         self.acce = 0
+        self.acce_last = self.acce
+        self.delta_acce = 0
 
         self.pos = rd.startJunction
         self.pos_x = self.pos[0]
@@ -86,7 +88,10 @@ class Vehicle:
     def update_info(self, rd, veh_dict):
         self.laneIndex = traci.vehicle.getLaneIndex(self.veh_id)
         self.speed = traci.vehicle.getSpeed(self.veh_id)
+
         self.acce = traci.vehicle.getAcceleration(self.veh_id)
+        self.delta_acce = (self.acce - self.acce_last) / 0.1
+        self.acce_last = self.acce
 
         self.pos_lat_last = self.pos_lat
         self.pos_lat = traci.vehicle.getLateralLanePosition(self.veh_id) + (self.laneIndex+0.5)*rd.laneWidth
@@ -159,7 +164,6 @@ class Vehicle:
             print('following current leader')
             acceNext = self.idm_obj.calc_acce(self.speed, self.leaderDis, self.leaderSpeed)
         else:
-
             assert self.leaderID is not None and self.targetLeaderID is not None
             if self.leaderDis > (traci.vehicle.getLanePosition(self.targetLeaderID) - self.lanePos):
                 print('following closer leader: TARGET:%s' % self.targetLeaderID)
@@ -199,6 +203,12 @@ class Vehicle:
 
     def update_reward(self):
         # todo define reward
+        # reward related to comfort
+        wc1 = 1
+        wc2 = 1
+        r_comf = wc1*self.acce**2 + w2c*self.delta_acce**2
+        # reward related to efficiency
+        r_effi = -
         self.reward = -abs(self.dis2entrance - 100)
 
     def calculate_dis(self, x, y, x0, y0):
