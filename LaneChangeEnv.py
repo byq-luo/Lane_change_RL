@@ -197,6 +197,7 @@ class Vehicle:
             traci.vehicle.changeSublane(self.veh_id, 0.0)
 
         if self.dis2tgtLane < 0.1:
+            print('True', self.dis2tgtLane)
             return True
         else:
             return False
@@ -209,7 +210,7 @@ class Vehicle:
 
 
 class LaneChangeEnv(gym.Env):
-    def __init__(self, id=None, traffic=1, gui=True, seed=None):
+    def __init__(self, id=None, traffic=1, gui=False, seed=None):
         # todo check traffic flow density
         if traffic == 0:
             # average 9 vehicles
@@ -256,7 +257,6 @@ class LaneChangeEnv(gym.Env):
         self.ego = None
         # self.tgtLane = tgtlane
         self.is_success = False
-        self.dis2tgtLane = None
 
         self.collision_num = 0
 
@@ -318,9 +318,9 @@ class LaneChangeEnv(gym.Env):
             self.observation[name][1] = traci.vehicle.getSpeed(id)
             self.observation[name][2] = self.veh_dict[id].pos_lat
         else:
-            self.observation[name][0] = np.inf
-            self.observation[name][1] = np.inf
-            self.observation[name][2] = np.inf
+            self.observation[name][0] = self.observation[0][0] + 300.
+            self.observation[name][1] = self.observation[0][1]
+            self.observation[name][2] = 4.8
             # todo check if rational
 
     def updateObservation(self, egoid):
@@ -349,14 +349,16 @@ class LaneChangeEnv(gym.Env):
         w_lateral = 1
         w_longi = 1
         if self.ego.leaderID is not None:
+            print('lateralPos2leader', abs(self.ego.pos_lat - self.veh_dict[self.ego.leaderID].pos_lat))
             alpha = abs(self.ego.pos_lat - self.veh_dict[self.ego.leaderID].pos_lat) / 3.2
-            assert 0 <= alpha <= 1
+            assert 0 <= alpha <= 1.1
             r_safe_leader = w_lateral*alpha + w_longi*(1-alpha)*abs(self.ego.leaderDis)
         else:
             r_safe_leader = 0
         if self.ego.targetLeaderID is not None:
+            print('lateralPos2tgtleader', abs(self.ego.pos_lat - self.veh_dict[self.ego.targetLeaderID].pos_lat))
             alpha = abs(self.ego.pos_lat - self.veh_dict[self.ego.targetLeaderID].pos_lat) / 3.2
-            assert 0 <= alpha <= 1
+            assert 0 <= alpha <= 1.1
             r_safe_tgtleader = w_lateral*alpha + w_longi*(1-alpha)*abs(self.ego.lanePos - self.veh_dict[self.ego.targetLeaderID].lanePos)
         else:
             r_safe_tgtleader = 0
@@ -370,16 +372,15 @@ class LaneChangeEnv(gym.Env):
     def is_done(self):
         # lane change successfully executed, episode ends, reset env
         # todo modify
-        #if self.is_success:
-        if False:
+        if self.is_success:
             self.done = True
             print('reset on: successfully lane change, dis2targetlane:',
-                  self.dis2tgtLane)
+                  self.ego.dis2tgtLane)
         # too close to ramp entrance
         if self.ego.dis2entrance < 10.0:
             self.done = True
             print('reset on: too close to ramp entrance, dis2targetlane:',
-                  self.dis2tgtLane)
+                  self.ego.dis2tgtLane)
         # ego vehicle out of env
         if self.egoID not in self.vehID_tuple_all:
             self.done = True
@@ -479,8 +480,6 @@ class LaneChangeEnv(gym.Env):
 
         self.timestep += 1
 
-        if self.timestep > 100 and 'lane0.4' not in list(self.veh_dict.keys()):
-            fuck =1
         # lateral control-------------------------
         # episode in progress; 0:change back to original line; 1:lane change to target lane; 2:keep current
         # lane change to target lane
@@ -491,7 +490,7 @@ class LaneChangeEnv(gym.Env):
                 print('right', -(self.ego.pos_lat - 0.5*self.rd.laneWidth))
             # abort lane change, change back to ego's original lane
             if action_lateral == 0: #and abs(self.ego.pos_lat - (0.5+self.ego.origLane)*self.rd.laneWidth) > 0.01:
-                self.is_success, self.dis2tgtLane = self.ego.changeLane(True, self.ego.origLane, self.rd)
+                self.is_success = self.ego.changeLane(True, self.ego.origLane, self.rd)
                 print('left', 1.5 * self.rd.laneWidth - self.ego.pos_lat)
             #  keep current lateral position
             if action_lateral == 2:
@@ -507,6 +506,7 @@ class LaneChangeEnv(gym.Env):
             # follow leader in current lane
             acceNext = self.ego.updateLongitudinalSpeedIDM()
         else:
+            print('action_longi', action_longi)
             assert action_longi == 1, 'action_longi invalid!'
             acceNext = self.ego.calcAcce()
 
@@ -567,6 +567,7 @@ class LaneChangeEnv(gym.Env):
 
             self.ego.idm_obj = IDM()
             self.ego.idm_obj.__init__(self.ego_speedLimit)
+            self.ego.update_info(self.rd, self.veh_dict)
             self.updateObservation(self.egoID)
             #self.step(2)  # todo
             return self.observation

@@ -5,8 +5,8 @@ import gym
 import random
 from LaneChangeEnv import LaneChangeEnv
 
-EP_MAX = 1000
-EP_LEN = 200
+EP_NUM_MAX = 1000
+EP_LEN_MAX = 10000
 GAMMA = 0.9
 A_LR = 0.0001
 C_LR = 0.0002
@@ -37,19 +37,23 @@ class PPO(object):
             self.ctrain_op = tf.train.AdamOptimizer(C_LR).minimize(self.closs)
 
         # actor
-        pi, pi_params = self._build_anet('pi', trainable=True)
+        self.pi, pi_params = self._build_anet('pi', trainable=True)
         oldpi, oldpi_params = self._build_anet('oldpi', trainable=False)
-        with tf.variable_scope('sample_action'):
-            self.sample_op = tf.squeeze(pi.sample(1), axis=0)       # choosing action
+        # with tf.variable_scope('sample_action'):
+        #     self.sample_op = tf.squeeze(pi.sample(1), axis=0)       # choosing action
         with tf.variable_scope('update_oldpi'):
             self.update_oldpi_op = [oldp.assign(p) for p, oldp in zip(pi_params, oldpi_params)]
 
-        self.tfa = tf.placeholder(tf.float32, [None, ], 'action')
+        self.tfa = tf.placeholder(tf.int32, [None, ], 'action')
         self.tfadv = tf.placeholder(tf.float32, [None, 1], 'advantage')
         with tf.variable_scope('loss'):
             with tf.variable_scope('surrogate'):
                 # ratio = tf.exp(pi.log_prob(self.tfa) - oldpi.log_prob(self.tfa))
-                ratio = pi.prob(self.tfa) / oldpi.prob(self.tfa)
+                a_indices = tf.stack([tf.range(tf.shape(self.tfa)[0], dtype=tf.int32), self.tfa], axis=1)
+                pi_prob = tf.gather_nd(params=self.pi, indices=a_indices)  # shape=(None, )
+                oldpi_prob = tf.gather_nd(params=oldpi, indices=a_indices)  # shape=(None, )
+
+                ratio = pi_prob / oldpi_prob
                 surr = ratio * self.tfadv
             # clipping method, find this is better
             self.aloss = -tf.reduce_mean(tf.minimum(
@@ -78,20 +82,19 @@ class PPO(object):
     def _build_anet(self, name, trainable):
         with tf.variable_scope(name):
             l1 = tf.layers.dense(self.tfs, 100, tf.nn.relu, trainable=trainable)
-            l2 = tf.layers.dense(l1, 10, tf.nn.softmax, trainable=trainable)
-            mu = 2 * tf.layers.dense(l1, A_DIM, tf.nn.tanh, trainable=trainable)
-            sigma = tf.layers.dense(l1, A_DIM, tf.nn.softplus, trainable=trainable)
-            norm_dist = tf.distributions.Normal(loc=mu, scale=sigma)
+            a_prob = tf.layers.dense(l1, 6, tf.nn.softmax, trainable=trainable)
         params = tf.get_collection(tf.GraphKeys.GLOBAL_VARIABLES, scope=name)
-        return norm_dist, params
+        return a_prob, params
 
     def choose_action(self, s):
-        s = s[np.newaxis, :]
-        a = self.sess.run(self.sample_op, {self.tfs: s})[0]
-        return np.clip(a, -2, 2)
+        prob_weights = self.sess.run(self.pi, feed_dict={self.tfs: s[None, :]})
+        action = np.random.choice(range(prob_weights.shape[1]),
+                                  p=prob_weights.ravel())  # select action w.r.t the actions prob
+        return action
 
     def get_v(self, s):
-        if s.ndim < 2: s = s[np.newaxis, :]
+        if s.ndim < 2:
+            s = s[np.newaxis, :]
         return self.sess.run(self.v, {self.tfs: s})[0, 0]
 
 
@@ -99,34 +102,42 @@ env = LaneChangeEnv()
 ppo = PPO()
 all_ep_r = []
 
-for ep in range(EP_MAX):
-    egoid = 'lane1.' + random.randint(1, 5)
+for ep in range(EP_NUM_MAX):
+    egoid = 'lane1.' + str(random.randint(1, 5))
     state = env.reset(egoid=egoid, tlane=0, tfc=2, is_gui=False, sumoseed=None, randomseed=None)
-
+    state_np = np.asarray(state).flatten()
     buffer_s, buffer_a, buffer_r = [], [], []
     ep_r = 0
-    for t in range(EP_LEN):    # in one episode
-        action = ppo.choose_action(state)
-        state, reward, done, info = env.step((action % 3, action//3))  # need modification
-        buffer_s.append(np.asarray(state).flatten())
-        buffer_a.append(action)
-        buffer_r.append(reward)
+    for t in range(EP_LEN_MAX):    # in one episode
+        action = ppo.choose_action(state_np)
+        print('action:', action, (action//3, action % 3))
+
+        state, reward, done, info = env.step((action // 3, action % 3))  # need modification
+        is_end_episode = done and info['resetFlag']
+        if not is_end_episode:
+            buffer_s.append(state_np)
+            buffer_a.append(action)
+            buffer_r.append(reward)
         #buffer_r.append((r+8)/8)    # normalize reward, find to be useful
         #s = s_
-        ep_r += reward
+            ep_r += reward
 
         # update ppo
-        if (t+1) % BATCH == 0 or t == EP_LEN-1:
-            v_s_ = ppo.get_v(state)
+        if (t+1) % BATCH == 0 or is_end_episode:
+            v_s_ = ppo.get_v(state_np)
             discounted_r = []
             for r in buffer_r[::-1]:
                 v_s_ = r + GAMMA * v_s_
                 discounted_r.append(v_s_)
             discounted_r.reverse()
-
-            bs, ba, br = np.vstack(buffer_s), np.vstack(buffer_a), np.array(discounted_r)[:, np.newaxis]
+            bs, ba, br = np.vstack(buffer_s), np.asarray(buffer_a), np.array(discounted_r)[:, np.newaxis]
             buffer_s, buffer_a, buffer_r = [], [], []
             ppo.update(bs, ba, br)
+
+        if is_end_episode:
+            state = env.reset(egoid=egoid, tlane=0, tfc=2, is_gui=False, sumoseed=None, randomseed=None)
+            break
+
     if ep == 0:
         all_ep_r.append(ep_r)
     else:
