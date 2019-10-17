@@ -2,38 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b0c90436-3db4-4a5e-b1d8-c94fa90c6d12" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/log/events.out.tfevents.1571075865.xuxinde-MateBook-X-Pro.local" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/log/events.out.tfevents.1571075881.xuxinde-MateBook-X-Pro.local" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/log/events.out.tfevents.1571076084.xuxinde-MateBook-X-Pro.local" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/log/events.out.tfevents.1571076193.xuxinde-MateBook-X-Pro.local" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/log/events.out.tfevents.1571076245.xuxinde-MateBook-X-Pro.local" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/log/events.out.tfevents.1571076858.xuxinde-MateBook-X-Pro.local" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/log/events.out.tfevents.1571076897.xuxinde-MateBook-X-Pro.local" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/log/events.out.tfevents.1571076984.xuxinde-MateBook-X-Pro.local" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/log/events.out.tfevents.1571077136.xuxinde-MateBook-X-Pro.local" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/log/events.out.tfevents.1571077330.xuxinde-MateBook-X-Pro.local" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/log/events.out.tfevents.1571077478.xuxinde-MateBook-X-Pro.local" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/log/events.out.tfevents.1571077688.xuxinde-MateBook-X-Pro.local" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/log/events.out.tfevents.1571077710.xuxinde-MateBook-X-Pro.local" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/log/events.out.tfevents.1571077784.xuxinde-MateBook-X-Pro.local" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/log/events.out.tfevents.1571078789.xuxinde-MateBook-X-Pro.local" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/log/events.out.tfevents.1571078954.xuxinde-MateBook-X-Pro.local" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/log/events.out.tfevents.1571079056.xuxinde-MateBook-X-Pro.local" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/log/events.out.tfevents.1571079090.xuxinde-MateBook-X-Pro.local" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/log/events.out.tfevents.1571079219.xuxinde-MateBook-X-Pro.local" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/log/events.out.tfevents.1571079450.xuxinde-MateBook-X-Pro.local" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/log/events.out.tfevents.1571080861.xuxinde-MateBook-X-Pro.local" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/log/events.out.tfevents.1571080960.xuxinde-MateBook-X-Pro.local" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/log/events.out.tfevents.1571081092.xuxinde-MateBook-X-Pro.local" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/log/events.out.tfevents.1571081153.xuxinde-MateBook-X-Pro.local" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/log/events.out.tfevents.1571082148.xuxinde-MateBook-X-Pro.local" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ppo_test/dppo.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ppo_test/log/events.out.tfevents.1571003896.xuxinde-MateBook-X-Pro.local" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LaneChangeEnv.py" beforeDir="false" afterPath="$PROJECT_DIR$/LaneChangeEnv.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PPO.py" beforeDir="false" afterPath="$PROJECT_DIR$/PPO.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/original.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/original.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/misc.py" beforeDir="false" afterPath="$PROJECT_DIR$/misc.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -328,7 +299,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571002468607</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="fixed bugs">
+      <created>1571094232887</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1571094232887</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -353,11 +331,11 @@
     <MESSAGE value="added combined lateral and longitudinal control, minor bugs fix" />
     <MESSAGE value="use pandas and matplotlib to plot data" />
     <MESSAGE value="longitudinal action is to choose which leader to follow" />
-    <MESSAGE value="fixed bugs" />
     <MESSAGE value="added PPO test" />
     <MESSAGE value="added reward" />
     <MESSAGE value="added ppo" />
-    <option name="LAST_COMMIT_MESSAGE" value="added ppo" />
+    <MESSAGE value="fixed bugs" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed bugs" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -376,11 +354,6 @@
           <url>file://$PROJECT_DIR$/ppo_test/ppo_pendulum.py</url>
           <line>60</line>
           <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/PPO.py</url>
-          <line>132</line>
-          <option name="timeStamp" value="31" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
