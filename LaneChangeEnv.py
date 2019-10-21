@@ -123,18 +123,25 @@ class Vehicle:
             self.leaderSpeed = None
         # the following 2 all in list [(id1, distance1), (id2, distance2), ...], each tuple is a leader on one lane
         # for a single left lane, the list only contains 1 tuple, eg.[(id1, distance1)]
-        if len(traci.vehicle.getNeighbors(self.veh_id, int(self.laneIndex > self.targetLane)+2+0)) != 0:
-            self.targetLeaderID = traci.vehicle.getNeighbors(self.veh_id, int(self.laneIndex>self.targetLane)+2+0)[0][0]
-            if self.targetLeaderID not in list(veh_dict.keys()):
+        # todo modify getNeighbor once changed to target lane, only follow target leader, leader==targetLeader
+        if self.laneIndex > self.targetLane:
+            if len(traci.vehicle.getNeighbors(self.veh_id, int(self.laneIndex > self.targetLane)+2+0)) != 0:
+
+                self.targetLeaderID = traci.vehicle.getNeighbors(self.veh_id, int(self.laneIndex>self.targetLane)+2+0)[0][0]
+                if self.targetLeaderID not in list(veh_dict.keys()):
+                    self.targetLeaderID = None
+            else:
                 self.targetLeaderID = None
-        else:
-            self.targetLeaderID = None
-        if len(traci.vehicle.getNeighbors(self.veh_id, int(self.laneIndex > self.targetLane)+0+0)) != 0:
-            self.targetFollowerID = traci.vehicle.getNeighbors(self.veh_id, int(self.laneIndex>self.targetLane)+0+0)[0][0]
-            if self.targetFollowerID not in list(veh_dict.keys()):
+            if len(traci.vehicle.getNeighbors(self.veh_id, int(self.laneIndex > self.targetLane)+0+0)) != 0:
+                self.targetFollowerID = traci.vehicle.getNeighbors(self.veh_id, int(self.laneIndex>self.targetLane)+0+0)[0][0]
+                if self.targetFollowerID not in list(veh_dict.keys()):
+                    self.targetFollowerID = None
+            else:
                 self.targetFollowerID = None
         else:
-            self.targetFollowerID = None
+            assert self.laneIndex == self.targetLane
+            self.targetLeaderID = self.leaderID
+            self.targetFollowerID = self.leaderID
 
         self.dis2tgtLane = abs((0.5 + self.targetLane) * rd.laneWidth - self.pos_lat)
         self.dis2entrance = rd.laneLength - self.lanePos
@@ -197,7 +204,7 @@ class Vehicle:
             traci.vehicle.changeSublane(self.veh_id, 0.0)
 
         if self.dis2tgtLane < 0.1:
-            print('True', self.dis2tgtLane)
+
             return True
         else:
             return False
@@ -331,6 +338,10 @@ class LaneChangeEnv(gym.Env):
         self._updateObservationSingle(3, self.ego.targetFollowerID)
 
     def updateReward(self):
+        r_total = -abs(self.ego.dis2tgtLane)
+        return r_total
+
+    def updateReward2(self):
         wc1 = 1
         wc2 = 1
         wt = 1
@@ -358,7 +369,9 @@ class LaneChangeEnv(gym.Env):
         if self.ego.targetLeaderID is not None:
             print('lateralPos2tgtleader', abs(self.ego.pos_lat - self.veh_dict[self.ego.targetLeaderID].pos_lat))
             alpha = abs(self.ego.pos_lat - self.veh_dict[self.ego.targetLeaderID].pos_lat) / 3.2
+            print('alpha', alpha)
             assert 0 <= alpha <= 1.1
+
             r_safe_tgtleader = w_lateral*alpha + w_longi*(1-alpha)*abs(self.ego.lanePos - self.veh_dict[self.ego.targetLeaderID].lanePos)
         else:
             r_safe_tgtleader = 0

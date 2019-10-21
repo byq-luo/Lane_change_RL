@@ -4,6 +4,10 @@ import matplotlib.pyplot as plt
 from PPO import PPO
 import random
 from LaneChangeEnv import LaneChangeEnv
+import sys
+
+
+sys.stdout = open('log.txt', 'w')
 
 EP_NUM_MAX = 1000
 EP_LEN_MAX = 10000
@@ -19,7 +23,7 @@ METHOD = [
     dict(name='kl_pen', kl_target=0.01, lam=0.5),  # KL penalty
     dict(name='clip', epsilon=0.2),  # Clipped surrogate objective, find this is better
 ][1]  # choose the method for optimization
-train_dir = '../model/'
+train_dir = '../model/1/'
 
 env = LaneChangeEnv()
 ppo = PPO()
@@ -41,7 +45,7 @@ with tf.Session() as sess:
         ep_r = 0
         for t in range(EP_LEN_MAX):    # in one episode
             action = ppo.choose_action(state_np)
-            print('action:', action, (action//3, action % 3))
+            #print('action:', action, (action//3, action % 3))
 
             state, reward, done, info = env.step((action // 3, action % 3))  # need modification
             is_end_episode = done and info['resetFlag']
@@ -55,6 +59,7 @@ with tf.Session() as sess:
 
             # update ppo
             if (t+1) % BATCH == 0 or is_end_episode:
+
                 v_s_ = ppo.get_v(state_np)
                 discounted_r = []
                 for r in buffer_r[::-1]:
@@ -63,12 +68,14 @@ with tf.Session() as sess:
                 discounted_r.reverse()
                 bs, ba, br = np.vstack(buffer_s), np.asarray(buffer_a), np.array(discounted_r)[:, np.newaxis]
                 buffer_s, buffer_a, buffer_r = [], [], []
-                ppo.update(bs, ba, br)
+                summary_multi_steps_list = ppo.update(bs, ba, br)
+                for i in range(len(summary_multi_steps_list)):
+                    writer.add_summary(summary_multi_steps_list[i], ep*A_UPDATE_STEPS+i)
 
             if is_end_episode:
                 state = env.reset(egoid=egoid, tlane=0, tfc=2, is_gui=False, sumoseed=None, randomseed=None)
                 break
-        writer.add_summary(reward_summary, ep)
+        writer.add_summary(sess.run(reward_summary, feed_dict={reward_ph: ep_r}), ep)
         if ep == 0:
             all_ep_r.append(ep_r)
         else:
