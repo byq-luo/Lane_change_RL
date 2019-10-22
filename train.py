@@ -19,6 +19,9 @@ A_UPDATE_STEPS = 10
 C_UPDATE_STEPS = 10
 S_DIM = 12
 A_NUM = 6
+MODEL_SAVE_INTERVAL = 10
+MODEL_DIR = '../model/'
+
 METHOD = [
     dict(name='kl_pen', kl_target=0.01, lam=0.5),  # KL penalty
     dict(name='clip', epsilon=0.2),  # Clipped surrogate objective, find this is better
@@ -35,6 +38,7 @@ with tf.Session() as sess:
 
     reward_summary = tf.summary.scalar('reward/reward', reward_ph)
     writer = tf.summary.FileWriter(train_dir, sess.graph)
+    saver = tf.train.Saver(max_to_keep=10)
 
     for ep in range(EP_NUM_MAX):
 
@@ -76,6 +80,8 @@ with tf.Session() as sess:
                 state = env.reset(egoid=egoid, tlane=0, tfc=2, is_gui=False, sumoseed=None, randomseed=None)
                 break
         writer.add_summary(sess.run(reward_summary, feed_dict={reward_ph: ep_r}), ep)
+        if (ep+1) % MODEL_SAVE_INTERVAL == 0:
+            saver.save(sess, MODEL_DIR+'model.ckpt', global_step=ep+1)
         if ep == 0:
             all_ep_r.append(ep_r)
         else:
