@@ -18,10 +18,12 @@ METHOD = [
 
 
 class PPO(object):
-    def __init__(self):
-        self.sess = tf.Session()
+    def __init__(self, sess):
+        self.sess = sess
+        self.actor_step = 0
+        self.critic_step = 0
         self.tfs = tf.placeholder(tf.float32, [None, S_DIM], 'state')
-        self.summary_list = []
+        self.summary_dict = {}
         self.summary_merged_eval_multi_steps = []
 
         # critic
@@ -31,7 +33,9 @@ class PPO(object):
             self.v = tf.layers.dense(l2, 1)
             self.tfdc_r = tf.placeholder(tf.float32, [None, 1], 'discounted_r')
             self.advantage = self.tfdc_r - self.v
+            self.advantage_eval = None
             self.closs = tf.reduce_mean(tf.square(self.advantage))
+            self.summary_closs = tf.summary.scalar('critic_loss', self.closs)
             self.ctrain_op = tf.train.AdamOptimizer(C_LR).minimize(self.closs)
 
         # actor
@@ -57,28 +61,51 @@ class PPO(object):
             self.aloss = -tf.reduce_mean(tf.minimum(
                 surr,
                 tf.clip_by_value(ratio, 1.-METHOD['epsilon'], 1.+METHOD['epsilon'])*self.tfadv))
-            self.summary_list.append(tf.summary.scalar('loss', self.aloss))
+            self.summary_aloss = tf.summary.scalar('actor_loss', self.aloss)
         with tf.variable_scope('atrain'):
             self.atrain_op = tf.train.AdamOptimizer(A_LR).minimize(self.aloss)
 
         #tf.summary.FileWriter("log/", self.sess.graph)
-        self.summary_merged = tf.summary.merge(self.summary_list)
+
         self.sess.run(tf.global_variables_initializer())
 
-    def update(self, s, a, r):
+    def update_old_pi(self, s, r):
         self.sess.run(self.update_oldpi_op)
-        adv = self.sess.run(self.advantage, feed_dict={self.tfs: s, self.tfdc_r: r})
+        self.advantage_eval = self.sess.run(self.advantage, feed_dict={self.tfs: s, self.tfdc_r: r})
         # adv = (adv - adv.mean())/(adv.std()+1e-6)     # sometimes helpful
 
+    def learn_actor(self, s, a):
+        self.actor_step += 1
+        to, summary_aloss_eval = self.sess.run([self.atrain_op, self.summary_aloss],
+                                               feed_dict={self.tfs: s, self.tfa: a, self.tfadv: self.advantage_eval})
+        return summary_aloss_eval
+
+    def learn_critic(self, s, r):
+        self.critic_step += 1
+        to, summary_closs_eval = self.sess.run([self.ctrain_op, self.summary_closs],
+                                               feed_dict={self.tfs: s, self.tfdc_r: r})
+        return summary_closs_eval
+        '''
+        summary_eval_multi_steps = {}
+        summary_actor_loss_multi_steps = []
+        summary_critic_loss_multi_steps = []
         # update actor
         # clipping method, find this is better (OpenAI's paper)
-        summary_merged_eval_multi_steps = []
         for _ in range(A_UPDATE_STEPS):
-            to, smr_temp = self.sess.run([self.atrain_op, self.summary_merged], {self.tfs: s, self.tfa: a, self.tfadv: adv})
-            summary_merged_eval_multi_steps.append(smr_temp)
+            self.actor_step += 1
+            to, smr_temp = self.sess.run([self.atrain_op, self.summary_dict['actor_loss']],
+                                         feed_dict={self.tfs: s, self.tfa: a, self.tfadv: adv})
+            summary_actor_loss_multi_steps.append(smr_temp)
+        summary_eval_multi_steps['actor_loss'] = summary_actor_loss_multi_steps
         # update critic
-        [self.sess.run(self.ctrain_op, {self.tfs: s, self.tfdc_r: r}) for _ in range(C_UPDATE_STEPS)]
-        return summary_merged_eval_multi_steps
+        for _ in range(C_UPDATE_STEPS):
+            self.critic_step += 1
+            to, smr_temp = self.sess.run([self.ctrain_op, self.summary_dict['critic_loss']],
+                                         feed_dict={self.tfs: s, self.tfdc_r: r})
+            summary_critic_loss_multi_steps.append(smr_temp)
+        summary_eval_multi_steps['critic_loss'] = summary_critic_loss_multi_steps
+        return summary_eval_multi_steps
+        '''
 
     def _build_anet(self, name, trainable):
         with tf.variable_scope(name):

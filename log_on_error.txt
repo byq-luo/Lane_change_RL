@@ -1,0 +1,5647 @@
+ Retrying in 1 seconds
+ep: 0
+ Retrying in 1 seconds
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+t: 31 len_buffer_s 32
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+t: 63 len_buffer_s 32
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+t: 95 len_buffer_s 32
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+t: 127 len_buffer_s 32
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+no leader
+left 0.0
+action_longi 1
+no leader
+left 0.0
+action_longi 1
+no leader
+left 0.0
+action_longi 1
+no leader
+left 0.0
+action_longi 1
+no leader
+left 0.0
+action_longi 1
+no leader
+left 0.0
+action_longi 1
+no leader
+left 0.0
+action_longi 1
+no leader
+left 0.0
+action_longi 1
+no leader
+left 0.0
+action_longi 1
+no leader
+left 0.0
+action_longi 1
+no leader
+reset on: too close to ramp entrance, dis2targetlane: 3.2000000000000006
+t: 146 len_buffer_s 18
+ Retrying in 1 seconds
+Ep: 0 |Ep_r: -467 
+episode ends
+
+
+ep: 1
+ Retrying in 1 seconds
+left 0.0
+action_longi 1
+following current leader
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.1
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.1
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.1
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.1
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.1
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.1
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.1
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.1
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.1
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.1
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.1
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.1
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.1
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.1
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.1
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.1
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.1
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.1
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.1
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.1
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.1
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.1
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.1
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.1
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.1
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.1
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.1
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.1
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.1
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.1
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.1
+t: 31 len_buffer_s 32
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.1
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.1
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.1
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+t: 63 len_buffer_s 32
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+t: 95 len_buffer_s 32
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+
+self.collision_num: 2
+t: 122 len_buffer_s 26
+ Retrying in 1 seconds
+Ep: 1 |Ep_r: -390 
+episode ends
+
+
+ep: 2
+ Retrying in 1 seconds
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.0
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.1
+left 0.0
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.1
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.1
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.1
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.2
+left 0.0
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+left 0.0
+t: 31 len_buffer_s 32
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.5
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.5
+t: 63 len_buffer_s 32
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.5
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.5
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.5
+left 0.0
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.5
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.5
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.5
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.5
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.5
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.5
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.5
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.5
+left 0.0
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.5
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.5
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.5
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.5
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.5
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.5
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.5
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.5
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.5
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.5
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.5
+left 0.0
+t: 95 len_buffer_s 32
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.5
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.5
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.5
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.5
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.5
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.5
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.5
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.5
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.5
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.5
+left 0.0
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.5
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.5
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.5
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.5
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.5
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.5
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.5
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.5
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.5
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.5
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.5
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.5
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.5
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.5
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.5
+t: 127 len_buffer_s 32
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.5
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.5
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.5
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.5
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.5
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.5
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.5
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.5
+
+self.collision_num: 2
+t: 136 len_buffer_s 8
+ Retrying in 1 seconds
+Ep: 2 |Ep_r: -435 
+episode ends
+
+
+ep: 3
+ Retrying in 1 seconds
+left 0.0
+action_longi 1
+following current leader
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.7
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.3
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.3
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.3
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.3
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.3
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.3
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.3
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.3
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+t: 31 len_buffer_s 32
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+t: 63 len_buffer_s 32
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+t: 95 len_buffer_s 32
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+t: 127 len_buffer_s 32
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+t: 159 len_buffer_s 32
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+t: 191 len_buffer_s 32
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+no leader
+left 0.0
+action_longi 1
+no leader
+left 0.0
+action_longi 1
+no leader
+left 0.0
+action_longi 1
+no leader
+left 0.0
+action_longi 1
+no leader
+left 0.0
+action_longi 1
+no leader
+left 0.0
+action_longi 1
+no leader
+left 0.0
+action_longi 1
+no leader
+left 0.0
+action_longi 1
+no leader
+reset on: too close to ramp entrance, dis2targetlane: 3.2000000000000006
+t: 201 len_buffer_s 9
+ Retrying in 1 seconds
+Ep: 3 |Ep_r: -643 
+episode ends
+
+
+ep: 4
+ Retrying in 1 seconds
+left 0.0
+action_longi 1
+following current leader
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.4
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.4
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.4
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.10
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.11
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.11
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.11
+t: 31 len_buffer_s 32
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.11
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.12
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.12
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+t: 63 len_buffer_s 32
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.12
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.11
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.11
+left 0.0
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.11
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.11
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+t: 95 len_buffer_s 32
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.10
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.10
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.10
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.10
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+t: 127 len_buffer_s 32
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.9
+left 0.0
+t: 159 len_buffer_s 32
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+t: 191 len_buffer_s 32
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+reset on: too close to ramp entrance, dis2targetlane: 3.2000000000000006
+t: 207 len_buffer_s 15
+ Retrying in 1 seconds
+Ep: 4 |Ep_r: -662 
+episode ends
+
+
+ep: 5
+ Retrying in 1 seconds
+left 0.0
+action_longi 1
+following current leader
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.0
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.0
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.0
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.0
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.0
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.0
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.0
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.0
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.0
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.0
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.0
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+t: 31 len_buffer_s 32
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.1
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.1
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.1
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.1
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.1
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.1
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.1
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.1
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.1
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.1
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.1
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.1
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.1
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.1
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.1
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.1
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.1
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.1
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+t: 63 len_buffer_s 32
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+t: 95 len_buffer_s 32
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following target leader
+t: 127 len_buffer_s 32
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+no leader
+left 0.0
+action_longi 1
+no leader
+left 0.0
+action_longi 1
+no leader
+left 0.0
+action_longi 1
+no leader
+left 0.0
+action_longi 1
+no leader
+left 0.0
+action_longi 1
+no leader
+left 0.0
+action_longi 1
+no leader
+left 0.0
+action_longi 1
+no leader
+left 0.0
+action_longi 1
+no leader
+t: 159 len_buffer_s 32
+left 0.0
+action_longi 1
+no leader
+left 0.0
+action_longi 1
+no leader
+left 0.0
+action_longi 1
+no leader
+left 0.0
+action_longi 1
+no leader
+reset on: too close to ramp entrance, dis2targetlane: 3.2000000000000006
+t: 163 len_buffer_s 3
+ Retrying in 1 seconds
+Ep: 5 |Ep_r: -521 
+episode ends
+
+
+ep: 6
+ Retrying in 1 seconds
+left 0.0
+action_longi 1
+following current leader
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.0
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.0
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.0
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.0
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.0
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.0
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.0
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.0
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.0
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.0
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.0
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.0
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.0
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.0
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.0
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.0
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.0
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.0
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.0
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.0
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.0
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.0
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.0
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.0
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.0
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.0
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+t: 31 len_buffer_s 32
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+t: 63 len_buffer_s 32
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+t: 95 len_buffer_s 32
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.0
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+t: 127 len_buffer_s 32
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+no leader
+left 0.0
+action_longi 1
+no leader
+left 0.0
+action_longi 1
+no leader
+left 0.0
+action_longi 1
+no leader
+left 0.0
+action_longi 1
+no leader
+left 0.0
+action_longi 1
+no leader
+left 0.0
+action_longi 1
+no leader
+left 0.0
+action_longi 1
+no leader
+left 0.0
+action_longi 1
+no leader
+left 0.0
+action_longi 1
+no leader
+left 0.0
+action_longi 1
+no leader
+reset on: too close to ramp entrance, dis2targetlane: 3.2000000000000006
+t: 153 len_buffer_s 25
+ Retrying in 1 seconds
+Ep: 6 |Ep_r: -489 
+episode ends
+
+
+ep: 7
+ Retrying in 1 seconds
+left 0.0
+action_longi 1
+following current leader
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.1
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.1
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.1
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.1
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.1
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.1
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+t: 31 len_buffer_s 32
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+t: 63 len_buffer_s 32
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+t: 95 len_buffer_s 32
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+t: 127 len_buffer_s 32
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+left 0.0
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+left 0.0
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+t: 159 len_buffer_s 32
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+left 0.0
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+no leader
+left 0.0
+action_longi 1
+no leader
+left 0.0
+action_longi 1
+no leader
+left 0.0
+action_longi 1
+no leader
+left 0.0
+action_longi 1
+no leader
+left 0.0
+action_longi 1
+no leader
+left 0.0
+action_longi 1
+no leader
+left 0.0
+action_longi 1
+no leader
+left 0.0
+action_longi 1
+no leader
+left 0.0
+action_longi 1
+no leader
+left 0.0
+action_longi 1
+no leader
+left 0.0
+left 0.0
+action_longi 1
+no leader
+reset on: too close to ramp entrance, dis2targetlane: 3.2000000000000006
+t: 182 len_buffer_s 22
+ Retrying in 1 seconds
+Ep: 7 |Ep_r: -582 
+episode ends
+
+
+ep: 8
+ Retrying in 1 seconds
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.3
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+t: 31 len_buffer_s 32
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+t: 63 len_buffer_s 32
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+t: 95 len_buffer_s 32
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.9
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+t: 127 len_buffer_s 32
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+t: 159 len_buffer_s 32
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+t: 191 len_buffer_s 32
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+reset on: too close to ramp entrance, dis2targetlane: 3.2000000000000006
+t: 211 len_buffer_s 19
+ Retrying in 1 seconds
+Ep: 8 |Ep_r: -675 
+episode ends
+
+
+ep: 9
+ Retrying in 1 seconds
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+t: 31 len_buffer_s 32
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+t: 63 len_buffer_s 32
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.7
+left 0.0
+left 0.0
+left 0.0
+t: 95 len_buffer_s 32
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+t: 127 len_buffer_s 32
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+t: 159 len_buffer_s 32
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+t: 191 len_buffer_s 32
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+reset on: too close to ramp entrance, dis2targetlane: 3.2000000000000006
+t: 196 len_buffer_s 4
+ Retrying in 1 seconds
+Ep: 9 |Ep_r: -627 
+episode ends
+
+
+ep: 10
+ Retrying in 1 seconds
+left 0.0
+action_longi 1
+following current leader
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+t: 31 len_buffer_s 32
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+t: 63 len_buffer_s 32
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+t: 95 len_buffer_s 32
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+t: 127 len_buffer_s 32
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+t: 159 len_buffer_s 32
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+no leader
+left 0.0
+action_longi 1
+no leader
+left 0.0
+action_longi 1
+no leader
+left 0.0
+action_longi 1
+no leader
+left 0.0
+action_longi 1
+no leader
+left 0.0
+action_longi 1
+no leader
+left 0.0
+action_longi 1
+no leader
+reset on: too close to ramp entrance, dis2targetlane: 3.2000000000000006
+t: 185 len_buffer_s 25
+ Retrying in 1 seconds
+Ep: 10 |Ep_r: -591 
+episode ends
+
+
+ep: 11
+ Retrying in 1 seconds
+left 0.0
+action_longi 1
+following current leader
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+t: 31 len_buffer_s 32
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+t: 63 len_buffer_s 32
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+t: 95 len_buffer_s 32
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+t: 127 len_buffer_s 32
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.6
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+left 0.0
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+t: 159 len_buffer_s 32
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+no leader
+left 0.0
+action_longi 1
+no leader
+left 0.0
+action_longi 1
+no leader
+left 0.0
+action_longi 1
+no leader
+left 0.0
+action_longi 1
+no leader
+left 0.0
+action_longi 1
+no leader
+left 0.0
+action_longi 1
+no leader
+left 0.0
+action_longi 1
+no leader
+left 0.0
+action_longi 1
+no leader
+left 0.0
+action_longi 1
+no leader
+left 0.0
+action_longi 1
+no leader
+left 0.0
+action_longi 1
+no leader
+reset on: too close to ramp entrance, dis2targetlane: 3.2000000000000006
+t: 185 len_buffer_s 25
+ Retrying in 1 seconds
+Ep: 11 |Ep_r: -591 
+episode ends
+
+
+ep: 12
+ Retrying in 1 seconds
+left 0.0
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.4
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.4
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.4
+left 0.0
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: CURRENT LANE:lane1.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.10
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.10
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.10
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.10
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.10
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.10
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.10
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.11
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.11
+left 0.0
+left 0.0
+t: 31 len_buffer_s 32
+left 0.0
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.11
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.11
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.11
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.12
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.12
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.12
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.12
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.12
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.12
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.12
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.12
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.12
+left 0.0
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.12
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.12
+t: 63 len_buffer_s 32
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.12
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.12
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.12
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.12
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.12
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.13
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.13
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.13
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.13
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.13
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.13
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.12
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.12
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.12
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.12
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.12
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.12
+left 0.0
+
+self.collision_num: 2
+t: 89 len_buffer_s 25
+ Retrying in 1 seconds
+Ep: 12 |Ep_r: -284 
+episode ends
+
+
+ep: 13
+ Retrying in 1 seconds
+left 0.0
+action_longi 1
+following current leader
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.4
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+t: 31 len_buffer_s 32
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+t: 63 len_buffer_s 32
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+t: 95 len_buffer_s 32
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following closer leader: TARGET:lane0.3
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+t: 127 len_buffer_s 32
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+following target leader
+left 0.0
+action_longi 1
+no leader
+left 0.0
+action_longi 1
+no leader
+left 0.0
+action_longi 1
+no leader
+left 0.0
+action_longi 1
+no leader
+left 0.0
+action_longi 1
+no leader
+left 0.0
+action_longi 1
+no leader
+left 0.0
+action_longi 1
+no leader
+left 0.0
+action_longi 1
+no leader
+t: 159 len_buffer_s 32
+left 0.0
+action_longi 1
+no leader
+reset on: too close to ramp entrance, dis2targetlane: 3.2000000000000006
+t: 160 len_buffer_s 0

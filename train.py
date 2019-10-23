@@ -1,6 +1,5 @@
 import tensorflow as tf
 import numpy as np
-import matplotlib.pyplot as plt
 from PPO import PPO
 import random
 from LaneChangeEnv import LaneChangeEnv
@@ -19,7 +18,7 @@ A_UPDATE_STEPS = 10
 C_UPDATE_STEPS = 10
 S_DIM = 12
 A_NUM = 6
-MODEL_SAVE_INTERVAL = 10
+MODEL_SAVE_INTERVAL = 5
 MODEL_DIR = '../model/'
 
 METHOD = [
@@ -28,11 +27,11 @@ METHOD = [
 ][1]  # choose the method for optimization
 train_dir = '../model/1/'
 
-env = LaneChangeEnv()
-ppo = PPO()
-all_ep_r = []
-
 with tf.Session() as sess:
+    env = LaneChangeEnv()
+    ppo = PPO(sess)
+    all_ep_r = []
+
     reward_ph = tf.placeholder(tf.float32, shape=())
     #reward_ph = tf.placeholder(tf.float32, shape=())
 
@@ -41,7 +40,7 @@ with tf.Session() as sess:
     saver = tf.train.Saver(max_to_keep=10)
 
     for ep in range(EP_NUM_MAX):
-
+        print('ep:', ep)
         egoid = 'lane1.' + str(random.randint(1, 5))
         state = env.reset(egoid=egoid, tlane=0, tfc=2, is_gui=False, sumoseed=None, randomseed=None)
         state_np = np.asarray(state).flatten()
@@ -57,28 +56,39 @@ with tf.Session() as sess:
                 buffer_s.append(state_np)
                 buffer_a.append(action)
                 buffer_r.append(reward)
-            #buffer_r.append((r+8)/8)    # normalize reward, find to be useful
-            #s = s_
+                #buffer_r.append((r+8)/8)    # normalize reward, find to be useful
+                #s = s_
                 ep_r += reward
 
             # update ppo
             if (t+1) % BATCH == 0 or is_end_episode:
-
+                print('t:', t, 'len_buffer_s', len(buffer_s))
                 v_s_ = ppo.get_v(state_np)
                 discounted_r = []
+                # todo check error 'ValueError: need at least one array to concatenate'
                 for r in buffer_r[::-1]:
                     v_s_ = r + GAMMA * v_s_
                     discounted_r.append(v_s_)
                 discounted_r.reverse()
                 bs, ba, br = np.vstack(buffer_s), np.asarray(buffer_a), np.array(discounted_r)[:, np.newaxis]
                 buffer_s, buffer_a, buffer_r = [], [], []
-                summary_multi_steps_list = ppo.update(bs, ba, br)
-                for i in range(len(summary_multi_steps_list)):
-                    writer.add_summary(summary_multi_steps_list[i], ep*A_UPDATE_STEPS+i)
-
+                ppo.update_old_pi(bs, br)
+                for i in range(A_UPDATE_STEPS):
+                    summary_aloss_eval = ppo.learn_actor(bs, ba)
+                    writer.add_summary(summary_aloss_eval, ppo.actor_step)
+                for i in range(A_UPDATE_STEPS):
+                    summary_closs_eval = ppo.learn_critic(bs, br)
+                    writer.add_summary(summary_closs_eval, ppo.critic_step)
+                '''
+                for i in range(len(summary_multi_steps_dict['actor_loss'])):
+                    writer.add_summary(summary_multi_steps_dict['actor_loss'][i], ep * A_UPDATE_STEPS + i)
+                for i in range(len(summary_multi_steps_dict['critic_loss'])):
+                    writer.add_summary(summary_multi_steps_dict['critic_loss'][i], ep * C_UPDATE_STEPS + i)
+                '''
             if is_end_episode:
                 state = env.reset(egoid=egoid, tlane=0, tfc=2, is_gui=False, sumoseed=None, randomseed=None)
                 break
+
         writer.add_summary(sess.run(reward_summary, feed_dict={reward_ph: ep_r}), ep)
         if (ep+1) % MODEL_SAVE_INTERVAL == 0:
             saver.save(sess, MODEL_DIR+'model.ckpt', global_step=ep+1)
@@ -91,7 +101,5 @@ with tf.Session() as sess:
             "|Ep_r: %i" % ep_r,
             ("|Lam: %.4f" % METHOD['lam']) if METHOD['name'] == 'kl_pen' else '',
         )
-
+        print('episode ends\n\n')
     writer.close()
-    plt.plot(np.arange(len(all_ep_r)), all_ep_r)
-    plt.xlabel('Episode');plt.ylabel('Moving averaged episode reward'); plt.show()

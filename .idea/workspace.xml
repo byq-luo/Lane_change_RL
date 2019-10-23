@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="b0c90436-3db4-4a5e-b1d8-c94fa90c6d12" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PPO.py" beforeDir="false" afterPath="$PROJECT_DIR$/PPO.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/log.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -319,7 +321,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571695969614</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="added tensorflow model saving">
+      <created>1571782098811</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1571782098811</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -350,7 +359,8 @@
     <MESSAGE value="fixed bugs" />
     <MESSAGE value="added tensorboard" />
     <MESSAGE value="fixed bugs and added more summaries" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed bugs and added more summaries" />
+    <MESSAGE value="added tensorflow model saving" />
+    <option name="LAST_COMMIT_MESSAGE" value="added tensorflow model saving" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
