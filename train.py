@@ -11,20 +11,12 @@ sys.stdout = open('log.txt', 'w')
 EP_NUM_MAX = 1000
 EP_LEN_MAX = 10000
 GAMMA = 0.9
-A_LR = 0.0001
-C_LR = 0.0002
 BATCH = 32
 A_UPDATE_STEPS = 10
 C_UPDATE_STEPS = 10
-S_DIM = 12
-A_NUM = 6
 MODEL_SAVE_INTERVAL = 5
 MODEL_DIR = '../model/'
 
-METHOD = [
-    dict(name='kl_pen', kl_target=0.01, lam=0.5),  # KL penalty
-    dict(name='clip', epsilon=0.2),  # Clipped surrogate objective, find this is better
-][1]  # choose the method for optimization
 train_dir = '../model/1/'
 
 with tf.Session() as sess:
@@ -33,7 +25,6 @@ with tf.Session() as sess:
     all_ep_r = []
 
     reward_ph = tf.placeholder(tf.float32, shape=())
-    #reward_ph = tf.placeholder(tf.float32, shape=())
 
     reward_summary = tf.summary.scalar('reward/reward', reward_ph)
     writer = tf.summary.FileWriter(train_dir, sess.graph)
@@ -61,11 +52,11 @@ with tf.Session() as sess:
                 ep_r += reward
 
             # update ppo
-            if (t+1) % BATCH == 0 or is_end_episode:
+            if (t+1) % BATCH == 0 or (is_end_episode and len(buffer_s) != 0):
                 print('t:', t, 'len_buffer_s', len(buffer_s))
                 v_s_ = ppo.get_v(state_np)
                 discounted_r = []
-                # todo check error 'ValueError: need at least one array to concatenate'
+
                 for r in buffer_r[::-1]:
                     v_s_ = r + GAMMA * v_s_
                     discounted_r.append(v_s_)
@@ -96,10 +87,6 @@ with tf.Session() as sess:
             all_ep_r.append(ep_r)
         else:
             all_ep_r.append(all_ep_r[-1]*0.9 + ep_r*0.1)
-        print(
-            'Ep: %i' % ep,
-            "|Ep_r: %i" % ep_r,
-            ("|Lam: %.4f" % METHOD['lam']) if METHOD['name'] == 'kl_pen' else '',
-        )
+        print('Ep: %i' % ep, "|Ep_r: %i" % ep_r)
         print('episode ends\n\n')
     writer.close()

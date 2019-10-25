@@ -1,28 +1,25 @@
 import tensorflow as tf
 import numpy as np
 
-EP_NUM_MAX = 1000
-EP_LEN_MAX = 10000
-GAMMA = 0.9
-A_LR = 0.0001
-C_LR = 0.0002
-BATCH = 32
-A_UPDATE_STEPS = 10
-C_UPDATE_STEPS = 10
-S_DIM = 12
-A_NUM = 6
-METHOD = [
-    dict(name='kl_pen', kl_target=0.01, lam=0.5),  # KL penalty
-    dict(name='clip', epsilon=0.2),  # Clipped surrogate objective, find this is better
-][1]  # choose the method for optimization
-
 
 class PPO(object):
-    def __init__(self, sess):
+    def __init__(self,
+                 sess,
+                 S_DIM=12,
+                 A_NUM=6,
+                 A_LR=0.0001,
+                 C_LR=0.0002,
+                 EPISILON=0.2):
         self.sess = sess
+        self.S_DIM = S_DIM
+        self.A_NUM = A_NUM
+        self.A_LR = A_LR
+        self.C_LR = C_LR
+        self.EPISILON = EPISILON
+
         self.actor_step = 0
         self.critic_step = 0
-        self.tfs = tf.placeholder(tf.float32, [None, S_DIM], 'state')
+        self.tfs = tf.placeholder(tf.float32, [None, self.S_DIM], 'state')
         self.summary_dict = {}
         self.summary_merged_eval_multi_steps = []
 
@@ -36,7 +33,7 @@ class PPO(object):
             self.advantage_eval = None
             self.closs = tf.reduce_mean(tf.square(self.advantage))
             self.summary_closs = tf.summary.scalar('critic_loss', self.closs)
-            self.ctrain_op = tf.train.AdamOptimizer(C_LR).minimize(self.closs)
+            self.ctrain_op = tf.train.AdamOptimizer(self.C_LR).minimize(self.closs)
 
         # actor
         self.pi, pi_params = self._build_anet('pi', trainable=True)
@@ -60,10 +57,10 @@ class PPO(object):
             # clipping method, find this is better
             self.aloss = -tf.reduce_mean(tf.minimum(
                 surr,
-                tf.clip_by_value(ratio, 1.-METHOD['epsilon'], 1.+METHOD['epsilon'])*self.tfadv))
+                tf.clip_by_value(ratio, 1.-self.EPISILON, 1.+self.EPISILON)*self.tfadv))
             self.summary_aloss = tf.summary.scalar('actor_loss', self.aloss)
         with tf.variable_scope('atrain'):
-            self.atrain_op = tf.train.AdamOptimizer(A_LR).minimize(self.aloss)
+            self.atrain_op = tf.train.AdamOptimizer(self.A_LR).minimize(self.aloss)
 
         #tf.summary.FileWriter("log/", self.sess.graph)
 

@@ -1,10 +1,6 @@
 """
-author: Morvan Zhou
 A simple version of Proximal Policy Optimization (PPO) using single thread.
-Based on:
-1. Emergence of Locomotion Behaviours in Rich Environments (Google Deepmind): [https://arxiv.org/abs/1707.02286]
-2. Proximal Policy Optimization Algorithms (OpenAI): [https://arxiv.org/abs/1707.06347]
-View more on my tutorial website: https://morvanzhou.github.io/tutorials
+
 Dependencies:
 tensorflow r1.2
 gym 0.9.2
