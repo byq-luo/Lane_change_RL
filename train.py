@@ -42,6 +42,7 @@ with tf.Session() as sess:
             #print('action:', action, (action//3, action % 3))
 
             state, reward, done, info = env.step((action // 3, action % 3))  # need modification
+            state_np = np.asarray(state).flatten()
             is_end_episode = done and info['resetFlag']
             if not is_end_episode:
                 buffer_s.append(state_np)
@@ -67,7 +68,7 @@ with tf.Session() as sess:
                 for i in range(A_UPDATE_STEPS):
                     summary_aloss_eval = ppo.learn_actor(bs, ba)
                     writer.add_summary(summary_aloss_eval, ppo.actor_step)
-                for i in range(A_UPDATE_STEPS):
+                for i in range(C_UPDATE_STEPS):
                     summary_closs_eval = ppo.learn_critic(bs, br)
                     writer.add_summary(summary_closs_eval, ppo.critic_step)
                 '''
@@ -77,7 +78,7 @@ with tf.Session() as sess:
                     writer.add_summary(summary_multi_steps_dict['critic_loss'][i], ep * C_UPDATE_STEPS + i)
                 '''
             if is_end_episode:
-                state = env.reset(egoid=egoid, tlane=0, tfc=2, is_gui=False, sumoseed=None, randomseed=None)
+                # deleted reset here
                 break
 
         writer.add_summary(sess.run(reward_summary, feed_dict={reward_ph: ep_r}), ep)

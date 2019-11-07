@@ -62,9 +62,8 @@ class PPO(object):
         with tf.variable_scope('atrain'):
             self.atrain_op = tf.train.AdamOptimizer(self.A_LR).minimize(self.aloss)
 
-        #tf.summary.FileWriter("log/", self.sess.graph)
-
         self.sess.run(tf.global_variables_initializer())
+        
 
     def update_old_pi(self, s, r):
         self.sess.run(self.update_oldpi_op)
@@ -108,8 +107,9 @@ class PPO(object):
         with tf.variable_scope(name):
             l1 = tf.layers.dense(self.tfs, 100, tf.nn.relu, trainable=trainable)
             a_prob = tf.layers.dense(l1, 6, tf.nn.softmax, trainable=trainable)
+            output = tf.identity(a_prob, name='prob')
         params = tf.get_collection(tf.GraphKeys.GLOBAL_VARIABLES, scope=name)
-        return a_prob, params
+        return output, params
 
     def choose_action(self, s):
         prob_weights = self.sess.run(self.pi, feed_dict={self.tfs: s[None, :]})

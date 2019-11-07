@@ -17,7 +17,7 @@ def normal(env):
     f = open('data/original.csv', 'a')
     f.write('egoid, lanePos, dis2leader, speed, acce\n')
 
-    egoid = 'lane1.2'
+    egoid = 'lane1.0'
     ss = 6
     env.reset(egoid=egoid, tfc=2, sumoseed=ss, randomseed=3)
     traci.vehicle.setColor(egoid, (255, 69, 0))
