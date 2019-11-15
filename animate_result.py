@@ -1,7 +1,5 @@
-import sys
-import os
 import random
-from LaneChangeEnv import LaneChangeEnv
+from env.LaneChangeEnv import LaneChangeEnv
 import tensorflow as tf
 import numpy as np
 

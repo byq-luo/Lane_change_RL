@@ -2,7 +2,7 @@ import tensorflow as tf
 import numpy as np
 from PPO import PPO
 import random
-from LaneChangeEnv import LaneChangeEnv
+from env.LaneChangeEnv import LaneChangeEnv
 import sys
 
 

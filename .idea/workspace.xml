@@ -2,12 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b0c90436-3db4-4a5e-b1d8-c94fa90c6d12" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/env/Road.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/env/Vehicle.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/garbage.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LaneChangeEnv.py" beforeDir="false" afterPath="$PROJECT_DIR$/LaneChangeEnv.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IDM.py" beforeDir="false" afterPath="$PROJECT_DIR$/IDM.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LaneChangeEnv.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/LaneChangeEnv.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PPO.py" beforeDir="false" afterPath="$PROJECT_DIR$/PPO.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/animate_result.py" beforeDir="false" afterPath="$PROJECT_DIR$/animate_result.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/original.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/original.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/map/ramp3/gui.xml" beforeDir="false" afterPath="$PROJECT_DIR$/map/ramp3/gui.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/map/ramp3/mapDense.rou.xml" beforeDir="false" afterPath="$PROJECT_DIR$/map/ramp3/mapDense.rou.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
     </list>
@@ -40,6 +45,9 @@
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/env" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/map/ramp3" />
       <recent name="$PROJECT_DIR$/map2" />
@@ -346,7 +354,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572033668734</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="fixed bugs">
+      <created>1573108314203</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1573108314203</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -377,9 +392,9 @@
     <MESSAGE value="added tensorboard" />
     <MESSAGE value="fixed bugs and added more summaries" />
     <MESSAGE value="added tensorflow model saving" />
-    <MESSAGE value="fixed bugs" />
     <MESSAGE value="fixed bugs &amp; extract model" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed bugs &amp; extract model" />
+    <MESSAGE value="fixed bugs" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed bugs" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -400,8 +415,8 @@
           <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/LaneChangeEnv.py</url>
-          <line>123</line>
+          <url>file://$PROJECT_DIR$/env/LaneChangeEnv.py</url>
+          <line>20</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
       </breakpoints>

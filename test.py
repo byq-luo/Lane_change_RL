@@ -1,8 +1,7 @@
-import gym
 import sys
 import os
 import random
-import LaneChangeEnv as lcEnv
+from env import LaneChangeEnv as lcEnv
 
 if 'SUMO_HOME' in os.environ:
     tools = os.path.join(os.environ['SUMO_HOME'], 'tools')
@@ -17,15 +16,19 @@ def normal(env):
     f = open('data/original.csv', 'a')
     f.write('egoid, lanePos, dis2leader, speed, acce\n')
 
-    egoid = 'lane1.0'
+    egoid = 'lane1.1'
     ss = 6
     env.reset(egoid=egoid, tfc=2, sumoseed=ss, randomseed=3)
     traci.vehicle.setColor(egoid, (255, 69, 0))
 
     for i in range(10000):
-        ss += 1
-        obs, rwd, done, info = env.step()
-
+        #ss += 1
+        if 40 < i < 50:
+            #traci.vehicle.slowDown('lane1.0', 0, 3)
+            traci.vehicle.setSpeed('lane1.0', 5)
+            print('slowdown')
+        obs, rwd, done, info = env.step(action=(1, 2))
+        print(env.ego.trgt_leader.veh_id)
         if done is True and info['resetFlag'] == 1:
             env.reset(egoid=egoid, tfc=2, sumoseed=ss, randomseed=3)
             traci.vehicle.setColor(egoid, (255, 69, 0))

@@ -63,7 +63,6 @@ class PPO(object):
             self.atrain_op = tf.train.AdamOptimizer(self.A_LR).minimize(self.aloss)
 
         self.sess.run(tf.global_variables_initializer())
-        
 
     def update_old_pi(self, s, r):
         self.sess.run(self.update_oldpi_op)
