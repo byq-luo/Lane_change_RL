@@ -224,3 +224,25 @@ def calcAcce(self):
                 else:
                     self.orig_follower = {'id': None, 'dis': None, 'speed': None}
                     '''
+
+'''
+        summary_eval_multi_steps = {}
+        summary_actor_loss_multi_steps = []
+        summary_critic_loss_multi_steps = []
+        # update actor
+        # clipping method, find this is better (OpenAI's paper)
+        for _ in range(A_UPDATE_STEPS):
+            self.actor_step += 1
+            to, smr_temp = self.sess.run([self.atrain_op, self.summary_dict['actor_loss']],
+                                         feed_dict={self.tfs: s, self.tfa: a, self.tfadv: adv})
+            summary_actor_loss_multi_steps.append(smr_temp)
+        summary_eval_multi_steps['actor_loss'] = summary_actor_loss_multi_steps
+        # update critic
+        for _ in range(C_UPDATE_STEPS):
+            self.critic_step += 1
+            to, smr_temp = self.sess.run([self.ctrain_op, self.summary_dict['critic_loss']],
+                                         feed_dict={self.tfs: s, self.tfdc_r: r})
+            summary_critic_loss_multi_steps.append(smr_temp)
+        summary_eval_multi_steps['critic_loss'] = summary_critic_loss_multi_steps
+        return summary_eval_multi_steps
+        '''

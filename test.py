@@ -1,7 +1,7 @@
 import sys
 import os
 import random
-from env import LaneChangeEnv as lcEnv
+from env.LaneChangeEnv import LaneChangeEnv as lcEnv
 
 if 'SUMO_HOME' in os.environ:
     tools = os.path.join(os.environ['SUMO_HOME'], 'tools')

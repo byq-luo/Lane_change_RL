@@ -72,16 +72,17 @@ class LaneChangeEnv(gym.Env):
 
         self.collision_num = 0
 
-        self.observation = [[0, 0, 0],  # ego lane position and speed
-                            [0, 0, 0],  # leader
-                            [0, 0, 0],  # target lane leader
-                            [0, 0, 0]]  # target lane follower
+        # self.observation = [[0, 0, 0],  # ego lane position and speed
+        #                     [0, 0, 0],  # leader
+        #                     [0, 0, 0],  # target lane leader
+        #                     [0, 0, 0]]  # target lane follower
+        self.observation = np.empty(20)
         self.reward = None            # (float) : amount of reward returned after previous action
         self.done = True              # (bool): whether the episode has ended, in which case further step() calls will return undefined results
         self.info = {'resetFlag': 0}  # (dict): contains auxiliary diagnostic information (helpful for debugging, and sometimes learning)
 
-        self.action_space = spaces.Discrete(2)
-        self.observation_space = spaces.Box(low=-np.inf, high=np.inf, shape=(4, 3))
+        self.action_space = spaces.Discrete(6)
+        self.observation_space = spaces.Box(low=-np.inf, high=np.inf, shape=(20, ))
 
     def update_veh_dict(self, veh_id_tuple):
         for veh_id in veh_id_tuple:
@@ -102,26 +103,34 @@ class LaneChangeEnv(gym.Env):
         :return:
         """
         if veh is not None:
-            self.observation[name][0] = veh.lanePos
-            self.observation[name][1] = veh.speed
-            self.observation[name][2] = veh.pos_lat
+            self.observation[name*4+0] = veh.lanePos
+            self.observation[name*4+1] = veh.speed
+            self.observation[name*4+2] = veh.pos_lat
+            self.observation[name*4+3] = veh.acce
         else:
-            self.observation[name][0] = self.observation[0][0] + 300.
-            self.observation[name][1] = self.observation[0][1]
-            self.observation[name][2] = 4.8
+            self.observation[name*4+0] = self.observation[0] + 300.
+            self.observation[name*4+1] = self.observation[1]
+            self.observation[name*4+2] = 4.8
+            self.observation[name*4+3] = 0
             # todo check if rational
 
     def updateObservation(self):
-        self.observation[0][0] = self.ego.lanePos
-        self.observation[0][1] = self.ego.speed
-        self.observation[0][2] = self.ego.pos_lat
+        self.observation[0] = self.ego.lanePos
+        self.observation[1] = self.ego.speed
+        self.observation[2] = self.ego.pos_lat
+        self.observation[3] = self.ego.acce
 
         self._updateObservationSingle(1, self.ego.orig_leader)
         self._updateObservationSingle(2, self.ego.orig_follower)
         self._updateObservationSingle(3, self.ego.trgt_leader)
-        self._updateObservationSingle(3, self.ego.trgt_follower)
+        self._updateObservationSingle(4, self.ego.trgt_follower)
+        # self.observation = np.array(self.observation).flatten()
+        # print(self.observation.shape)
 
     def updateReward(self):
+        return -self.ego.dis2tgtLane
+
+    def updateReward2(self):
         wc1 = 1
         wc2 = 1
         wt = 1
@@ -189,7 +198,7 @@ class LaneChangeEnv(gym.Env):
         self.vehID_tuple_all = traci.edge.getLastStepVehicleIDs(self.rd.entranceEdgeID)
         self.update_veh_dict(self.vehID_tuple_all)
 
-    def step(self, action=(0, 2)):
+    def step(self, action=2):
         """Run one timestep of the environment's dynamics. When end of
         episode is reached, call `reset()` outside env!! to reset this
         environment's state.
@@ -218,8 +227,12 @@ class LaneChangeEnv(gym.Env):
         Returns:
             described in __init__
         """
-        action_longi = action[0]
-        action_lateral = action[1]
+
+        action_longi = action // 3
+        action_lateral = action % 3
+
+        # action_longi = action[0]
+        # action_lateral = action[1]
 
         assert self.done is False, 'self.done is not False'
         assert action is not None, 'action is None'
@@ -232,12 +245,12 @@ class LaneChangeEnv(gym.Env):
         # lane change to target lane
         if not self.is_success:
             if action_lateral == 1: #and abs(self.ego.pos_lat - (0.5+self.ego.targetLane)*self.rd.laneWidth) > 0.01:
-                self.is_success = self.ego.changeLane(True, self.ego.targetLane, self.rd)
-                print('posLat', self.ego.pos_lat, 'lane', self.ego.laneIndex, 'rdWdith', self.rd.laneWidth)
+                self.is_success = self.ego.changeLane(True, self.ego.trgt_laneIndex, self.rd)
+                print('posLat', self.ego.pos_lat, 'lane', self.ego.curr_laneIndex, 'rdWdith', self.rd.laneWidth)
                 print('right', -(self.ego.pos_lat - 0.5*self.rd.laneWidth))
             # abort lane change, change back to ego's original lane
             if action_lateral == 0: #and abs(self.ego.pos_lat - (0.5+self.ego.origLane)*self.rd.laneWidth) > 0.01:
-                self.is_success = self.ego.changeLane(True, self.ego.origLane, self.rd)
+                self.is_success = self.ego.changeLane(True, self.ego.orig_laneIndex, self.rd)
                 print('left', 1.5 * self.rd.laneWidth - self.ego.pos_lat)
             #  keep current lateral position
             if action_lateral == 2:
