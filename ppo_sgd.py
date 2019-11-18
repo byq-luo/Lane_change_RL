@@ -9,6 +9,7 @@ from baselines.common.mpi_moments import mpi_moments
 from collections import deque
 import random
 
+
 def traj_segment_generator(pi, env, horizon, stochastic):
     t = 0
     ac = env.action_space.sample() # not used, just so we have the datatype
@@ -153,7 +154,8 @@ def learn(env, policy_fn, *,
     assert sum([max_iters>0, max_timesteps>0, max_episodes>0, max_seconds>0])==1, "Only one time constraint permitted"
 
     while True:
-        if callback: callback(locals(), globals())
+        if callback:
+            callback(locals(), globals())
         if max_timesteps and timesteps_so_far >= max_timesteps:
             break
         elif max_episodes and episodes_so_far >= max_episodes:
@@ -224,6 +226,7 @@ def learn(env, policy_fn, *,
             logger.dump_tabular()
 
     return pi
+
 
 def flatten_lists(listoflists):
     return [el for list_ in listoflists for el in list_]

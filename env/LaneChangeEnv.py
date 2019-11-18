@@ -322,3 +322,5 @@ class LaneChangeEnv(gym.Env):
             return self.observation
         return
 
+    def close(self):
+        traci.close()

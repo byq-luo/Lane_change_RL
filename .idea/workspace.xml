@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b0c90436-3db4-4a5e-b1d8-c94fa90c6d12" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/ppo_sgd.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PPO.py" beforeDir="false" afterPath="$PROJECT_DIR$/PPO.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/env/LaneChangeEnv.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/LaneChangeEnv.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Road.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Road.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Vehicle.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Vehicle.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/garbage.py" beforeDir="false" afterPath="$PROJECT_DIR$/garbage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ppo_sgd.py" beforeDir="false" afterPath="$PROJECT_DIR$/ppo_sgd.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -364,7 +358,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573848452169</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="included baseline ppo1">
+      <created>1573933112136</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1573933112136</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -398,7 +399,8 @@
     <MESSAGE value="fixed bugs &amp; extract model" />
     <MESSAGE value="fixed bugs" />
     <MESSAGE value="structured code" />
-    <option name="LAST_COMMIT_MESSAGE" value="structured code" />
+    <MESSAGE value="included baseline ppo1" />
+    <option name="LAST_COMMIT_MESSAGE" value="included baseline ppo1" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -425,7 +427,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/ppo_sgd.py</url>
-          <line>14</line>
+          <line>15</line>
           <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
