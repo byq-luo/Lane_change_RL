@@ -26,7 +26,7 @@ _SOURCE_EXT = [".h", ".cpp", ".py", ".pl", ".java"]
 
 class PropertyReader(xml.sax.handler.ContentHandler):
 
-    """Reads the svn properties of files as written by svn log --xml"""
+    """Reads the svn properties of files as written by svn tf_events --xml"""
 
     def __init__(self, outfile):
         self._out = outfile
@@ -108,7 +108,7 @@ def setAuthors(fullName, removal, add, pattern):
             for item in line[len(pattern):].split(","):
                 a = item.strip()
                 if a in removal:
-                    print("author %s not in svn log for %s" % (
+                    print("author %s not in svn tf_events for %s" % (
                         a, fullName), file=log)
                 authors.append(a)
         elif authors:
@@ -165,7 +165,7 @@ for line in open(os.path.join(sumoRoot, 'AUTHORS')):
             realNames[e] = author
     if author and author not in realNames.values():
         realNames[author] = author
-log = open(os.path.join(sumoRoot, 'author.log'), "w")
+log = open(os.path.join(sumoRoot, 'author.tf_events'), "w")
 for root, dirs, files in os.walk(options.root):
     for name in files:
         ext = os.path.splitext(name)[1]
@@ -181,7 +181,7 @@ for root, dirs, files in os.walk(options.root):
                 continue
             authors = checkAuthors(fullName, pattern)
             p = subprocess.Popen(
-                ["svn", "log", "--xml", fullName], stdout=subprocess.PIPE)
+                ["svn", "tf_events", "--xml", fullName], stdout=subprocess.PIPE)
             output = p.communicate()[0]
             if p.returncode == 0:
                 if options.authors:

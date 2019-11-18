@@ -15,7 +15,7 @@
 
 """
 
-This script reads two dump files and plots one of the values
+This script reads two dump files and figures one of the values
  stored therein as an x-/y- plot.
 
 matplotlib has to be installed for this purpose

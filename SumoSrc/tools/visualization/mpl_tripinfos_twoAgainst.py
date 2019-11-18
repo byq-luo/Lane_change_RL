@@ -15,7 +15,7 @@
 
 """
 
-This script reads two tripinfos files and plots one of the values
+This script reads two tripinfos files and figures one of the values
  stored therein as an x-/y- plot.
 
 matplotlib has to be installed for this purpose

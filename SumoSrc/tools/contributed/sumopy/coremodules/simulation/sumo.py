@@ -183,8 +183,8 @@ def write_netconfig(filename_netconfig, filename_net,
         simfile.write('<osg-view value="true"/>\n')
 
     # <report>
-    #    <no-duration-log value="true"/>
-    #    <no-step-log value="true"/>
+    #    <no-duration-tf_events value="true"/>
+    #    <no-step-tf_events value="true"/>
     # </report>
 
     simfile.write('</configuration>\n')
@@ -870,7 +870,7 @@ class Sumo(CmlMixin, Process):
             if self.is_start:
                 command += ' --start'
         if self.logfilepath != '':
-            command += ' --log '+p+self.logfilepath+p
+            command += ' --tf_events '+p+self.logfilepath+p
 
         # went into config...
         # if self.pedestrian_model=='None':

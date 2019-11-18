@@ -3,10 +3,9 @@ import sys
 import random
 import datetime
 import gym
-from gym import spaces, logger
-from gym.utils import seeding
+from gym import spaces
 import numpy as np
-from IDM import IDM
+from env.IDM import IDM
 from env.Road import Road
 from env.Vehicle import Vehicle
 # add sumo/tools into python environment

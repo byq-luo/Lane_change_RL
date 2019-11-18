@@ -62,7 +62,7 @@ def runTests(options, env, gitrev, withNetedit, debugSuffix=""):
     env["SUMO_BATCH_RESULT"] = os.path.join(
         options.rootDir, prefix + "batch_result")
     env["SUMO_REPORT"] = os.path.join(options.remoteDir, prefix + "report")
-    testLog = os.path.join(options.remoteDir, prefix + "test.log")
+    testLog = os.path.join(options.remoteDir, prefix + "test.tf_events")
     env["TEXTTEST_TMP"] = os.path.join(
         options.rootDir, prefix + "texttesttmp")
     env["TEXTTEST_HOME"] = os.path.join(options.rootDir, options.testsDir)
@@ -117,7 +117,7 @@ def generateCMake(generator, log, checkOptionalLibs, python):
 
 optParser = optparse.OptionParser()
 optParser.add_option("-r", "--root-dir", dest="rootDir",
-                     default=r"D:\Sumo", help="root for git and log output")
+                     default=r"D:\Sumo", help="root for git and tf_events output")
 optParser.add_option("-s", "--suffix", default="", help="suffix to the fileprefix")
 optParser.add_option("-b", "--bin-dir", dest="binDir", default=r"git\bin",
                      help="directory containg the binaries, relative to the root dir")
@@ -148,7 +148,7 @@ env["PYTHON"] = "python"
 env["SMTP_SERVER"] = "smtprelay.dlr.de"
 msvcVersion = "msvc12"
 gitrev = repositoryUpdate(options, os.path.join(
-    options.remoteDir, msvcVersion + options.suffix + "Update.log"))
+    options.remoteDir, msvcVersion + options.suffix + "Update.tf_events"))
 
 maxTime = 0
 sumoAllZip = None
@@ -160,9 +160,9 @@ platformDlls = [entry.split(":") for entry in options.dllDirs.split(",")]
 for platform, dllDir in platformDlls:
     env["FILEPREFIX"] = msvcVersion + options.suffix + platform
     prefix = os.path.join(options.remoteDir, env["FILEPREFIX"])
-    makeLog = prefix + "Release.log"
-    makeAllLog = prefix + "Debug.log"
-    statusLog = prefix + "status.log"
+    makeLog = prefix + "Release.tf_events"
+    makeAllLog = prefix + "Debug.tf_events"
+    statusLog = prefix + "status.tf_events"
     binDir = "sumo-git/bin/"
 
     toClean = [makeLog, makeAllLog]
@@ -252,5 +252,5 @@ for platform, dllDir in platformDlls:
         status.printStatus(makeLog, makeAllLog, env["SMTP_SERVER"], log)
 if options.extended_tests:
     runTests(options, env, gitrev, True, "D")
-    with open(prefix + "Dstatus.log", 'w') as log:
+    with open(prefix + "Dstatus.tf_events", 'w') as log:
         status.printStatus(makeAllLog, makeAllLog, env["SMTP_SERVER"], log)

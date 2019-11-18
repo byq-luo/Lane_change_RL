@@ -279,7 +279,7 @@ class SpeedprofilePlotter(PlotoptionsMixin, Process):
 
 class EdgeresultPlotter(PlotoptionsMixin, Process):
     def __init__(self, results, name='Plot edge results with Matplotlib',
-                 info="Creates plots of different edge results using matplotlib",
+                 info="Creates figures of different edge results using matplotlib",
                  logger=None, **kwargs):
 
         self._init_common('routeresultplotter', parent=results, name=name,
@@ -478,7 +478,7 @@ class EdgeresultPlotter(PlotoptionsMixin, Process):
 
 class RouteresultPlotter(PlotoptionsMixin, Process):
     def __init__(self, results, name='Plot route results with Matplotlib',
-                 info="Creates plots of different route results using matplotlib",
+                 info="Creates figures of different route results using matplotlib",
                  logger=None, **kwargs):
 
         self._init_common('routeresultplotter', parent=results, name=name,

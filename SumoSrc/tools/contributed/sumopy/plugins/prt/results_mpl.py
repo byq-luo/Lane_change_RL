@@ -37,7 +37,7 @@ COLORS = ['#1f77b4', '#aec7e8', '#ff7f0e', '#ffbb78', '#2ca02c',
 
 class StopresultsPlotter(Process):
     def __init__(self, results, name='Plot PRT stop results with Matplotlib',
-                 info="Creates plots of PRT stop results using matplotlib",
+                 info="Creates figures of PRT stop results using matplotlib",
                  logger=None, **kwargs):
 
         self._init_common('stopresultsplotter', parent=results, name=name,

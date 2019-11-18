@@ -245,7 +245,7 @@ def writeRouteConf(duarouterBinary, step, options, dua_args, file,
     print("""</time>
     <report>
         <verbose value="%s"/>
-        <no-step-log value="True"/>
+        <no-step-tf_events value="True"/>
         <no-warnings value="%s"/>
     </report>
 </configuration>""" % (options.router_verbose, options.noWarnings), file=fd)
@@ -289,12 +289,12 @@ def writeSUMOConf(sumoBinary, step, options, additional_args, route_files):
     comma = (',' if options.additional != "" else '')
     sumoCmd = [sumoBinary,
                '--save-configuration', "iteration_%03i.sumocfg" % step,
-               '--log', "iteration_%03i.sumo.log" % step,
+               '--tf_events', "iteration_%03i.sumo.tf_events" % step,
                '--net-file', options.net,
                '--route-files', route_files,
                '--additional-files', "%s%s%s" % (
                    detectorfile, comma, options.additional),
-               '--no-step-log',
+               '--no-step-tf_events',
                '--random', options.absrand,
                '--begin', options.begin,
                '--route-steps', options.routeSteps,
@@ -474,8 +474,8 @@ def main(args=None):
     dua_args = assign_remaining_args(
         duaBinary, 'duarouter', options.remaining_args)
 
-    sys.stdout = sumolib.TeeFile(sys.stdout, open("stdout.log", "w+"))
-    log = open("dua.log", "w+")
+    sys.stdout = sumolib.TeeFile(sys.stdout, open("stdout.tf_events", "w+"))
+    log = open("dua.tf_events", "w+")
     if options.zip:
         if options.clean_alt:
             sys.exit(
@@ -486,7 +486,7 @@ def main(args=None):
             sys.exit(
                 "Error: Could not locate 7z, please make sure its on the search path.")
         zipProcesses = {}
-        zipLog = open("7zip.log", "w+")
+        zipLog = open("7zip.tf_events", "w+")
     starttime = datetime.now()
     if options.trips:
         input_demands = options.trips.split(",")

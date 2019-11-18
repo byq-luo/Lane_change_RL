@@ -15,7 +15,7 @@
 
 """
 
-This script plots a selected measure from a summary-output.
+This script figures a selected measure from a summary-output.
 matplotlib (http://matplotlib.org/) has to be installed for this purpose
 
 """
@@ -41,7 +41,7 @@ def readValues(files, verbose, measure):
 
 
 def main(args=None):
-    """The main function; parses options and plots"""
+    """The main function; parses options and figures"""
     # ---------- build and read options ----------
     from optparse import OptionParser
     optParser = OptionParser()

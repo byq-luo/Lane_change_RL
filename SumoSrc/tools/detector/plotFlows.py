@@ -45,7 +45,7 @@ def get_options(args=None):
     optParser.add_option("-b", "--begin", type="float", default=0, help="begin time in minutes")
     optParser.add_option("-e", "--end", type="float", default=None, help="end time in minutes")
     optParser.add_option("-o", "--csv-output", dest="csv_output", help="write plot data with prefix", metavar="FILE")
-    optParser.add_option("--extension", help="extension for saving plots", default="png")
+    optParser.add_option("--extension", help="extension for saving figures", default="png")
     optParser.add_option("-s", "--show", action="store_true", default=False, help="show plot directly")
     optParser.add_option("-g", "--group-by", dest="groupby", help="group detectors (all, none, type) ", default="all")
     optParser.add_option("-t", "--type-filter", dest="typefilter", help="only show selected types")

@@ -20,7 +20,7 @@
     </processing>
 
     <report>
-        <log value="W:\projects\x_EU_COLOMBO_318622\svn\trunk\scenarios\iTETRIS_acosta\sumo_log.txt"/>
+        <tf_events value="W:\projects\x_EU_COLOMBO_318622\svn\trunk\scenarios\iTETRIS_acosta\sumo_log.txt"/>
     </report>
 
     <emissions>

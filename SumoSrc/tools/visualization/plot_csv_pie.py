@@ -15,7 +15,7 @@
 
 """
 
-This script plots name / value pairs from a given .csv file (';'-separated).
+This script figures name / value pairs from a given .csv file (';'-separated).
 The values are plotted as a pie diagram.
 matplotlib (http://matplotlib.org/) has to be installed for this purpose
 
@@ -33,7 +33,7 @@ import matplotlib.pyplot as plt  # noqa
 
 
 def main(args=None):
-    """The main function; parses options and plots"""
+    """The main function; parses options and figures"""
     # ---------- build and read options ----------
     from optparse import OptionParser
     optParser = OptionParser()

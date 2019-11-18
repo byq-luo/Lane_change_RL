@@ -41,7 +41,7 @@ try:
     subprocess.call(["git", "checkout", "-q", "master"])
     subprocess.call(["git", "pull"])
     commits = {}
-    for line in subprocess.check_output(["git", "log", "%s..%s" % (options.begin, options.end)]).splitlines():
+    for line in subprocess.check_output(["git", "tf_events", "%s..%s" % (options.begin, options.end)]).splitlines():
         if line.startswith("commit "):
             h = line.split()[1]
             commits[h] = version.gitDescribe(h)

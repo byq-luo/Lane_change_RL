@@ -177,7 +177,7 @@ if not options.net or not (options.trips or options.flows):
 
 
 duaBinary = sumolib.checkBinary("duarouter", options.path)
-log = open("dua-log.txt", "w+")
+log = open("dua-tf_events.txt", "w+")
 
 parser = make_parser()
 reader = NetReader()

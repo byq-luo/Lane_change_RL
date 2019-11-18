@@ -2834,7 +2834,7 @@ class PrtService(cm.BaseObjman):
     def config_results(self, results):
 
         # keep a link to results here because needed to
-        # log data during simulation
+        # tf_events data during simulation
         # this link should not be followed during save process
         self._results = results
 

@@ -148,7 +148,7 @@ def computeScoreFromTimeLoss(gamename):
     waiting = None
     completed = False
 
-    for line in open(gamename + ".log"):
+    for line in open(gamename + ".tf_events"):
         if "Simulation ended at time" in line:
             completed = True
         m = re.search('Inserted: ([0-9]*)', line)
@@ -323,9 +323,9 @@ class StartDialog(Tkinter.Frame):
             print("starting", cfg)
         self.gametime = parseEndTime(cfg)
         self.ret = subprocess.call(
-            [guisimPath, "-S", "-G", "-Q", "-c", cfg, '-l', 'log',
+            [guisimPath, "-S", "-G", "-Q", "-c", cfg, '-l', 'tf_events',
                 '--output-prefix', "%s." % self.category,
-                '--duration-log.statistics',
+                '--duration-tf_events.statistics',
                 '--tripinfo-output.write-unfinished'], stderr=sys.stderr)
 
         if _DEBUG:

@@ -1,12 +1,12 @@
 import tensorflow as tf
 import numpy as np
-from PPO import PPO
+from ppo_old.PPO import PPO
 import random
 from env.LaneChangeEnv import LaneChangeEnv
 import sys
 
 
-sys.stdout = open('log.txt', 'w')
+sys.stdout = open('tf_events.txt', 'w')
 
 EP_NUM_MAX = 1000
 EP_LEN_MAX = 10000

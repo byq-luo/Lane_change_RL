@@ -178,7 +178,7 @@ def getMatrix(verbose, matrix):  # , mtxplfile, mtxtfile):
                             Pshort_EffCells += 1
     begintime = int(periodList[0])
     if verbose:
-        foutlog = open('log.txt', 'w')
+        foutlog = open('tf_events.txt', 'w')
         foutlog.write('Number of zones:%s, Number of origins:%s, Number of destinations:%s, begintime:%s, \n' % (
             zones, origins, dest, begintime))
         foutlog.write('CurrentMatrixSum:%s, total O-D pairs:%s, effective O-D pairs:%s\n' %
@@ -219,7 +219,7 @@ def main():
     subtotal = 0.
 
     if options.verbose:
-        foutlog = open('log.txt', 'a')
+        foutlog = open('tf_events.txt', 'a')
     if options.timeseries:
         print('read the time-series profile')
     # combine matrices

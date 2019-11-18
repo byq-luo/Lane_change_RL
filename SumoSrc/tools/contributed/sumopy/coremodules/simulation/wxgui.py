@@ -28,7 +28,7 @@ try:
     import results_mpl as results_mpl
     is_mpl = True  # we have matplotlib support
 except:
-    print "WARNING: python matplotlib package not installed, no matplotlib plots."
+    print "WARNING: python matplotlib package not installed, no matplotlib figures."
     is_mpl = False
 
 

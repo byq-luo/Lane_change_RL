@@ -210,9 +210,9 @@ def runSimulation(options):
                      "-n", options.netfile,
                      "-r", options.trips,
                      "--begin", str(options.begin),
-                     "--no-step-log",
+                     "--no-step-tf_events",
                      "--ignore-route-errors",
-                     "--error-log", options.trips + ".errorlog",
+                     "--error-tf_events", options.trips + ".errorlog",
                      "-a", options.ptstops,
                      "--device.rerouting.adaptation-interval", "0",  # ignore tls and traffic effects
                      "--vehroute-output", options.routes,

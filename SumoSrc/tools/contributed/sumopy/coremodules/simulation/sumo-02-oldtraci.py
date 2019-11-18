@@ -176,8 +176,8 @@ def write_netconfig(filename_netconfig, filename_net,
         simfile.write('<osg-view value="true"/>\n')
 
     # <report>
-    #    <no-duration-log value="true"/>
-    #    <no-step-log value="true"/>
+    #    <no-duration-tf_events value="true"/>
+    #    <no-step-tf_events value="true"/>
     # </report>
 
     simfile.write('</configuration>\n')

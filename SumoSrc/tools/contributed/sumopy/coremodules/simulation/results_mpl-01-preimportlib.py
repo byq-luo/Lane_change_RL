@@ -600,7 +600,7 @@ class Flowcomparison(PlotoptionsMixin, Process):
 
 class Resultplotter(PlotoptionsMixin, Process):
     def __init__(self, results, name='Plot results with Matplotlib',
-                 info="Creates plots of different results using matplotlib",
+                 info="Creates figures of different results using matplotlib",
                  logger=None, **kwargs):
 
         self._init_common('resultplotter', parent=results, name=name,

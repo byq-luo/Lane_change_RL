@@ -86,8 +86,8 @@ def main(options):
         sys.stdout.flush()
         seed = str(random.randint(0, 2**31))
         output = check_output([SUMO, '-c', options.config,
-                               '--duration-log.statistics',
-                               '--no-duration-log', 'false',
+                               '--duration-tf_events.statistics',
+                               '--no-duration-tf_events', 'false',
                                '--seed', seed])
         for stats, retriever in statsRetrievers:
             stats.add(retriever(output), seed)

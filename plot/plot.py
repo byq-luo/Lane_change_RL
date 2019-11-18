@@ -20,7 +20,7 @@ def read_IDM_data():
     plt.grid()
     plt.legend(fontsize=16)
 
-    plt.savefig('plots/SUMO_vs_own_IDM')
+    plt.savefig('figures/SUMO_vs_own_IDM')
     plt.show()
 
 

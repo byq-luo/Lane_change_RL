@@ -14,7 +14,7 @@
 # @version $Id$
 
 """
-This script plots measures from the tripinfo output, classified into bins
+This script figures measures from the tripinfo output, classified into bins
 matplotlib (http://matplotlib.org/) has to be installed for this purpose
 
 """
@@ -31,7 +31,7 @@ import matplotlib.pyplot as plt  # noqa
 
 
 def main(args=None):
-    """The main function; parses options and plots"""
+    """The main function; parses options and figures"""
     # ---------- build and read options ----------
     from optparse import OptionParser
     optParser = OptionParser()

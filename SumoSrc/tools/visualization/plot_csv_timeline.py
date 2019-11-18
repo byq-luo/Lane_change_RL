@@ -15,7 +15,7 @@
 
 """
 
-This script plots selected columns from a given .csv file (';'-separated).
+This script figures selected columns from a given .csv file (';'-separated).
 The loaded time lines are visualised as lines.
 matplotlib (http://matplotlib.org/) has to be installed for this purpose
 
@@ -50,7 +50,7 @@ def readValues(file, verbose, columns):
 
 
 def main(args=None):
-    """The main function; parses options and plots"""
+    """The main function; parses options and figures"""
     # ---------- build and read options ----------
     from optparse import OptionParser
     optParser = OptionParser()

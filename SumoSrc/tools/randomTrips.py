@@ -483,7 +483,7 @@ def main(options):
 
     # call duarouter for routes or validated trips
     args = [DUAROUTER, '-n', options.netfile, '-r', options.tripfile, '--ignore-errors',
-            '--begin', str(options.begin), '--end', str(options.end), '--no-step-log', '--no-warnings']
+            '--begin', str(options.begin), '--end', str(options.end), '--no-step-tf_events', '--no-warnings']
     if options.additional is not None:
         args += ['--additional-files', options.additional]
     if options.carWalkMode is not None:

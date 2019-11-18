@@ -767,16 +767,16 @@ class BirgilMatcher(Process):
         # if self._logger:
         #    self._logger.w( '    New: duration in network %d s from %ds to %ds'%(time_end-time_start,time_start,time_end))
 
-            #log.w( '    Check dimensions len(weights)=%d,len(intervals)=%d'%(len(weights), len(intervals)))
+            #tf_events.w( '    Check dimensions len(weights)=%d,len(intervals)=%d'%(len(weights), len(intervals)))
             # print '  intervals',intervals
-            #log.w( '    Possible start edges')
+            #tf_events.w( '    Possible start edges')
             # for edge in edges_start:
-            #    log.w( '      %s'%edge.getID())
-            #log.w(  '    Possible end edges')
+            #    tf_events.w( '      %s'%edge.getID())
+            #tf_events.w(  '    Possible end edges')
             # for edge in edges_end:
-            #    log.w( '      %s'%edge.getID())
+            #    tf_events.w( '      %s'%edge.getID())
             #
-            #log.w('get_edge_info done.')
+            #tf_events.w('get_edge_info done.')
 
         #self.intervals.set(id_trip, [ time_start,time_end])
         return weights, edges_start, edges_end, intervals, edges_containing_point, ind_point_start, ind_point_end

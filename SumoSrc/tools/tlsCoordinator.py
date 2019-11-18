@@ -338,7 +338,7 @@ def main(options):
                          '-n', options.netfile,
                          '-r', options.routefile,
                          '-a', ','.join(additionals),
-                         '-v', '--no-step-log', '--duration-log.statistics'], stdout=sys.stdout)
+                         '-v', '--no-step-tf_events', '--duration-tf_events.statistics'], stdout=sys.stdout)
 
 
 if __name__ == "__main__":

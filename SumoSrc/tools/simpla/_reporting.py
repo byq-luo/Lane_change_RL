@@ -25,12 +25,12 @@ def initDefaults():
     # control level of verbosity
     # 0 - silent (only errors)
     # 1 - standard (errors and warnings)
-    # 2 - log (additional status messages for platoons)
-    # 3 - extended log (more status information)
+    # 2 - tf_events (additional status messages for platoons)
+    # 3 - extended tf_events (more status information)
     # 4 - insane (all kind of single vehicle detailed state infos)
     VERBOSITY = 1
 
-    # log storage
+    # tf_events storage
     MAX_LOG_SIZE = 1000
     WARNING_LOG = deque()
     REPORT_LOG = deque()

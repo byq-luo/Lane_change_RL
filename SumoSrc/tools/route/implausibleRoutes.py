@@ -136,7 +136,7 @@ def main():
                      '-n', options.network,
                      '-r', duarouterInput,
                      '-o', duarouterOutput,
-                     '--no-step-log'])
+                     '--no-step-tf_events'])
 
     for vehicle in parse(duarouterAltOutput, 'vehicle'):
         routeAlts = vehicle.routeDistribution[0].route

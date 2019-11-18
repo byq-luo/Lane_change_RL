@@ -28,7 +28,7 @@ from sumolib.output import parse_fast  # noqa
 
 
 def parse_args():
-    USAGE = "Usage: " + sys.argv[0] + " <dua-log.txt> [options]"
+    USAGE = "Usage: " + sys.argv[0] + " <dua-tf_events.txt> [options]"
     optParser = OptionParser()
     optParser.add_option("--stdout",
                          help="also parse the given FILE containing stdout of duaIterate")
@@ -41,7 +41,7 @@ def parse_args():
     optParser.add_option("--teleports", default="teleplot",
                          help="output prefix for plotting teleport-prone edges")
     optParser.add_option(
-        "--mpl", help="output prefix for matplotlib plots or SHOW for plotting to the display")
+        "--mpl", help="output prefix for matplotlib figures or SHOW for plotting to the display")
     options, args = optParser.parse_args()
     if len(args) != 1:
         sys.exit(USAGE)

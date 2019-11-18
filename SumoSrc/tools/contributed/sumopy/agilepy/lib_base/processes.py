@@ -27,7 +27,7 @@ import types
 
 
 import classman as cm
-from misc import filepathlist_to_filepathstring, filepathstring_to_filepathlist, ff, P
+from others.misc import filepathlist_to_filepathstring, filepathstring_to_filepathlist, P
 
 
 # p = psutil.Process(the_pid_you_want) !!
@@ -45,7 +45,7 @@ from misc import filepathlist_to_filepathstring, filepathstring_to_filepathlist,
 # print '    cmdline',p.cmdline
 ##
 ##
-##cmd = 'nohup sumo --no-step-log --no-duration-log --no-warnings --step-length %.3f -c %s'%(time_simstep, filepath_netconfig)
+##cmd = 'nohup sumo --no-step-tf_events --no-duration-tf_events --no-warnings --step-length %.3f -c %s'%(time_simstep, filepath_netconfig)
 ##
 # print '\n Starting command:',cmd
 ##p = subprocess.Popen(cmd, shell=True)

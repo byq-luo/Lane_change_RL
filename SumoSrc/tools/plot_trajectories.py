@@ -13,7 +13,7 @@
 # @version $Id$
 
 """
-This script plots fcd data for each vehicle using either
+This script figures fcd data for each vehicle using either
 - distance vs speed
 - time vs speed
 - time vs distance
@@ -37,9 +37,9 @@ def getOptions(args=None):
     optParser.add_option("-t", "--trajectory-type", dest="ttype", default="ds",
                          help="select two letters from [t, s, d, a, i, x, y] to plot"
                          + " Time, Speed, Distance, Acceleration, Angle, x-Position, y-Position."
-                         + " Default 'ds' plots Distance vs. Speed")
+                         + " Default 'ds' figures Distance vs. Speed")
     optParser.add_option("-s", "--show", action="store_true", default=False, help="show plot directly")
-    optParser.add_option("-o", "--output", help="outputfile for saving plots", default="plot.png")
+    optParser.add_option("-o", "--output", help="outputfile for saving figures", default="plot.png")
     optParser.add_option("--csv-output", dest="csv_output", help="write plot as csv", metavar="FILE")
     optParser.add_option("-b", "--ballistic", action="store_true", default=False,
                          help="perform ballistic integration of distance")

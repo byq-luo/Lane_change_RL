@@ -27,7 +27,7 @@ from agilepy.lib_base.processes import Process
 
 class StrategyPlotter(PlotoptionsMixin, Process):
     def __init__(self, virtualpop, name='Plot strategy results with Matplotlib',
-                 info="Creates plots of different strategy results using matplotlib",
+                 info="Creates figures of different strategy results using matplotlib",
                  logger=None, **kwargs):
 
         self._init_common('strategyresultplotter', parent=virtualpop, name=name,
@@ -37,28 +37,28 @@ class StrategyPlotter(PlotoptionsMixin, Process):
         attrsman = self.get_attrsman()
 
         self.is_strategy_share = attrsman.add(cm.AttrConf('is_strategy_share', kwargs.get('is_strategy_share', True),
-                                                          groupnames=['options', 'plots'],
+                                                          groupnames=['options', 'figures'],
                                                           name='Plot strategy shares',
                                                           plotfunction=self.plot_strategy_share,
                                                           info='Plot share of currently chosen strategies.',
                                                           ))
 
         self.is_strategy_time_est_mean = attrsman.add(cm.AttrConf('is_strategy_time_est_mean', kwargs.get('is_strategy_time_est_mean', True),
-                                                                  groupnames=['options', 'plots'],
+                                                                  groupnames=['options', 'figures'],
                                                                   name='Plot strategy mean est times',
                                                                   plotfunction=self.plot_strategy_times_est,
                                                                   info='Plot strategy mean est times.',
                                                                   ))
 
         self.is_strategy_timefactors_est = attrsman.add(cm.AttrConf('is_strategy_timefactors_est', kwargs.get('is_strategy_timefactors_est', True),
-                                                                    groupnames=['options', 'plots'],
+                                                                    groupnames=['options', 'figures'],
                                                                     name='Plot strategy times factors',
                                                                     plotfunction=self.plot_strategy_timefactors_est,
                                                                     info=self.plot_strategy_timefactors_est.__doc__,
                                                                     ))
 
         self.is_strategy_timefactors_exec = attrsman.add(cm.AttrConf('is_strategy_timefactors_exec', kwargs.get('is_strategy_timefactors_exec', True),
-                                                                     groupnames=['options', 'plots'],
+                                                                     groupnames=['options', 'figures'],
                                                                      name='Plot strategy exec times factors',
                                                                      plotfunction=self.plot_strategy_timefactors_exec,
                                                                      info=self.plot_strategy_timefactors_exec.__doc__,
@@ -136,7 +136,7 @@ class StrategyPlotter(PlotoptionsMixin, Process):
         # plt.rc('axes', prop_cycle=(cycler('color', ['r', 'g', 'b', 'y']) +
         #                    cycler('linestyle', ['-', '--', ':', '-.'])))
 
-        for plotattr in self.get_attrsman().get_group('plots'):
+        for plotattr in self.get_attrsman().get_group('figures'):
             print '  ', plotattr.attrname, plotattr.get_value()
             if plotattr.get_value():
                 plotattr.plotfunction()

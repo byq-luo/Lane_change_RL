@@ -19,7 +19,7 @@ import logging
 
 class CollectingHandler(logging.Handler):
 
-    """ Handler for loggers from logging module. Collects all log messages. """
+    """ Handler for loggers from logging module. Collects all tf_events messages. """
 
     def __init__(self, level=0):
         """ Constructor. The level parameter stands for logging level. """

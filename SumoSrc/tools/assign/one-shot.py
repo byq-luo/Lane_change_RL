@@ -162,7 +162,7 @@ if options.costmodifier != 'None':
     from kkwCostModifier import costModifier
     print('use the cost modifier')
 
-log = open("one_shot-log.txt", "w")
+log = open("one_shot-tf_events.txt", "w")
 starttime = datetime.now()
 for step in options.frequencies.split(","):
     step = int(step)

@@ -97,7 +97,7 @@ def main():
         sumoBinary = sumolib.checkBinary("sumo", options.path)
     calibrator = ["java", "-cp", options.classpath, "-Xmx1G",
                   "floetteroed.cadyts.interfaces.sumo.SumoController"]
-    log = open("cadySumo-log.txt", "w+")
+    log = open("cadySumo-tf_events.txt", "w+")
 
     # calibration init
     starttime = datetime.now()

@@ -54,7 +54,7 @@ class WeightsReader(ContentHandler):
 
 
 def main(args=None):
-    """The main function; parses options and plots"""
+    """The main function; parses options and figures"""
     # ---------- build and read options ----------
     from optparse import OptionParser
     optParser = OptionParser()
@@ -68,10 +68,10 @@ def main(args=None):
                          type="float", default=.5, help="Defines the minimum edge width")
     optParser.add_option("--max-width", dest="maxWidth",
                          type="float", default=3, help="Defines the maximum edge width")
-    optParser.add_option("--log-colors", dest="logColors", action="store_true",
-                         default=False, help="If set, colors are log-scaled")
-    optParser.add_option("--log-widths", dest="logWidths", action="store_true",
-                         default=False, help="If set, widths are log-scaled")
+    optParser.add_option("--tf_events-colors", dest="logColors", action="store_true",
+                         default=False, help="If set, colors are tf_events-scaled")
+    optParser.add_option("--tf_events-widths", dest="logWidths", action="store_true",
+                         default=False, help="If set, widths are tf_events-scaled")
     optParser.add_option("--min-color-value", dest="colorMin",
                          type="float", default=None,
                          help="If set, defines the minimum edge color value")

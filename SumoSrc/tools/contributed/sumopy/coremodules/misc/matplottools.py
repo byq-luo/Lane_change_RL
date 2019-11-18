@@ -539,8 +539,8 @@ class PlotoptionsMixin:
         attrsman = self.get_attrsman()
         self.is_save = attrsman.add(cm.AttrConf('is_save', kwargs.get('is_save', False),
                                                 groupnames=['options'],
-                                                name='Save plots',
-                                                info='If true, save plots instead of showing on screen.',
+                                                name='Save figures',
+                                                info='If true, save figures instead of showing on screen.',
                                                 ))
 
         self.figformat = attrsman.add(cm.AttrConf('figformat', kwargs.get('figformat', 'png'),

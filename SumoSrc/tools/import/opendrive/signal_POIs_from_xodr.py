@@ -149,7 +149,7 @@ if __name__ == "__main__":
                         help="file path of open drive file")
     parser.add_argument("net_file", type=str,
                         help="file path of net file")
-    # parser.add_argument("workLog", type=str, help="work log file")
+    # parser.add_argument("workLog", type=str, help="work tf_events file")
     args = parser.parse_args()
 
     net_Fp = args.net_file  # td_Dp+'/sumo/net.net.xml'

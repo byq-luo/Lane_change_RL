@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
-import os
 from baselines.common import tf_util as U
 from baselines import logger
-import gym
 from env.LaneChangeEnv import LaneChangeEnv
-import ppo_sgd
+from ppo_new import ppo_sgd
+
 
 def train(num_timesteps, seed, model_path=None):
     from baselines.ppo1 import mlp_policy
@@ -16,16 +15,16 @@ def train(num_timesteps, seed, model_path=None):
 
     logger.log("NOTE: reward will be scaled by a factor of 10  in logged stats. Check the monitor for unscaled reward.")
     pi = ppo_sgd.learn(env, policy_fn,
-            max_timesteps=num_timesteps,
-            timesteps_per_actorbatch=2048,
-            clip_param=0.1, entcoeff=0.0,
-            optim_epochs=10,
-            optim_stepsize=1e-4,
-            optim_batchsize=64,
-            gamma=0.99,
-            lam=0.95,
-            schedule='constant',
-        )
+                       max_timesteps=num_timesteps,
+                       timesteps_per_actorbatch=2048,
+                       clip_param=0.1, entcoeff=0.0,
+                       optim_epochs=10,
+                       optim_stepsize=1e-4,
+                       optim_batchsize=64,
+                       gamma=0.99,
+                       lam=0.95,
+                       schedule='constant',
+                       )
     env.close()
     if model_path:
         U.save_state(model_path)

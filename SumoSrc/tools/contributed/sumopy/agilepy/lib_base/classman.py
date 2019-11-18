@@ -30,16 +30,13 @@
 # different attrconfig classe (numbers, strings, lists, colors,...)
 
 import types
-import os
 import pickle
-import sys
-import string
 from collections import OrderedDict
 from datetime import datetime
 #import numpy as np
 import xmlman as xm
 from logger import Logger
-from misc import get_inversemap
+from others.misc import get_inversemap
 
 ##########
 
