@@ -16,7 +16,7 @@ def train(num_timesteps, seed, model_path=None):
     logger.log("NOTE: reward will be scaled by a factor of 10  in logged stats. Check the monitor for unscaled reward.")
     pi = ppo_sgd.learn(env, policy_fn,
                        max_timesteps=num_timesteps,
-                       timesteps_per_actorbatch=2048,
+                       timesteps_per_actorbatch=512,
                        clip_param=0.1, entcoeff=0.0,
                        optim_epochs=10,
                        optim_stepsize=1e-4,

@@ -8,6 +8,9 @@ from baselines.common.mpi_adam import MpiAdam
 from baselines.common.mpi_moments import mpi_moments
 from collections import deque
 import random
+import sys
+
+sys.stdout = open('logs/logg.txt', 'w')
 
 
 def traj_segment_generator(pi, env, horizon, stochastic):
@@ -130,6 +133,11 @@ def learn(env, policy_fn, *,
     losses = [pol_surr, pol_entpen, vf_loss, meankl, meanent]
     loss_names = ["pol_surr", "pol_entpen", "vf_loss", "kl", "ent"]
 
+    tf.summary.scalar('total_loss', total_loss)
+    for name in loss_names:
+        i = loss_names.index(name)
+        tf.summary.scalar('loss_' + name, losses[i])
+
     var_list = pi.get_trainable_variables()
     lossandgrad = U.function([ob, ac, atarg, ret, lrmult], losses + [U.flatgrad(total_loss, var_list)])
     adam = MpiAdam(var_list, epsilon=adam_epsilon)
@@ -152,7 +160,14 @@ def learn(env, policy_fn, *,
     lenbuffer = deque(maxlen=100) # rolling buffer for episode lengths
     rewbuffer = deque(maxlen=100) # rolling buffer for episode rewards
 
-    assert sum([max_iters>0, max_timesteps>0, max_episodes>0, max_seconds>0])==1, "Only one time constraint permitted"
+    assert sum([max_iters > 0, max_timesteps > 0, max_episodes > 0, max_seconds > 0]) == 1, \
+        "Only one time constraint permitted"
+
+    # tensorboard summary writer
+    summary_dir = './tf_events'
+    sess = U.get_session()
+    summary_writer = tf.summary.FileWriter(summary_dir, sess.graph)
+    summary_op = tf.summary.merge_all()
 
     while True:
         if callback:
@@ -173,58 +188,67 @@ def learn(env, policy_fn, *,
         else:
             raise NotImplementedError
 
-        logger.log("********** Iteration %i ************"%iters_so_far)
+        print("********** Iteration %i ************" % iters_so_far)
 
         seg = seg_gen.__next__()
         add_vtarg_and_adv(seg, gamma, lam)
 
         # ob, ac, atarg, ret, td1ret = map(np.concatenate, (obs, acs, atargs, rets, td1rets))
         ob, ac, atarg, tdlamret = seg["ob"], seg["ac"], seg["adv"], seg["tdlamret"]
-        vpredbefore = seg["vpred"] # predicted value function before udpate
-        atarg = (atarg - atarg.mean()) / atarg.std() # standardized advantage function estimate
+        vpredbefore = seg["vpred"]  # predicted value function before udpate
+        atarg = (atarg - atarg.mean()) / atarg.std()  # standardized advantage function estimate
         d = Dataset(dict(ob=ob, ac=ac, atarg=atarg, vtarg=tdlamret), deterministic=pi.recurrent)
         optim_batchsize = optim_batchsize or ob.shape[0]
 
         if hasattr(pi, "ob_rms"):
-            pi.ob_rms.update(ob) # update running mean/std for policy
+            pi.ob_rms.update(ob)  # update running mean/std for policy
 
-        assign_old_eq_new() # set old parameter values to new parameter values
-        logger.log("Optimizing...")
-        logger.log(fmt_row(13, loss_names))
+        assign_old_eq_new()  # set old parameter values to new parameter values
+
+        print("Optimizing...")
+        print(fmt_row(13, loss_names))
+
         # Here we do a bunch of optimization epochs over the data
         for _ in range(optim_epochs):
-            losses = [] # list of tuples, each of which gives the loss for a minibatch
+            losses_batch = []  # list of tuples, each of which gives the loss for a minibatch
             for batch in d.iterate_once(optim_batchsize):
                 *newlosses, g = lossandgrad(batch["ob"], batch["ac"], batch["atarg"], batch["vtarg"], cur_lrmult)
                 adam.update(g, optim_stepsize * cur_lrmult)
-                losses.append(newlosses)
-            logger.log(fmt_row(13, np.mean(losses, axis=0)))
+                losses_batch.append(newlosses)
+            print(fmt_row(13, np.mean(losses_batch, axis=0)))
 
-        logger.log("Evaluating losses...")
-        losses = []
+        print("Evaluating losses...")
+        losses_batch = []
         for batch in d.iterate_once(optim_batchsize):
             newlosses = compute_losses(batch["ob"], batch["ac"], batch["atarg"], batch["vtarg"], cur_lrmult)
-            losses.append(newlosses)
-        meanlosses,_,_ = mpi_moments(losses, axis=0)
-        logger.log(fmt_row(13, meanlosses))
+            losses_batch.append(newlosses)
+        meanlosses, _, _ = mpi_moments(losses_batch, axis=0)
+        print(fmt_row(13, meanlosses))
         for (lossval, name) in zipsame(meanlosses, loss_names):
-            logger.record_tabular("loss_"+name, lossval)
-        logger.record_tabular("ev_tdlam_before", explained_variance(vpredbefore, tdlamret))
-        lrlocal = (seg["ep_lens"], seg["ep_rets"]) # local values
-        listoflrpairs = MPI.COMM_WORLD.allgather(lrlocal) # list of tuples
+            print("loss_"+name, lossval)
+
+        summary_eval = sess.run(summary_op, feed_dict={i: d for i, d in zip(losses, meanlosses)})
+
+        summary_writer.add_summary(summary_eval, timesteps_so_far)
+
+        #logger.record_tabular("ev_tdlam_before", explained_variance(vpredbefore, tdlamret))
+
+        lrlocal = (seg["ep_lens"], seg["ep_rets"])  # local values
+        listoflrpairs = MPI.COMM_WORLD.allgather(lrlocal)  # list of tuples
         lens, rews = map(flatten_lists, zip(*listoflrpairs))
         lenbuffer.extend(lens)
         rewbuffer.extend(rews)
-        logger.record_tabular("EpLenMean", np.mean(lenbuffer))
-        logger.record_tabular("EpRewMean", np.mean(rewbuffer))
-        logger.record_tabular("EpThisIter", len(lens))
+
+        # logger.record_tabular("EpLenMean", np.mean(lenbuffer))
+        # logger.record_tabular("EpRewMean", np.mean(rewbuffer))
+        # logger.record_tabular("EpThisIter", len(lens))
         episodes_so_far += len(lens)
         timesteps_so_far += sum(lens)
         iters_so_far += 1
-        logger.record_tabular("EpisodesSoFar", episodes_so_far)
-        logger.record_tabular("TimestepsSoFar", timesteps_so_far)
-        logger.record_tabular("TimeElapsed", time.time() - tstart)
-        if MPI.COMM_WORLD.Get_rank()==0:
+        # logger.record_tabular("EpisodesSoFar", episodes_so_far)
+        # logger.record_tabular("TimestepsSoFar", timesteps_so_far)
+        # logger.record_tabular("TimeElapsed", time.time() - tstart)tstart
+        if MPI.COMM_WORLD.Get_rank() == 0:
             logger.dump_tabular()
 
     return pi

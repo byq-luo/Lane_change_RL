@@ -2,19 +2,44 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b0c90436-3db4-4a5e-b1d8-c94fa90c6d12" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/cxx.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/logg.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tf_events/events.out.tfevents.1574228862.xuxinde-MateBook-X-Pro.local" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tf_events/events.out.tfevents.1574228997.xuxinde-MateBook-X-Pro.local" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tf_events/events.out.tfevents.1574230677.xuxinde-MateBook-X-Pro.local" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tf_events/events.out.tfevents.1574231077.xuxinde-MateBook-X-Pro.local" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tf_events/events.out.tfevents.1574231258.xuxinde-MateBook-X-Pro.local" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IDM.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/IDM.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PPO.py" beforeDir="false" afterPath="$PROJECT_DIR$/ppo_old/PPO.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/animate_result.py" beforeDir="false" afterPath="$PROJECT_DIR$/ppo_new/animate_result.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/documents/Definition of Vehicles, Vehicle Types, and Routes - Sumo.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/documents/Simulation:Basic Definition - Sumo.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/documents/Simulation:SublaneModel - Sumo.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/documents/TraCI:Change Vehicle State - Sumo.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/documents/report.key" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/original.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/original.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/env/LaneChangeEnv.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/LaneChangeEnv.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ppo_sgd.py" beforeDir="false" afterPath="$PROJECT_DIR$/ppo_new/ppo_sgd.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/ppo_new/run.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/ppo_old/train.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/others/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/others/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ppo_new/ppo_sgd.py" beforeDir="false" afterPath="$PROJECT_DIR$/ppo_new/ppo_sgd.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ppo_new/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/ppo_new/run.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tf_events/events.out.tfevents.1571075865.xuxinde-MateBook-X-Pro.local" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tf_events/events.out.tfevents.1571075881.xuxinde-MateBook-X-Pro.local" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tf_events/events.out.tfevents.1571076084.xuxinde-MateBook-X-Pro.local" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tf_events/events.out.tfevents.1571076193.xuxinde-MateBook-X-Pro.local" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tf_events/events.out.tfevents.1571076245.xuxinde-MateBook-X-Pro.local" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tf_events/events.out.tfevents.1571076858.xuxinde-MateBook-X-Pro.local" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tf_events/events.out.tfevents.1571076897.xuxinde-MateBook-X-Pro.local" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tf_events/events.out.tfevents.1571076984.xuxinde-MateBook-X-Pro.local" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tf_events/events.out.tfevents.1571077136.xuxinde-MateBook-X-Pro.local" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tf_events/events.out.tfevents.1571077330.xuxinde-MateBook-X-Pro.local" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tf_events/events.out.tfevents.1571077478.xuxinde-MateBook-X-Pro.local" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tf_events/events.out.tfevents.1571077688.xuxinde-MateBook-X-Pro.local" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tf_events/events.out.tfevents.1571077710.xuxinde-MateBook-X-Pro.local" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tf_events/events.out.tfevents.1571077784.xuxinde-MateBook-X-Pro.local" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tf_events/events.out.tfevents.1571078789.xuxinde-MateBook-X-Pro.local" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tf_events/events.out.tfevents.1571078954.xuxinde-MateBook-X-Pro.local" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tf_events/events.out.tfevents.1571079056.xuxinde-MateBook-X-Pro.local" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tf_events/events.out.tfevents.1571079090.xuxinde-MateBook-X-Pro.local" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tf_events/events.out.tfevents.1571079219.xuxinde-MateBook-X-Pro.local" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tf_events/events.out.tfevents.1571079450.xuxinde-MateBook-X-Pro.local" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tf_events/events.out.tfevents.1571080861.xuxinde-MateBook-X-Pro.local" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tf_events/events.out.tfevents.1571080960.xuxinde-MateBook-X-Pro.local" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tf_events/events.out.tfevents.1571081092.xuxinde-MateBook-X-Pro.local" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tf_events/events.out.tfevents.1571081153.xuxinde-MateBook-X-Pro.local" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tf_events/events.out.tfevents.1571082148.xuxinde-MateBook-X-Pro.local" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -51,11 +76,11 @@
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/others" />
+      <recent name="$PROJECT_DIR$/dqn" />
       <recent name="$PROJECT_DIR$/logs" />
       <recent name="$PROJECT_DIR$/plot" />
       <recent name="$PROJECT_DIR$/ppo_new" />
-      <recent name="$PROJECT_DIR$/env" />
-      <recent name="$PROJECT_DIR$/ppo_old" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -92,7 +117,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="ppo_pendulum" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="ppo_sgd" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="SUMO" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -100,11 +125,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ppo_test" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ppo_new" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ppo_test/ppo_pendulum.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ppo_new/ppo_sgd.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -178,18 +203,18 @@
     </configuration>
     <list>
       <item itemvalue="Python.test" />
-      <item itemvalue="Python.ppo_pendulum" />
       <item itemvalue="Python.train" />
       <item itemvalue="Python.animate_result" />
       <item itemvalue="Python.run" />
+      <item itemvalue="Python.ppo_sgd" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.run" />
+        <item itemvalue="Python.ppo_sgd" />
         <item itemvalue="Python.test" />
         <item itemvalue="Python.animate_result" />
         <item itemvalue="Python.train" />
-        <item itemvalue="Python.ppo_pendulum" />
       </list>
     </recent_temporary>
   </component>
@@ -386,7 +411,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574102726610</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="refactored directories">
+      <created>1574108440362</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1574108440362</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -421,13 +453,14 @@
     <MESSAGE value="fixed bugs" />
     <MESSAGE value="structured code" />
     <MESSAGE value="included baseline ppo1" />
-    <option name="LAST_COMMIT_MESSAGE" value="included baseline ppo1" />
+    <MESSAGE value="refactored directories" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactored directories" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/plot.py</url>
+          <url>file://$PROJECT_DIR$/plot/plot.py</url>
           <line>13</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
@@ -448,8 +481,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/ppo_new/ppo_sgd.py</url>
-          <line>15</line>
-          <option name="timeStamp" value="18" />
+          <line>231</line>
+          <option name="timeStamp" value="21" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

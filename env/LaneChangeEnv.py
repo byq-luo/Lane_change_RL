@@ -148,16 +148,16 @@ class LaneChangeEnv(gym.Env):
         w_lateral = 1
         w_longi = 1
         if self.ego.leaderID is not None:
-            print('lateralPos2leader', abs(self.ego.pos_lat - self.veh_dict[self.ego.leaderID].pos_lat))
+            #('lateralPos2leader', abs(self.ego.pos_lat - self.veh_dict[self.ego.leaderID].pos_lat))
             alpha = abs(self.ego.pos_lat - self.veh_dict[self.ego.leaderID].pos_lat) / 3.2
             assert 0 <= alpha <= 1.1
             r_safe_leader = w_lateral*alpha + w_longi*(1-alpha)*abs(self.ego.leaderDis)
         else:
             r_safe_leader = 0
         if self.ego.targetLeaderID is not None:
-            print('lateralPos2tgtleader', abs(self.ego.pos_lat - self.veh_dict[self.ego.targetLeaderID].pos_lat))
+            #print('lateralPos2tgtleader', abs(self.ego.pos_lat - self.veh_dict[self.ego.targetLeaderID].pos_lat))
             alpha = abs(self.ego.pos_lat - self.veh_dict[self.ego.targetLeaderID].pos_lat) / 3.2
-            print('alpha', alpha)
+            #print('alpha', alpha)
             assert 0 <= alpha <= 1.1
 
             r_safe_tgtleader = w_lateral*alpha + w_longi*(1-alpha)*abs(self.ego.lanePos - self.veh_dict[self.ego.targetLeaderID].lanePos)
@@ -175,22 +175,22 @@ class LaneChangeEnv(gym.Env):
         # todo modify
         if self.is_success:
             self.done = True
-            print('reset on: successfully lane change, dis2targetlane:',
-                  self.ego.dis2tgtLane)
+            # print('reset on: successfully lane change, dis2targetlane:',
+            #       self.ego.dis2tgtLane)
         # too close to ramp entrance
         if self.ego.dis2entrance < 10.0:
             self.done = True
-            print('reset on: too close to ramp entrance, dis2targetlane:',
-                  self.ego.dis2tgtLane)
+            # print('reset on: too close to ramp entrance, dis2targetlane:',
+            #       self.ego.dis2tgtLane)
         # ego vehicle out of env
         if self.egoID not in self.vehID_tuple_all:
             self.done = True
-            print('reset on:', '\nself.ego not in env:', self.egoID not in self.vehID_tuple_all)
+            #print('reset on: self.ego not in env:', self.egoID not in self.vehID_tuple_all)
         # collision occurs
         self.collision_num = traci.simulation.getCollidingVehiclesNumber()
         if self.collision_num > 0:
             self.done = True
-            print('\nself.collision_num:', self.collision_num)
+            #print('reset on: self.collision_num:', self.collision_num)
 
     def preStep(self):
         traci.simulationStep()
@@ -245,19 +245,19 @@ class LaneChangeEnv(gym.Env):
         if not self.is_success:
             if action_lateral == 1: #and abs(self.ego.pos_lat - (0.5+self.ego.targetLane)*self.rd.laneWidth) > 0.01:
                 self.is_success = self.ego.changeLane(True, self.ego.trgt_laneIndex, self.rd)
-                print('posLat', self.ego.pos_lat, 'lane', self.ego.curr_laneIndex, 'rdWdith', self.rd.laneWidth)
-                print('right', -(self.ego.pos_lat - 0.5*self.rd.laneWidth))
+                #print('posLat', self.ego.pos_lat, 'lane', self.ego.curr_laneIndex, 'rdWdith', self.rd.laneWidth)
+                #print('right', -(self.ego.pos_lat - 0.5*self.rd.laneWidth))
             # abort lane change, change back to ego's original lane
             if action_lateral == 0: #and abs(self.ego.pos_lat - (0.5+self.ego.origLane)*self.rd.laneWidth) > 0.01:
                 self.is_success = self.ego.changeLane(True, self.ego.orig_laneIndex, self.rd)
-                print('left', 1.5 * self.rd.laneWidth - self.ego.pos_lat)
+                #print('left', 1.5 * self.rd.laneWidth - self.ego.pos_lat)
             #  keep current lateral position
             if action_lateral == 2:
                 self.is_success = self.ego.changeLane(True, -1, self.rd)
 
         # longitudinal control2---------------------
         acceNext = self.ego.updateLongitudinalSpeedIDM(action_longi)
-        print(acceNext)
+        #print(acceNext)
         vNext = self.ego.speed + acceNext * 0.1
         traci.vehicle.setSpeed(self.egoID, vNext)
 
@@ -304,20 +304,19 @@ class LaneChangeEnv(gym.Env):
                     raise Exception('cannot find ego after 5000 timesteps')
 
             assert self.egoID in self.vehID_tuple_all, "cannot start training while ego is not in env"
-
             self.done = False
             self.ego = self.veh_dict[self.egoID]
             self.ego.trgt_laneIndex = tlane
             self.ego.is_ego = 1
+            # set ego vehicle speed mode
             traci.vehicle.setSpeedMode(self.ego.veh_id, 0)
             self.ego_speedFactor = traci.vehicle.getSpeedFactor(egoid)
             self.ego_speedLimit = self.ego_speedFactor * traci.lane.getMaxSpeed(traci.vehicle.getLaneID(self.egoID))
-
+            
             self.ego.idm_obj = IDM()
             self.ego.idm_obj.__init__(self.ego_speedLimit)
             self.ego.update_info(self.rd, self.veh_dict)
             self.updateObservation()
-
             return self.observation
         return
 
