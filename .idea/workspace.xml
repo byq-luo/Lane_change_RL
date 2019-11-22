@@ -2,44 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b0c90436-3db4-4a5e-b1d8-c94fa90c6d12" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/cxx.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/logg.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_events/events.out.tfevents.1574228862.xuxinde-MateBook-X-Pro.local" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_events/events.out.tfevents.1574228997.xuxinde-MateBook-X-Pro.local" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_events/events.out.tfevents.1574230677.xuxinde-MateBook-X-Pro.local" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_events/events.out.tfevents.1574231077.xuxinde-MateBook-X-Pro.local" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_events/events.out.tfevents.1574231258.xuxinde-MateBook-X-Pro.local" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tf_events/1/events.out.tfevents.1574293578.xuxinde-MateBook-X-Pro.local" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tf_events/2/events.out.tfevents.1574402657.MacBook-Pro.local" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tf_model/1/events.out.tfevents.1574450563.MacBook-Pro.local" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/original.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/original.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/LaneChangeEnv.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/LaneChangeEnv.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/others/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/others/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/logg.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logs/logg.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ppo_new/ppo_sgd.py" beforeDir="false" afterPath="$PROJECT_DIR$/ppo_new/ppo_sgd.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ppo_new/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/ppo_new/run.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tf_events/events.out.tfevents.1571075865.xuxinde-MateBook-X-Pro.local" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tf_events/events.out.tfevents.1571075881.xuxinde-MateBook-X-Pro.local" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tf_events/events.out.tfevents.1571076084.xuxinde-MateBook-X-Pro.local" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tf_events/events.out.tfevents.1571076193.xuxinde-MateBook-X-Pro.local" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tf_events/events.out.tfevents.1571076245.xuxinde-MateBook-X-Pro.local" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tf_events/events.out.tfevents.1571076858.xuxinde-MateBook-X-Pro.local" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tf_events/events.out.tfevents.1571076897.xuxinde-MateBook-X-Pro.local" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tf_events/events.out.tfevents.1571076984.xuxinde-MateBook-X-Pro.local" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tf_events/events.out.tfevents.1571077136.xuxinde-MateBook-X-Pro.local" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tf_events/events.out.tfevents.1571077330.xuxinde-MateBook-X-Pro.local" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tf_events/events.out.tfevents.1571077478.xuxinde-MateBook-X-Pro.local" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tf_events/events.out.tfevents.1571077688.xuxinde-MateBook-X-Pro.local" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tf_events/events.out.tfevents.1571077710.xuxinde-MateBook-X-Pro.local" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tf_events/events.out.tfevents.1571077784.xuxinde-MateBook-X-Pro.local" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tf_events/events.out.tfevents.1571078789.xuxinde-MateBook-X-Pro.local" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tf_events/events.out.tfevents.1571078954.xuxinde-MateBook-X-Pro.local" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tf_events/events.out.tfevents.1571079056.xuxinde-MateBook-X-Pro.local" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tf_events/events.out.tfevents.1571079090.xuxinde-MateBook-X-Pro.local" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tf_events/events.out.tfevents.1571079219.xuxinde-MateBook-X-Pro.local" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tf_events/events.out.tfevents.1571079450.xuxinde-MateBook-X-Pro.local" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tf_events/events.out.tfevents.1571080861.xuxinde-MateBook-X-Pro.local" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tf_events/events.out.tfevents.1571080960.xuxinde-MateBook-X-Pro.local" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tf_events/events.out.tfevents.1571081092.xuxinde-MateBook-X-Pro.local" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tf_events/events.out.tfevents.1571081153.xuxinde-MateBook-X-Pro.local" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tf_events/events.out.tfevents.1571082148.xuxinde-MateBook-X-Pro.local" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tf_events/events.out.tfevents.1574228862.xuxinde-MateBook-X-Pro.local" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tf_events/events.out.tfevents.1574228997.xuxinde-MateBook-X-Pro.local" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tf_events/events.out.tfevents.1574230677.xuxinde-MateBook-X-Pro.local" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tf_events/events.out.tfevents.1574231077.xuxinde-MateBook-X-Pro.local" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tf_events/events.out.tfevents.1574231258.xuxinde-MateBook-X-Pro.local" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -418,7 +392,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574108440362</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="capable of training">
+      <created>1574232504375</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1574232504375</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -454,7 +435,8 @@
     <MESSAGE value="structured code" />
     <MESSAGE value="included baseline ppo1" />
     <MESSAGE value="refactored directories" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactored directories" />
+    <MESSAGE value="capable of training" />
+    <option name="LAST_COMMIT_MESSAGE" value="capable of training" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -478,11 +460,6 @@
           <url>file://$PROJECT_DIR$/env/LaneChangeEnv.py</url>
           <line>19</line>
           <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/ppo_new/ppo_sgd.py</url>
-          <line>231</line>
-          <option name="timeStamp" value="21" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

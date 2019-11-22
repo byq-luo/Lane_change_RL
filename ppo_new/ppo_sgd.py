@@ -8,23 +8,23 @@ from baselines.common.mpi_adam import MpiAdam
 from baselines.common.mpi_moments import mpi_moments
 from collections import deque
 import random
-import sys
+import sys, os
 
 sys.stdout = open('logs/logg.txt', 'w')
 
 
 def traj_segment_generator(pi, env, horizon, stochastic):
     t = 0
-    ac = env.action_space.sample() # not used, just so we have the datatype
+    ac = env.action_space.sample()  # not used, just so we have the datatype
     new = True  # marks if we're on first timestep of an episode
     egoid = 'lane1.' + str(random.randint(1, 5))
     ob = env.reset(egoid=egoid, tlane=0, tfc=2, is_gui=False, sumoseed=None, randomseed=None)
-    #ob = env.reset()
+    # ob = env.reset()
 
-    cur_ep_ret = 0 # return in current episode
-    cur_ep_len = 0 # len of current episode
-    ep_rets = [] # returns of completed episodes in this segment
-    ep_lens = [] # lengths of ...
+    cur_ep_ret = 0  # return in current episode
+    cur_ep_len = 0  # len of current episode
+    ep_rets = []  # returns of completed episodes in this segment
+    ep_lens = []  # lengths of ...
 
     # Initialize history arrays
     obs = np.array([ob for _ in range(horizon)])
@@ -41,9 +41,9 @@ def traj_segment_generator(pi, env, horizon, stochastic):
         # before returning segment [0, T-1] so we get the correct
         # terminal value
         if t > 0 and t % horizon == 0:
-            yield {"ob" : obs, "rew" : rews, "vpred" : vpreds, "new" : news,
-                    "ac" : acs, "prevac" : prevacs, "nextvpred": vpred * (1 - new),
-                    "ep_rets" : ep_rets, "ep_lens" : ep_lens}
+            yield {"ob": obs, "rew": rews, "vpred": vpreds, "new": news,
+                   "ac": acs, "prevac": prevacs, "nextvpred": vpred * (1 - new),
+                   "ep_rets": ep_rets, "ep_lens": ep_lens}
             # Be careful!!! if you change the downstream algorithm to aggregate
             # several of these batches, then be sure to do a deepcopy
             # clear episode
@@ -69,7 +69,7 @@ def traj_segment_generator(pi, env, horizon, stochastic):
             cur_ep_len = 0
             egoid = 'lane1.' + str(random.randint(1, 5))
             ob = env.reset(egoid=egoid, tlane=0, tfc=2, is_gui=False, sumoseed=None, randomseed=None)
-            #ob = env.reset()
+            # ob = env.reset()
         t += 1
 
 
@@ -77,39 +77,53 @@ def add_vtarg_and_adv(seg, gamma, lam):
     """
     Compute target value using TD(lambda) estimator, and advantage with GAE(lambda)(Generalize Advantage Estimation)
     """
-    new = np.append(seg["new"], 0) # last element is only used for last vtarg, but we already zeroed it if last new = 1
+    new = np.append(seg["new"], 0)  # last element is only used for last vtarg, but we already zeroed it if last new = 1
     vpred = np.append(seg["vpred"], seg["nextvpred"])
     T = len(seg["rew"])
     seg["adv"] = gaelam = np.empty(T, 'float32')
     rew = seg["rew"]
     lastgaelam = 0
     for t in reversed(range(T)):
-        nonterminal = 1-new[t+1]
-        delta = rew[t] + gamma * vpred[t+1] * nonterminal - vpred[t]
+        nonterminal = 1 - new[t + 1]
+        delta = rew[t] + gamma * vpred[t + 1] * nonterminal - vpred[t]
         gaelam[t] = lastgaelam = delta + gamma * lam * nonterminal * lastgaelam
     seg["tdlamret"] = seg["adv"] + seg["vpred"]
 
 
 def learn(env, policy_fn, *,
-        timesteps_per_actorbatch, # timesteps per actor per update
-        clip_param, entcoeff, # clipping parameter epsilon, entropy coeff
-        optim_epochs, optim_stepsize, optim_batchsize,# optimization hypers
-        gamma, lam, # advantage estimation
-        max_timesteps=0, max_episodes=0, max_iters=0, max_seconds=0,  # time constraint
-        callback=None, # you can do anything in the callback, since it takes locals(), globals()
-        adam_epsilon=1e-5,
-        schedule='constant' # annealing for stepsize parameters (epsilon and adam)
-        ):
+          timesteps_per_actorbatch,  # timesteps per actor per update
+          clip_param, entcoeff,  # clipping parameter epsilon, entropy coeff
+          optim_epochs, optim_stepsize, optim_batchsize,  # optimization hypers
+          gamma, lam,  # advantage estimation
+          max_timesteps=0, max_episodes=0, max_iters=0, max_seconds=0,  # time constraint
+          callback=None,  # you can do anything in the callback, since it takes locals(), globals()
+          adam_epsilon=1e-5,
+          schedule='constant',  # annealing for stepsize parameters (epsilon and adam)
+          model_dir_base='./tf_model/'):
+
+    # tensorboard summary writer & model saving path
+    i = 1
+    while True:
+        if not os.path.exists(model_dir_base + str(i)):
+            model_dir = model_dir_base + str(i)
+            os.makedirs(model_dir)
+            break
+        else:
+            i += 1
+    sess = U.get_session()
+    summary_writer = tf.summary.FileWriter(model_dir, sess.graph)
+
     # Setup losses and stuff
     # ----------------------------------------
     ob_space = env.observation_space
     ac_space = env.action_space
-    pi = policy_fn("pi", ob_space, ac_space) # Construct network for new policy
-    oldpi = policy_fn("oldpi", ob_space, ac_space) # Network for old policy
-    atarg = tf.placeholder(dtype=tf.float32, shape=[None]) # Target advantage function (if applicable)
-    ret = tf.placeholder(dtype=tf.float32, shape=[None]) # Empirical return
+    pi = policy_fn("pi", ob_space, ac_space)  # Construct network for new policy
+    oldpi = policy_fn("oldpi", ob_space, ac_space)  # Network for old policy
+    atarg = tf.placeholder(dtype=tf.float32, shape=[None])  # Target advantage function (if applicable)
+    ret = tf.placeholder(dtype=tf.float32, shape=[None])  # Empirical return
 
-    lrmult = tf.placeholder(name='lrmult', dtype=tf.float32, shape=[]) # learning rate multiplier, updated with schedule
+    lrmult = tf.placeholder(name='lrmult', dtype=tf.float32,
+                            shape=[])  # learning rate multiplier, updated with schedule
 
     ob = U.get_placeholder_cached(name="ob")
     ac = pi.pdtype.sample_placeholder([None])
@@ -122,10 +136,10 @@ def learn(env, policy_fn, *,
     pol_entpen = (-entcoeff) * meanent
 
     # Clip loss
-    ratio = tf.exp(pi.pd.logp(ac) - oldpi.pd.logp(ac)) # pnew / pold
-    surr1 = ratio * atarg # surrogate from conservative policy iteration
-    surr2 = tf.clip_by_value(ratio, 1.0 - clip_param, 1.0 + clip_param) * atarg #
-    pol_surr = - tf.reduce_mean(tf.minimum(surr1, surr2)) # PPO's pessimistic surrogate (L^CLIP)
+    ratio = tf.exp(pi.pd.logp(ac) - oldpi.pd.logp(ac))  # pnew / pold
+    surr1 = ratio * atarg  # surrogate from conservative policy iteration
+    surr2 = tf.clip_by_value(ratio, 1.0 - clip_param, 1.0 + clip_param) * atarg
+    pol_surr = - tf.reduce_mean(tf.minimum(surr1, surr2))  # PPO's pessimistic surrogate (L^CLIP)
 
     # value function loss
     vf_loss = tf.reduce_mean(tf.square(pi.vpred - ret))
@@ -133,17 +147,40 @@ def learn(env, policy_fn, *,
     losses = [pol_surr, pol_entpen, vf_loss, meankl, meanent]
     loss_names = ["pol_surr", "pol_entpen", "vf_loss", "kl", "ent"]
 
-    tf.summary.scalar('total_loss', total_loss)
-    for name in loss_names:
-        i = loss_names.index(name)
-        tf.summary.scalar('loss_' + name, losses[i])
+    # define tensorboard summary scalars
+    with tf.name_scope('loss'):
+        summary_list_loss = [tf.summary.scalar('total_loss', total_loss)]
+        for name in loss_names:
+            i = loss_names.index(name)
+            summary_list_loss.append(tf.summary.scalar('loss_' + name, losses[i]))
+        summary_merged_loss = tf.summary.merge(summary_list_loss)
+    with tf.name_scope('reward'):
+        reward_ph = tf.placeholder(tf.float32, shape=())
+        summary_list_reward = [tf.summary.scalar('reward_total', reward_ph)]
+        summary_merged_reward = tf.summary.merge(summary_list_reward)
+    with tf.name_scope('observation'):
+        ego_speed_ph = tf.placeholder(tf.float32, shape=())
+        ego_latPos_ph = tf.placeholder(tf.float32, shape=())
+        ego_acce_ph = tf.placeholder(tf.float32, shape=())
+        dis2origLeader_ph = tf.placeholder(tf.float32, shape=())
+        dis2trgtLeader_ph = tf.placeholder(tf.float32, shape=())
+        obs_ph_list = [ego_speed_ph, ego_latPos_ph, ego_acce_ph, dis2origLeader_ph, dis2trgtLeader_ph]
+        obs_name_list = ['ego_speed', 'ego_latPos', 'ego_acce', 'dis2origLeader', 'dis2trgtLeader']
+        summary_list_obs = [tf.summary.histogram(name, ph) for name, ph in zip(obs_name_list, obs_ph_list)]
+        summary_merged_obs = tf.summary.merge(summary_list_obs)
+    with tf.name_scope('action'):
+        ac_ph = tf.placeholder(tf.int32, shape=())
+        summary_list_ac = [tf.summary.histogram('longitudinal', tf.floordiv(ac_ph, 3)),
+                           tf.summary.histogram('lateral', tf.floormod(ac_ph, 3))]
+        summary_merged_acs = tf.summary.merge(summary_list_ac)
 
     var_list = pi.get_trainable_variables()
     lossandgrad = U.function([ob, ac, atarg, ret, lrmult], losses + [U.flatgrad(total_loss, var_list)])
     adam = MpiAdam(var_list, epsilon=adam_epsilon)
 
-    assign_old_eq_new = U.function([],[], updates=[tf.assign(oldv, newv)
-        for (oldv, newv) in zipsame(oldpi.get_variables(), pi.get_variables())])
+    assign_old_eq_new = U.function([], [], updates=[tf.assign(oldv, newv)
+                                                    for (oldv, newv) in
+                                                    zipsame(oldpi.get_variables(), pi.get_variables())])
     compute_losses = U.function([ob, ac, atarg, ret, lrmult], losses)
 
     U.initialize()
@@ -157,17 +194,11 @@ def learn(env, policy_fn, *,
     timesteps_so_far = 0
     iters_so_far = 0
     tstart = time.time()
-    lenbuffer = deque(maxlen=100) # rolling buffer for episode lengths
-    rewbuffer = deque(maxlen=100) # rolling buffer for episode rewards
+    lenbuffer = deque(maxlen=100)  # rolling buffer for episode lengths
+    rewbuffer = deque(maxlen=100)  # rolling buffer for episode rewards
 
     assert sum([max_iters > 0, max_timesteps > 0, max_episodes > 0, max_seconds > 0]) == 1, \
         "Only one time constraint permitted"
-
-    # tensorboard summary writer
-    summary_dir = './tf_events'
-    sess = U.get_session()
-    summary_writer = tf.summary.FileWriter(summary_dir, sess.graph)
-    summary_op = tf.summary.merge_all()
 
     while True:
         if callback:
@@ -225,14 +256,31 @@ def learn(env, policy_fn, *,
         meanlosses, _, _ = mpi_moments(losses_batch, axis=0)
         print(fmt_row(13, meanlosses))
         for (lossval, name) in zipsame(meanlosses, loss_names):
-            print("loss_"+name, lossval)
+            print("loss_" + name, lossval)
 
-        summary_eval = sess.run(summary_op, feed_dict={i: d for i, d in zip(losses, meanlosses)})
+        # write loss summaries
+        summary_eval_loss = sess.run(summary_merged_loss, feed_dict={i: d for i, d in zip(losses, meanlosses)})
+        summary_writer.add_summary(summary_eval_loss, iters_so_far)
+        # write reward summaries
+        for ep_ret in seg['ep_rets']:
+            summary_eval_reward = sess.run(summary_merged_reward, feed_dict={reward_ph: ep_ret})
+            summary_writer.add_summary(summary_eval_reward, episodes_so_far)
+            episodes_so_far += 1
+        # write observation and action summaries
+        assert len(seg['ac']) == len(seg['ob'])
+        for ac, ob in zip(seg['ac'], seg['ob']):
+            summary_eval_obs = sess.run(summary_merged_obs, feed_dict={ego_speed_ph: ob[1],
+                                                                       ego_latPos_ph: ob[2],
+                                                                       ego_acce_ph: ob[3],
+                                                                       dis2origLeader_ph: ob[4] - ob[0],
+                                                                       dis2trgtLeader_ph: ob[12] - ob[0]})
+            summary_writer.add_summary(summary_eval_obs, timesteps_so_far)
+            summary_eval_acs = sess.run(summary_merged_acs, feed_dict={ac_ph: ac})
+            summary_writer.add_summary(summary_eval_acs, timesteps_so_far)
+            timesteps_so_far += 1
 
-        summary_writer.add_summary(summary_eval, timesteps_so_far)
-
-        #logger.record_tabular("ev_tdlam_before", explained_variance(vpredbefore, tdlamret))
-
+        # logger.record_tabular("ev_tdlam_before", explained_variance(vpredbefore, tdlamret))
+        # todo: investigate MPI
         lrlocal = (seg["ep_lens"], seg["ep_rets"])  # local values
         listoflrpairs = MPI.COMM_WORLD.allgather(lrlocal)  # list of tuples
         lens, rews = map(flatten_lists, zip(*listoflrpairs))
@@ -242,14 +290,17 @@ def learn(env, policy_fn, *,
         # logger.record_tabular("EpLenMean", np.mean(lenbuffer))
         # logger.record_tabular("EpRewMean", np.mean(rewbuffer))
         # logger.record_tabular("EpThisIter", len(lens))
-        episodes_so_far += len(lens)
-        timesteps_so_far += sum(lens)
+
+        # episodes_so_far += len(lens)
+        # timesteps_so_far += sum(lens)
         iters_so_far += 1
+
         # logger.record_tabular("EpisodesSoFar", episodes_so_far)
         # logger.record_tabular("TimestepsSoFar", timesteps_so_far)
         # logger.record_tabular("TimeElapsed", time.time() - tstart)tstart
-        if MPI.COMM_WORLD.Get_rank() == 0:
-            logger.dump_tabular()
+
+        # if MPI.COMM_WORLD.Get_rank() == 0:
+        #     logger.dump_tabular()
 
     return pi
 
