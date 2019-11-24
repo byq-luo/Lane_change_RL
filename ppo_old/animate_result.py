@@ -3,7 +3,7 @@ from env.LaneChangeEnv import LaneChangeEnv
 import tensorflow as tf
 import numpy as np
 
-MODEL_DIR = '../model/'
+MODEL_DIR = './model/1'
 EP_MAX = 10
 EP_LEN_MAX = 1000
 

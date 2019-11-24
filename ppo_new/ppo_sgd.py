@@ -1,5 +1,4 @@
 from baselines.common import Dataset, explained_variance, fmt_row, zipsame
-from baselines import logger
 import baselines.common.tf_util as U
 import tensorflow as tf, numpy as np
 import time
@@ -18,7 +17,7 @@ def traj_segment_generator(pi, env, horizon, stochastic):
     ac = env.action_space.sample()  # not used, just so we have the datatype
     new = True  # marks if we're on first timestep of an episode
     egoid = 'lane1.' + str(random.randint(1, 5))
-    ob = env.reset(egoid=egoid, tlane=0, tfc=2, is_gui=False, sumoseed=None, randomseed=None)
+    ob = env.reset(egoid=egoid, tlane=0, tfc=0, is_gui=False, sumoseed=None, randomseed=None)
     # ob = env.reset()
 
     cur_ep_ret = 0  # return in current episode
@@ -68,7 +67,7 @@ def traj_segment_generator(pi, env, horizon, stochastic):
             cur_ep_ret = 0
             cur_ep_len = 0
             egoid = 'lane1.' + str(random.randint(1, 5))
-            ob = env.reset(egoid=egoid, tlane=0, tfc=2, is_gui=False, sumoseed=None, randomseed=None)
+            ob = env.reset(egoid=egoid, tlane=0, tfc=0, is_gui=False, sumoseed=None, randomseed=None)
             # ob = env.reset()
         t += 1
 
@@ -110,8 +109,6 @@ def learn(env, policy_fn, *,
             break
         else:
             i += 1
-    sess = U.get_session()
-    summary_writer = tf.summary.FileWriter(model_dir, sess.graph)
 
     # Setup losses and stuff
     # ----------------------------------------
@@ -186,6 +183,10 @@ def learn(env, policy_fn, *,
     U.initialize()
     adam.sync()
 
+    sess = U.get_session()
+    summary_writer = tf.summary.FileWriter(model_dir, sess.graph)
+    saver = tf.train.Saver(max_to_keep=10)
+
     # Prepare for rollouts
     # ----------------------------------------
     seg_gen = traj_segment_generator(pi, env, timesteps_per_actorbatch, stochastic=True)
@@ -200,7 +201,7 @@ def learn(env, policy_fn, *,
     assert sum([max_iters > 0, max_timesteps > 0, max_episodes > 0, max_seconds > 0]) == 1, \
         "Only one time constraint permitted"
 
-    while True:
+    while max_timesteps > 1:
         if callback:
             callback(locals(), globals())
         if max_timesteps and timesteps_so_far >= max_timesteps:
@@ -301,7 +302,8 @@ def learn(env, policy_fn, *,
 
         # if MPI.COMM_WORLD.Get_rank() == 0:
         #     logger.dump_tabular()
-
+        if iters_so_far+1 % 10 == 0:
+            saver.save(sess, model_dir + '/model.ckpt', global_step=iters_so_far+1)
     return pi
 
 

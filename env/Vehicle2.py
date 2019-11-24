@@ -1,7 +1,5 @@
 import math
 import os, sys
-from collections import deque
-# *******************************
 if 'SUMO_HOME' in os.environ:
     tools = os.path.join(os.environ['SUMO_HOME'], 'tools')
     sys.path.append(tools)
@@ -14,25 +12,38 @@ import traci
 class Vehicle:
     def __init__(self, veh_id, rd):
         self.veh_id = veh_id
-        self.curr_laneIndex = traci.vehicle.getLaneIndex(self.veh_id)
-        self.trgt_laneIndex = self.curr_laneIndex
-        self.orig_laneIndex = self.curr_laneIndex
-
         self.speed = None
-
         self.latSpeed = 0
         self.latSpeed_last = 0
         self.latAcce = 0
-
         self.acce = 0
         self.acce_last = self.acce
         self.delta_acce = 0
 
+        self.pos = rd.startJunction
+        self.pos_x = self.pos[0]
+        self.pos_y = self.pos[1]
 
+        self.curr_laneIndex = traci.vehicle.getLaneIndex(self.veh_id)
+        self.trgt_laneIndex = self.curr_laneIndex
+        self.orig_laneIndex = self.curr_laneIndex
 
         self.pos_lat = traci.vehicle.getLateralLanePosition(self.veh_id) + (self.curr_laneIndex+0.5)*rd.laneWidth
         self.pos_lat_last = self.pos_lat
         self.lanePos = traci.vehicle.getLanePosition(self.veh_id)
+        self.yawAngle = 0
+
+        # todo use Vehicle class directly
+        # self.curr_leader = {'id': None, 'obj':None, 'dis':None, 'speed':None}
+        # self.orig_leader = {'id': None, 'obj':None, 'dis':None, 'speed':None}
+        # self.trgt_leader = {'id': None, 'obj':None, 'dis':None, 'speed':None}
+        # self.trgt_follower = {'id': None, 'obj':None, 'dis':None, 'speed':None}
+
+        # self.curr_leader = {'id': None, 'dis': None, 'speed': None}
+        # self.orig_leader = {'id': None, 'dis': None, 'speed': None}
+        # self.orig_follower = {'id': None, 'dis': None, 'speed': None}
+        # self.trgt_leader = {'id': None, 'dis': None, 'speed': None}
+        # self.trgt_follower = {'id': None, 'dis': None, 'speed': None}
 
         self.curr_leader = None
         self.orig_leader = None
@@ -42,10 +53,12 @@ class Vehicle:
 
         self.dis2tgtLane = None
         self.dis2entrance = None
-
+        self.lcPos = None
+        self.reward = 0
         # not update every step
 
         self.is_ego = 0
+        self.changeTimes = 0
         self.idm_obj = None
 
         traci.vehicle.setLaneChangeMode(veh_id, 256)  # 768
