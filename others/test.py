@@ -23,10 +23,10 @@ def normal(env):
 
     for i in range(10000):
         #ss += 1
-        if 40 < i < 50:
-            #traci.vehicle.slowDown('lane1.0', 0, 3)
-            traci.vehicle.setSpeed('lane1.0', 5)
-            print('slowdown')
+        # if 40 < i < 50:
+        #     #traci.vehicle.slowDown('lane1.0', 0, 3)
+        #     traci.vehicle.setSpeed('lane1.0', 5)
+        #     print('slowdown')
         obs, rwd, done, info = env.step(action=1*3+2)
         #print(env.ego.trgt_leader.veh_id)
         if done is True and info['resetFlag'] == 1:

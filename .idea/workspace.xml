@@ -2,50 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b0c90436-3db4-4a5e-b1d8-c94fa90c6d12" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/env/LaneChangeEnv_v2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/Vehicle2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/1/1model.ckpt-101.data-00000-of-00001" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/1/1model.ckpt-101.index" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/1/1model.ckpt-101.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/1/1model.ckpt-111.data-00000-of-00001" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/1/1model.ckpt-111.index" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/1/1model.ckpt-111.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/1/1model.ckpt-121.data-00000-of-00001" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/1/1model.ckpt-121.index" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/1/1model.ckpt-121.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/1/1model.ckpt-131.data-00000-of-00001" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/1/1model.ckpt-131.index" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/1/1model.ckpt-131.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/1/1model.ckpt-141.data-00000-of-00001" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/1/1model.ckpt-141.index" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/1/1model.ckpt-141.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/1/1model.ckpt-151.data-00000-of-00001" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/1/1model.ckpt-151.index" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/1/1model.ckpt-151.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/1/1model.ckpt-161.data-00000-of-00001" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/1/1model.ckpt-161.index" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/1/1model.ckpt-161.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/1/1model.ckpt-171.data-00000-of-00001" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/1/1model.ckpt-171.index" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/1/1model.ckpt-171.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/1/1model.ckpt-181.data-00000-of-00001" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/1/1model.ckpt-181.index" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/1/1model.ckpt-181.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/1/1model.ckpt-191.data-00000-of-00001" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/1/1model.ckpt-191.index" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/1/1model.ckpt-191.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/1/checkpoint" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/1/events.out.tfevents.1574484071.MacBook-Pro.local" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/env/Ego.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/env/LaneChangeEnv3.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/original.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/original.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/env/LaneChangeEnv.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/LaneChangeEnv.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/env/Vehicle.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Vehicle.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/logg.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logs/logg.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ppo_new/animate_result.py" beforeDir="false" afterPath="$PROJECT_DIR$/ppo_old/animate_result.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ppo_new/ppo_sgd.py" beforeDir="false" afterPath="$PROJECT_DIR$/ppo_new/ppo_sgd.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ppo_new/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/ppo_new/run.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tf_events/1/events.out.tfevents.1574293578.xuxinde-MateBook-X-Pro.local" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tf_events/2/events.out.tfevents.1574402657.MacBook-Pro.local" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tf_model/1/events.out.tfevents.1574450563.MacBook-Pro.local" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/others/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/others/test.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -103,7 +67,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.run">
+  <component name="RunManager" selected="Python.test">
     <configuration name="animate_result" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="SUMO" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -218,10 +182,10 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.test" />
         <item itemvalue="Python.run" />
         <item itemvalue="Python.animate_result" />
         <item itemvalue="Python.ppo_sgd" />
-        <item itemvalue="Python.test" />
         <item itemvalue="Python.train" />
       </list>
     </recent_temporary>
@@ -440,7 +404,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574450905037</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="improved performance">
+      <created>1574557451282</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1574557451282</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -478,7 +449,8 @@
     <MESSAGE value="refactored directories" />
     <MESSAGE value="capable of training" />
     <MESSAGE value="tensorboard information" />
-    <option name="LAST_COMMIT_MESSAGE" value="tensorboard information" />
+    <MESSAGE value="improved performance" />
+    <option name="LAST_COMMIT_MESSAGE" value="improved performance" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -500,8 +472,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/env/LaneChangeEnv.py</url>
-          <line>15</line>
+          <line>16</line>
           <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/env/LaneChangeEnv.py</url>
+          <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
