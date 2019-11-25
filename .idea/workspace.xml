@@ -2,14 +2,36 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b0c90436-3db4-4a5e-b1d8-c94fa90c6d12" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/env/Ego.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env/LaneChangeEnv3.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tf_model/2/events.out.tfevents.1574657398.MacBook-Pro.local" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tf_model/3/checkpoint" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tf_model/3/events.out.tfevents.1574658432.MacBook-Pro.local" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tf_model/3/model.ckpt-10.data-00000-of-00001" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tf_model/3/model.ckpt-10.index" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tf_model/3/model.ckpt-10.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tf_model/3/model.ckpt-20.data-00000-of-00001" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tf_model/3/model.ckpt-20.index" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tf_model/3/model.ckpt-20.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tf_model/3/model.ckpt-30.data-00000-of-00001" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tf_model/3/model.ckpt-30.index" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tf_model/3/model.ckpt-30.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tf_model/3/model.ckpt-40.data-00000-of-00001" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tf_model/3/model.ckpt-40.index" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tf_model/3/model.ckpt-40.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tf_model/3/model.ckpt-50.data-00000-of-00001" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tf_model/3/model.ckpt-50.index" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tf_model/3/model.ckpt-50.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tf_model/3/model.ckpt-60.data-00000-of-00001" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tf_model/3/model.ckpt-60.index" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tf_model/3/model.ckpt-60.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tf_model/3/model.ckpt-70.data-00000-of-00001" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tf_model/3/model.ckpt-70.index" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tf_model/3/model.ckpt-70.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/original.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/original.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/env/LaneChangeEnv.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/LaneChangeEnv.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/Vehicle.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/Vehicle.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/others/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/others/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/logg.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logs/logg.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/others/misc.py" beforeDir="false" afterPath="$PROJECT_DIR$/others/misc.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ppo_new/ppo_sgd.py" beforeDir="false" afterPath="$PROJECT_DIR$/ppo_new/ppo_sgd.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ppo_new/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/ppo_new/run.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -67,7 +89,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.test">
+  <component name="RunManager" selected="Python.run">
     <configuration name="animate_result" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="SUMO" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -81,6 +103,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ppo_new/animate_result.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="misc" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="SUMO" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/others" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/others/misc.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -152,41 +195,20 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="train" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="SUMO" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ppo_old/train.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <list>
       <item itemvalue="Python.test" />
-      <item itemvalue="Python.train" />
       <item itemvalue="Python.animate_result" />
       <item itemvalue="Python.run" />
       <item itemvalue="Python.ppo_sgd" />
+      <item itemvalue="Python.misc" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.test" />
         <item itemvalue="Python.run" />
+        <item itemvalue="Python.misc" />
+        <item itemvalue="Python.test" />
         <item itemvalue="Python.animate_result" />
         <item itemvalue="Python.ppo_sgd" />
-        <item itemvalue="Python.train" />
       </list>
     </recent_temporary>
   </component>
@@ -411,7 +433,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574557451282</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="improved performance">
+      <created>1574624800076</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1574624800076</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -469,15 +498,6 @@
           <url>file://$PROJECT_DIR$/ppo_test/ppo_pendulum.py</url>
           <line>56</line>
           <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/env/LaneChangeEnv.py</url>
-          <line>16</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/env/LaneChangeEnv.py</url>
-          <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

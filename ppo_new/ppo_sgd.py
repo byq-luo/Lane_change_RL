@@ -17,12 +17,14 @@ def traj_segment_generator(pi, env, horizon, stochastic):
     ac = env.action_space.sample()  # not used, just so we have the datatype
     new = True  # marks if we're on first timestep of an episode
     egoid = 'lane1.' + str(random.randint(1, 5))
-    ob = env.reset(egoid=egoid, tlane=0, tfc=0, is_gui=False, sumoseed=None, randomseed=None)
+    ob = env.reset(egoid=egoid, tlane=0, tfc=1, is_gui=False, sumoseed=None, randomseed=None)
     # ob = env.reset()
 
     cur_ep_ret = 0  # return in current episode
+    cur_ep_ret_detail = np.zeros(3)
     cur_ep_len = 0  # len of current episode
     ep_rets = []  # returns of completed episodes in this segment
+    ep_rets_detail = []
     ep_lens = []  # lengths of ...
 
     # Initialize history arrays
@@ -42,7 +44,7 @@ def traj_segment_generator(pi, env, horizon, stochastic):
         if t > 0 and t % horizon == 0:
             yield {"ob": obs, "rew": rews, "vpred": vpreds, "new": news,
                    "ac": acs, "prevac": prevacs, "nextvpred": vpred * (1 - new),
-                   "ep_rets": ep_rets, "ep_lens": ep_lens}
+                   "ep_rets": ep_rets, "ep_lens": ep_lens, 'ep_rets_detail': ep_rets_detail}
             # Be careful!!! if you change the downstream algorithm to aggregate
             # several of these batches, then be sure to do a deepcopy
             # clear episode
@@ -55,19 +57,21 @@ def traj_segment_generator(pi, env, horizon, stochastic):
         acs[i] = ac
         prevacs[i] = prevac
 
-        ob, rew, new, _ = env.step(ac)
-        new = new and _['resetFlag']
+        ob, rew, new, info = env.step(ac)
+        new = new and info['resetFlag']
         rews[i] = rew
 
         cur_ep_ret += rew
+        cur_ep_ret_detail += np.array([info['r_comf'], info['r_effi'], info['r_safety']])
         cur_ep_len += 1
         if new:
             ep_rets.append(cur_ep_ret)
+            ep_rets_detail.append(cur_ep_ret_detail)
             ep_lens.append(cur_ep_len)
             cur_ep_ret = 0
             cur_ep_len = 0
             egoid = 'lane1.' + str(random.randint(1, 5))
-            ob = env.reset(egoid=egoid, tlane=0, tfc=0, is_gui=False, sumoseed=None, randomseed=None)
+            ob = env.reset(egoid=egoid, tlane=0, tfc=1, is_gui=False, sumoseed=None, randomseed=None)
             # ob = env.reset()
         t += 1
 
@@ -152,8 +156,14 @@ def learn(env, policy_fn, *,
             summary_list_loss.append(tf.summary.scalar('loss_' + name, losses[i]))
         summary_merged_loss = tf.summary.merge(summary_list_loss)
     with tf.name_scope('reward'):
-        reward_ph = tf.placeholder(tf.float32, shape=())
-        summary_list_reward = [tf.summary.scalar('reward_total', reward_ph)]
+        reward_total_ph = tf.placeholder(tf.float32, shape=())
+        reward_comf_ph = tf.placeholder(tf.float32, shape=())
+        reward_effi_ph = tf.placeholder(tf.float32, shape=())
+        reward_safety_ph = tf.placeholder(tf.float32, shape=())
+        summary_list_reward = [tf.summary.scalar('reward_total', reward_total_ph)]
+        summary_list_reward.extend([tf.summary.scalar('reward_comf', reward_comf_ph),
+                                    tf.summary.scalar('reward_effi', reward_effi_ph),
+                                    tf.summary.scalar('reward_safety', reward_safety_ph)])
         summary_merged_reward = tf.summary.merge(summary_list_reward)
     with tf.name_scope('observation'):
         ego_speed_ph = tf.placeholder(tf.float32, shape=())
@@ -263,8 +273,11 @@ def learn(env, policy_fn, *,
         summary_eval_loss = sess.run(summary_merged_loss, feed_dict={i: d for i, d in zip(losses, meanlosses)})
         summary_writer.add_summary(summary_eval_loss, iters_so_far)
         # write reward summaries
-        for ep_ret in seg['ep_rets']:
-            summary_eval_reward = sess.run(summary_merged_reward, feed_dict={reward_ph: ep_ret})
+        for ep_ret, ep_ret_detail in zip(seg['ep_rets'], seg['ep_rets_detail']):
+            summary_eval_reward = sess.run(summary_merged_reward, feed_dict={reward_total_ph: ep_ret,
+                                                                             reward_comf_ph: ep_ret_detail[0],
+                                                                             reward_effi_ph: ep_ret_detail[1],
+                                                                             reward_safety_ph: ep_ret_detail[2]})
             summary_writer.add_summary(summary_eval_reward, episodes_so_far)
             episodes_so_far += 1
         # write observation and action summaries
@@ -280,7 +293,6 @@ def learn(env, policy_fn, *,
             summary_writer.add_summary(summary_eval_acs, timesteps_so_far)
             timesteps_so_far += 1
 
-        # logger.record_tabular("ev_tdlam_before", explained_variance(vpredbefore, tdlamret))
         # todo: investigate MPI
         lrlocal = (seg["ep_lens"], seg["ep_rets"])  # local values
         listoflrpairs = MPI.COMM_WORLD.allgather(lrlocal)  # list of tuples
@@ -288,22 +300,10 @@ def learn(env, policy_fn, *,
         lenbuffer.extend(lens)
         rewbuffer.extend(rews)
 
-        # logger.record_tabular("EpLenMean", np.mean(lenbuffer))
-        # logger.record_tabular("EpRewMean", np.mean(rewbuffer))
-        # logger.record_tabular("EpThisIter", len(lens))
-
-        # episodes_so_far += len(lens)
-        # timesteps_so_far += sum(lens)
         iters_so_far += 1
 
-        # logger.record_tabular("EpisodesSoFar", episodes_so_far)
-        # logger.record_tabular("TimestepsSoFar", timesteps_so_far)
-        # logger.record_tabular("TimeElapsed", time.time() - tstart)tstart
-
-        # if MPI.COMM_WORLD.Get_rank() == 0:
-        #     logger.dump_tabular()
-        if iters_so_far+1 % 10 == 0:
-            saver.save(sess, model_dir + '/model.ckpt', global_step=iters_so_far+1)
+        if iters_so_far % 10 == 0:
+            saver.save(sess, model_dir + '/model.ckpt', global_step=iters_so_far)
     return pi
 
 

@@ -35,7 +35,7 @@ def train(num_timesteps, seed):
 
 def main():
     logger.configure()
-    train_bln = 0
+    train_bln = 1
     model_dir = './tf_model/1'
     latest_checkpoint = tf.train.latest_checkpoint(model_dir)
     model_path = latest_checkpoint
@@ -46,6 +46,7 @@ def main():
         # train the model
         train(num_timesteps=100000, seed=None)
     else:
+        # animate trained results
         pi = train(num_timesteps=1, seed=None)
         U.load_state(model_path)
 

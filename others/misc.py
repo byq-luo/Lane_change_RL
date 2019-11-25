@@ -12,5 +12,17 @@ import numpy.random as random
 # print(sess.run(range, feed_dict={a: fd}))
 # print(sess.run(stack, feed_dict={a: fd}))
 
-for action in range(6):
-    print('action:', (action % 3, action//3))
+# for action in range(6):
+#     print('action:', (action % 3, action//3))
+
+# a = [0]
+# a.extend([0,1,2,3])
+# print(a)
+#
+# dic = {'a': 1, 'b': 2}
+# print(dic['a', 'b'])
+
+a = np.array([1,2,3,])
+b = np.array([1,2,3])
+a += b
+print(a)

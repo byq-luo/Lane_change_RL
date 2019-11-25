@@ -129,7 +129,7 @@ class LaneChangeEnv(gym.Env):
         # reward related to comfort
         w_a = 1
         w_da = 1
-        r_comf = w_a * self.ego.acce ** 2 + w_da * self.ego.delta_acce ** 2
+        r_comf = - w_a * self.ego.acce ** 2 - w_da * self.ego.delta_acce ** 2
         # reward related to efficiency
         w_t = 1
         w_s = 1
@@ -171,7 +171,7 @@ class LaneChangeEnv(gym.Env):
         r_safety = r_safety_orig_leader + r_safety_orig_follower + r_safety_trgt_leader + r_safety_trgt_follower
 
         r_total = w_c*r_comf + w_e*r_effi + w_s*r_safety
-        return r_total
+        return r_total, r_comf, r_effi, r_safety
 
     def updateReward3(self):
         return -self.ego.dis2tgtLane
@@ -275,7 +275,11 @@ class LaneChangeEnv(gym.Env):
             return self.observation, 0.0, self.done, self.info
         else:
             self.updateObservation()
-            self.reward = self.updateReward()
+            reward_tuple = self.updateReward()
+            self.reward = reward_tuple[0]
+            self.info['r_comf'] = reward_tuple[1]
+            self.info['r_effi'] = reward_tuple[2]
+            self.info['r_safety'] = reward_tuple[3]
             return self.observation, self.reward, self.done, self.info
 
     def seed(self, seed=None):
