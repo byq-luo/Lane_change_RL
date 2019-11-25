@@ -41,8 +41,8 @@
     <vTypeDistribution id="typelist" vTypes="bus car"/>
 
 
-    <route id="ramp_exit" edges="entranceEdge rampExit" color="blue"/>
-    <route id="keep_on_highway" edges="entranceEdge exit" color="blue"/>
+    <route id="ramp_exit" edges="warm_up entranceEdge rampExit" color="blue"/>
+    <route id="keep_on_highway" edges="warm_up entranceEdge exit" color="blue"/>
     <flow id="lane1" color='30, 144, 255' type="car" departLane="1" arrivalLane="current" begin="0.00" end="3600.00"
           route="keep_on_highway" probability="0.25" departSpeed="max"/>
     <flow id="lane0" color='30, 144, 255' type="typelist" departLane="0" arrivalLane="0" begin="0.00" end="3600.00"

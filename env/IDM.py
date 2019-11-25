@@ -6,9 +6,12 @@ class IDM():
         self.acce_max = 2.9
         self.decel_max = 4.5
         # todo change time headway
-        self.time_headway = 1
+        self.time_headway = 1.0
         self.v0 = v0
         self.s0 = 2.5
+
+    def setSpeedLimit(self, new_sl):
+        self.v0 = new_sl
 
     def calc_acce(self, v, s, v_leader):
         acce_free = self.acce_max * (1 - (v / self.v0) ** 4)

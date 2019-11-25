@@ -22,12 +22,18 @@ def normal(env):
     traci.vehicle.setColor(egoid, (255, 69, 0))
 
     for i in range(10000):
-        #ss += 1
-        # if 40 < i < 50:
-        #     #traci.vehicle.slowDown('lane1.0', 0, 3)
-        #     traci.vehicle.setSpeed('lane1.0', 5)
-        #     print('slowdown')
-        obs, rwd, done, info = env.step(action=1*3+2)
+        # ss += 1
+        if env.timestep == 45:
+             # traci.vehicle.slowDown('lane1.0', 0, 3)
+             # traci.vehicle.setSpeed('lane1.0', 5)
+             # print('slowdown')
+            #env.ego.idm_obj.setSpeedLimit(80)
+            env.ego.idm_obj.time_headway = 0.1
+            print('set successssssss')
+        obs, rwd, done, info = env.step(action=0*3+2)
+        print('speed:', env.ego.speed)
+        if env.ego.curr_leader is not None:
+            print('dis2leader:', env.ego.curr_leader.pos_longi - env.ego.pos_longi)
         #print(env.ego.trgt_leader.veh_id)
         if done is True and info['resetFlag'] == 1:
             env.reset(egoid=egoid, tfc=2, sumoseed=ss, randomseed=3)

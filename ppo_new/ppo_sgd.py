@@ -16,8 +16,8 @@ def traj_segment_generator(pi, env, horizon, stochastic):
     t = 0
     ac = env.action_space.sample()  # not used, just so we have the datatype
     new = True  # marks if we're on first timestep of an episode
-    egoid = 'lane1.' + str(random.randint(1, 5))
-    ob = env.reset(egoid=egoid, tlane=0, tfc=1, is_gui=False, sumoseed=None, randomseed=None)
+    egoid = 'lane1.' + str(random.randint(1, 6))
+    ob = env.reset(egoid=egoid, tlane=0, tfc=2, is_gui=False, sumoseed=None, randomseed=None)
     # ob = env.reset()
 
     cur_ep_ret = 0  # return in current episode
@@ -49,6 +49,7 @@ def traj_segment_generator(pi, env, horizon, stochastic):
             # several of these batches, then be sure to do a deepcopy
             # clear episode
             ep_rets = []
+            ep_rets_detail = []
             ep_lens = []
         i = t % horizon
         obs[i] = ob
@@ -69,9 +70,10 @@ def traj_segment_generator(pi, env, horizon, stochastic):
             ep_rets_detail.append(cur_ep_ret_detail)
             ep_lens.append(cur_ep_len)
             cur_ep_ret = 0
+            cur_ep_ret_detail = 0
             cur_ep_len = 0
-            egoid = 'lane1.' + str(random.randint(1, 5))
-            ob = env.reset(egoid=egoid, tlane=0, tfc=1, is_gui=False, sumoseed=None, randomseed=None)
+            egoid = 'lane1.' + str(random.randint(1, 6))
+            ob = env.reset(egoid=egoid, tlane=0, tfc=2, is_gui=False, sumoseed=None, randomseed=None)
             # ob = env.reset()
         t += 1
 
@@ -102,11 +104,12 @@ def learn(env, policy_fn, *,
           callback=None,  # you can do anything in the callback, since it takes locals(), globals()
           adam_epsilon=1e-5,
           schedule='constant',  # annealing for stepsize parameters (epsilon and adam)
-          model_dir_base='./tf_model/'):
+          model_dir_base='./tf_model/',
+          is_train=True):
 
     # tensorboard summary writer & model saving path
     i = 1
-    while True:
+    while is_train:
         if not os.path.exists(model_dir_base + str(i)):
             model_dir = model_dir_base + str(i)
             os.makedirs(model_dir)
@@ -169,17 +172,19 @@ def learn(env, policy_fn, *,
         ego_speed_ph = tf.placeholder(tf.float32, shape=())
         ego_latPos_ph = tf.placeholder(tf.float32, shape=())
         ego_acce_ph = tf.placeholder(tf.float32, shape=())
-        dis2origLeader_ph = tf.placeholder(tf.float32, shape=())
-        dis2trgtLeader_ph = tf.placeholder(tf.float32, shape=())
-        obs_ph_list = [ego_speed_ph, ego_latPos_ph, ego_acce_ph, dis2origLeader_ph, dis2trgtLeader_ph]
-        obs_name_list = ['ego_speed', 'ego_latPos', 'ego_acce', 'dis2origLeader', 'dis2trgtLeader']
+        #dis2origLeader_ph = tf.placeholder(tf.float32, shape=())
+        #dis2trgtLeader_ph = tf.placeholder(tf.float32, shape=())
+        #obs_ph_list = [ego_speed_ph, ego_latPos_ph, ego_acce_ph, dis2origLeader_ph, dis2trgtLeader_ph]
+        obs_ph_list = [ego_speed_ph, ego_latPos_ph, ego_acce_ph]
+        #obs_name_list = ['ego_speed', 'ego_latPos', 'ego_acce', 'dis2origLeader', 'dis2trgtLeader']
+        obs_name_list = ['ego_speed', 'ego_latPos', 'ego_acce']
         summary_list_obs = [tf.summary.histogram(name, ph) for name, ph in zip(obs_name_list, obs_ph_list)]
         summary_merged_obs = tf.summary.merge(summary_list_obs)
-    with tf.name_scope('action'):
-        ac_ph = tf.placeholder(tf.int32, shape=())
-        summary_list_ac = [tf.summary.histogram('longitudinal', tf.floordiv(ac_ph, 3)),
-                           tf.summary.histogram('lateral', tf.floormod(ac_ph, 3))]
-        summary_merged_acs = tf.summary.merge(summary_list_ac)
+    # with tf.name_scope('action'):
+    #     ac_ph = tf.placeholder(tf.int32, shape=())
+    #     summary_list_ac = [tf.summary.histogram('longitudinal', tf.floordiv(ac_ph, 3)),
+    #                        tf.summary.histogram('lateral', tf.floormod(ac_ph, 3))]
+    #     summary_merged_acs = tf.summary.merge(summary_list_ac)
 
     var_list = pi.get_trainable_variables()
     lossandgrad = U.function([ob, ac, atarg, ret, lrmult], losses + [U.flatgrad(total_loss, var_list)])
@@ -193,9 +198,10 @@ def learn(env, policy_fn, *,
     U.initialize()
     adam.sync()
 
-    sess = U.get_session()
-    summary_writer = tf.summary.FileWriter(model_dir, sess.graph)
-    saver = tf.train.Saver(max_to_keep=10)
+    if is_train:
+        sess = U.get_session()
+        summary_writer = tf.summary.FileWriter(model_dir, sess.graph)
+        saver = tf.train.Saver(max_to_keep=10)
 
     # Prepare for rollouts
     # ----------------------------------------
@@ -211,7 +217,7 @@ def learn(env, policy_fn, *,
     assert sum([max_iters > 0, max_timesteps > 0, max_episodes > 0, max_seconds > 0]) == 1, \
         "Only one time constraint permitted"
 
-    while max_timesteps > 1:
+    while is_train:
         if callback:
             callback(locals(), globals())
         if max_timesteps and timesteps_so_far >= max_timesteps:
@@ -285,12 +291,12 @@ def learn(env, policy_fn, *,
         for ac, ob in zip(seg['ac'], seg['ob']):
             summary_eval_obs = sess.run(summary_merged_obs, feed_dict={ego_speed_ph: ob[1],
                                                                        ego_latPos_ph: ob[2],
-                                                                       ego_acce_ph: ob[3],
-                                                                       dis2origLeader_ph: ob[4] - ob[0],
-                                                                       dis2trgtLeader_ph: ob[12] - ob[0]})
+                                                                       ego_acce_ph: ob[3]})
+                                                                       #dis2origLeader_ph: ob[4] - ob[0],
+                                                                       #dis2trgtLeader_ph: ob[12] - ob[0]})
             summary_writer.add_summary(summary_eval_obs, timesteps_so_far)
-            summary_eval_acs = sess.run(summary_merged_acs, feed_dict={ac_ph: ac})
-            summary_writer.add_summary(summary_eval_acs, timesteps_so_far)
+            #summary_eval_acs = sess.run(summary_merged_acs, feed_dict={ac_ph: ac})
+            #summary_writer.add_summary(summary_eval_acs, timesteps_so_far)
             timesteps_so_far += 1
 
         # todo: investigate MPI

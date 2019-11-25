@@ -246,3 +246,37 @@ def calcAcce(self):
         summary_eval_multi_steps['critic_loss'] = summary_critic_loss_multi_steps
         return summary_eval_multi_steps
         '''
+
+
+def _get_reward_safety(ego, veh_temp):
+    if veh_temp is not None:
+        # compute relative distance
+        vec_pos_ego = np.array([ego.pos_longi, ego.pos_lat])
+        vec_pos_temp = np.array([veh_temp.pos_longi, veh_temp.pos_lat])
+        delta_vec_pos = vec_pos_ego - vec_pos_temp
+        delta_pos_abs = np.linalg.norm(delta_vec_pos, 2)
+        assert delta_pos_abs >= 0
+        if delta_pos_abs <= 20:
+            # compute relative velocity
+            vec_vel_ego = np.array([ego.speed, ego.speed_lat])
+            vec_vel_temp = np.array([veh_temp.speed, veh_temp.speed_lat])
+            delta_vec_vel = vec_vel_ego - vec_vel_temp
+            inner_product = np.dot(delta_vec_pos, delta_vec_vel)
+            if inner_product < 0:
+                vel_projected = inner_product / np.linalg.norm(delta_vec_pos, 2)
+                TTC = delta_pos_abs / -vel_projected
+                assert TTC >= 0
+                return -1 / (TTC + 0.01)
+            else:
+                return 0.0
+        else:
+            return 0.0
+    else:
+        return 0.0
+
+
+r_safety_orig_leader = _get_reward_safety(self.ego, self.ego.orig_leader)
+r_safety_orig_follower = _get_reward_safety(self.ego, self.ego.orig_follower)
+r_safety_trgt_leader = _get_reward_safety(self.ego, self.ego.trgt_leader)
+r_safety_trgt_follower = _get_reward_safety(self.ego, self.ego.trgt_follower)
+r_safety = w_s * min(r_safety_orig_leader, r_safety_orig_follower, r_safety_trgt_leader, r_safety_trgt_follower)

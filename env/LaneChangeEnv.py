@@ -1,7 +1,6 @@
 import os, sys, random, datetime, gym, math
 from gym import spaces
 import numpy as np
-from env.IDM import IDM
 from env.Road import Road
 from env.Vehicle import Vehicle
 from env.Ego import Ego
@@ -73,7 +72,7 @@ class LaneChangeEnv(gym.Env):
         self.reward = None            # (float) : amount of reward returned after previous action
         self.done = True              # (bool): whether the episode has ended, in which case further step() calls will return undefined results
         self.info = {'resetFlag': 0}  # (dict): contains auxiliary diagnostic information (helpful for debugging, and sometimes learning)
-
+        self.is_done_info = 0
         self.action_space = spaces.Discrete(6)
         self.observation_space = spaces.Box(low=-np.inf, high=np.inf, shape=(20, ))
 
@@ -120,57 +119,55 @@ class LaneChangeEnv(gym.Env):
         # self.observation = np.array(self.observation).flatten()
         # print(self.observation.shape)
 
-    def updateReward(self):
-        # weights
-        w_c = 1
-        w_e = 1
-        w_s = 1
+    def updateReward(self, action_lateral):
+        if self.is_done_info == 0:  # weights
+            w_c = 0.01
+            w_e = 0.1
+            w_s = 10
 
-        # reward related to comfort
-        w_a = 1
-        w_da = 1
-        r_comf = - w_a * self.ego.acce ** 2 - w_da * self.ego.delta_acce ** 2
-        # reward related to efficiency
-        w_t = 1
-        w_s = 1
-        w_lc = 1
-        r_time = - w_t * self.timestep
-        r_speed = - w_s * abs(self.ego.speed - self.ego.speedLimit)
-        r_lc = - w_lc * self.ego.dis2tgtLane
-        r_effi = r_time + r_speed + r_lc
-        # reward related to safety
+            # reward related to comfort
+            w_a = 1
+            w_da = 1
+            r_comf = w_c * (- w_a * abs(self.ego.acce) - w_da * abs(self.ego.delta_acce))
+            # reward related to efficiency
+            w_t = 0.1
+            w_sp = 0.1
+            w_lc = 1
+            r_time = - w_t * self.timestep
+            r_speed = - w_sp * abs(self.ego.speed - self.ego.speedLimit)
+            r_lc = - w_lc * self.ego.dis2tgtLane
+            r_effi = w_e * (r_time + r_speed + r_lc)
+            # reward related to safety
 
-        def _get_reward_safety(ego, veh_temp):
-            if veh_temp is not None:
-                vec_pos_ego = np.array([ego.pos_longi, ego.pos_lat])
-                vec_vel_ego = np.array([ego.speed, ego.speed_lat])
-                vec_pos_temp = np.array([veh_temp.pos_longi, veh_temp.pos_lat])
-                delta_vec_pos = vec_pos_ego - vec_pos_temp
-                delta_pos_abs = np.linalg.norm(delta_vec_pos, 2)
-                assert delta_pos_abs >= 0
-                if delta_pos_abs <= 12:
-                    vec_vel_temp = np.array([veh_temp.speed, veh_temp.speed_lat])
-                    delta_vec_vel = vec_vel_ego - vec_vel_temp
-                    inner_product = np.dot(delta_vec_pos, delta_vec_vel)
-                    if inner_product < 0:
-                        vel_projected = inner_product / np.linalg.norm(delta_vec_pos, 2)
-                        TTC = delta_pos_abs / -vel_projected
-                        assert TTC >= 0
-                        return -1 / (TTC + 0.1)
+            def _get_safety_reward(ego, veh_temp):
+                if veh_temp is not None:
+                    dis_longi = abs(veh_temp.pos_longi - ego.pos_longi)
+                    if dis_longi < 12:
+                        # todo consider velocity
+                        return -1/(dis_longi + 0.1)
                     else:
                         return 0.0
                 else:
                     return 0.0
+            r_safety_currLeader = _get_safety_reward(self.ego, self.ego.curr_leader)
+            if action_lateral == 2:
+                r_safety_nextLeader = 0
+                r_safety_nextFollower = 0
+            elif action_lateral == 1:
+                r_safety_nextLeader = _get_safety_reward(self.ego, self.ego.trgt_leader)
+                r_safety_nextFollower = _get_safety_reward(self.ego, self.ego.trgt_follower)
             else:
-                return 0.0
-
-        r_safety_orig_leader = _get_reward_safety(self.ego, self.ego.orig_leader)
-        r_safety_orig_follower = _get_reward_safety(self.ego, self.ego.orig_follower)
-        r_safety_trgt_leader = _get_reward_safety(self.ego, self.ego.trgt_leader)
-        r_safety_trgt_follower = _get_reward_safety(self.ego, self.ego.trgt_follower)
-        r_safety = r_safety_orig_leader + r_safety_orig_follower + r_safety_trgt_leader + r_safety_trgt_follower
-
-        r_total = w_c*r_comf + w_e*r_effi + w_s*r_safety
+                assert action_lateral == 0
+                r_safety_nextLeader = _get_safety_reward(self.ego, self.ego.orig_leader)
+                r_safety_nextFollower = _get_safety_reward(self.ego, self.ego.orig_follower)
+            r_safety = w_s * min(r_safety_currLeader, r_safety_nextLeader, r_safety_nextFollower)
+            r_total = r_comf + r_effi + r_safety
+        else:
+            # collision occurs
+            r_comf = 0
+            r_effi = 0
+            r_safety = -100
+            r_total = r_comf + r_effi + r_safety
         return r_total, r_comf, r_effi, r_safety
 
     def updateReward3(self):
@@ -188,15 +185,16 @@ class LaneChangeEnv(gym.Env):
             self.done = True
             # print('reset on: too close to ramp entrance, dis2targetlane:',
             #       self.ego.dis2tgtLane)
-        # ego vehicle out of env
-        if self.egoID not in self.vehID_tuple_all:
-            self.done = True
-            #print('reset on: self.ego not in env:', self.egoID not in self.vehID_tuple_all)
+        # # ego vehicle out of env
+        # if self.egoID not in self.vehID_tuple_all:
+        #     self.done = True
+        #     #print('reset on: self.ego not in env:', self.egoID not in self.vehID_tuple_all)
         # collision occurs
         self.collision_num = traci.simulation.getCollidingVehiclesNumber()
         if self.collision_num > 0:
             self.done = True
-            #print('reset on: self.collision_num:', self.collision_num)
+            self.is_done_info = 1
+            # print('reset on: self.collision_num:', self.collision_num)
 
     def preStep(self):
         traci.simulationStep()
@@ -259,8 +257,8 @@ class LaneChangeEnv(gym.Env):
                 self.is_success = self.ego.changeLane(True, -1, self.rd)
 
         # longitudinal control2---------------------
-        acceNext = self.ego.updateLongitudinalSpeedIDM(action_longi)
-        #print(acceNext)
+        # clip minimum deceleration
+        acceNext = max(self.ego.updateLongitudinalSpeedIDM(action_longi), -4.5)
         vNext = self.ego.speed + acceNext * 0.1
         traci.vehicle.setSpeed(self.egoID, vNext)
 
@@ -272,10 +270,15 @@ class LaneChangeEnv(gym.Env):
         self.is_done()
         if self.done is True:
             self.info['resetFlag'] = True
-            return self.observation, 0.0, self.done, self.info
+            reward_tuple = self.updateReward(action_lateral)
+            self.reward = reward_tuple[0]
+            self.info['r_comf'] = reward_tuple[1]
+            self.info['r_effi'] = reward_tuple[2]
+            self.info['r_safety'] = reward_tuple[3]
+            return self.observation, self.reward, self.done, self.info
         else:
             self.updateObservation()
-            reward_tuple = self.updateReward()
+            reward_tuple = self.updateReward(action_lateral)
             self.reward = reward_tuple[0]
             self.info['r_comf'] = reward_tuple[1]
             self.info['r_effi'] = reward_tuple[2]
