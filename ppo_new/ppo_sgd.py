@@ -9,7 +9,7 @@ from collections import deque
 import random
 import sys, os
 
-sys.stdout = open('logs/logg.txt', 'w')
+sys.stdout = open('../logs/logg.txt', 'w')
 
 
 def traj_segment_generator(pi, env, horizon, stochastic):
@@ -104,7 +104,7 @@ def learn(env, policy_fn, *,
           callback=None,  # you can do anything in the callback, since it takes locals(), globals()
           adam_epsilon=1e-5,
           schedule='constant',  # annealing for stepsize parameters (epsilon and adam)
-          model_dir_base='./tf_model/',
+          model_dir_base='../../tf_model/',
           is_train=True):
 
     # tensorboard summary writer & model saving path

@@ -36,6 +36,7 @@ class LaneChangeEnv(gym.Env):
                         '--lateral-resolution', str(0.8),  # using 'Sublane-Model'
                         '--step-length', str(0.1),
                         '--default.action-step-length', str(0.1)]
+                        #'--no-warnings']
         # randomness
         if seed is None:
             self.sumoCmd += ['--random']  # initialize with current system time
@@ -121,7 +122,7 @@ class LaneChangeEnv(gym.Env):
 
     def updateReward(self, action_lateral):
         if self.is_done_info == 0:  # weights
-            w_c = 0.01
+            w_c = 0.005
             w_e = 0.1
             w_s = 10
 
@@ -139,28 +140,29 @@ class LaneChangeEnv(gym.Env):
             r_effi = w_e * (r_time + r_speed + r_lc)
             # reward related to safety
 
-            def _get_safety_reward(ego, veh_temp):
-                if veh_temp is not None:
-                    dis_longi = abs(veh_temp.pos_longi - ego.pos_longi)
-                    if dis_longi < 12:
-                        # todo consider velocity
-                        return -1/(dis_longi + 0.1)
-                    else:
-                        return 0.0
-                else:
-                    return 0.0
-            r_safety_currLeader = _get_safety_reward(self.ego, self.ego.curr_leader)
-            if action_lateral == 2:
-                r_safety_nextLeader = 0
-                r_safety_nextFollower = 0
-            elif action_lateral == 1:
-                r_safety_nextLeader = _get_safety_reward(self.ego, self.ego.trgt_leader)
-                r_safety_nextFollower = _get_safety_reward(self.ego, self.ego.trgt_follower)
-            else:
-                assert action_lateral == 0
-                r_safety_nextLeader = _get_safety_reward(self.ego, self.ego.orig_leader)
-                r_safety_nextFollower = _get_safety_reward(self.ego, self.ego.orig_follower)
-            r_safety = w_s * min(r_safety_currLeader, r_safety_nextLeader, r_safety_nextFollower)
+            # def _get_safety_reward(ego, veh_temp):
+            #     if veh_temp is not None:
+            #         dis_longi = abs(veh_temp.pos_longi - ego.pos_longi)
+            #         if dis_longi < 12:
+            #             # todo consider velocity
+            #             return -1/(dis_longi + 0.1)
+            #         else:
+            #             return 0.0
+            #     else:
+            #         return 0.0
+            # r_safety_currLeader = _get_safety_reward(self.ego, self.ego.curr_leader)
+            # if action_lateral == 2:
+            #     r_safety_nextLeader = 0
+            #     r_safety_nextFollower = 0
+            # elif action_lateral == 1:
+            #     r_safety_nextLeader = _get_safety_reward(self.ego, self.ego.trgt_leader)
+            #     r_safety_nextFollower = _get_safety_reward(self.ego, self.ego.trgt_follower)
+            # else:
+            #     assert action_lateral == 0
+            #     r_safety_nextLeader = _get_safety_reward(self.ego, self.ego.orig_leader)
+            #     r_safety_nextFollower = _get_safety_reward(self.ego, self.ego.orig_follower)
+            # r_safety = w_s * min(r_safety_currLeader, r_safety_nextLeader, r_safety_nextFollower)
+            r_safety = 0
             r_total = r_comf + r_effi + r_safety
         else:
             # collision occurs

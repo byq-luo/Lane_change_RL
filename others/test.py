@@ -13,7 +13,7 @@ import traci
 
 
 def normal(env):
-    f = open('data/original.csv', 'a')
+    f = open('../data/original.csv', 'a')
     f.write('egoid, lanePos, dis2leader, speed, acce\n')
 
     egoid = 'lane1.1'
@@ -29,11 +29,11 @@ def normal(env):
             # print('slowdown')
             #env.ego.idm_obj.setSpeedLimit(80)
             env.ego.idm_obj.time_headway = 0.1
-            print('set successssssss')
+            #print('set successssssss')
         obs, rwd, done, info = env.step(action=0*3+2)
-        print('speed:', env.ego.speed)
-        if env.ego.curr_leader is not None:
-            print('dis2leader:', env.ego.curr_leader.pos_longi - env.ego.pos_longi)
+        #print('speed:', env.ego.speed)
+        #if env.ego.curr_leader is not None:
+            #print('dis2leader:', env.ego.curr_leader.pos_longi - env.ego.pos_longi)
         #print(env.ego.trgt_leader.veh_id)
         if done is True and info['resetFlag'] == 1:
             env.reset(egoid=egoid, tfc=2, sumoseed=ss, randomseed=3)
