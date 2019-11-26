@@ -42,8 +42,8 @@ def train(num_timesteps, is_train):
 
 def main():
     #logger.configure()
-    is_train = False
-    model_dir = './tf_model/5'
+    is_train = True
+    model_dir = './tf_model/6'
     latest_checkpoint = tf.train.latest_checkpoint(model_dir)
     model_path = latest_checkpoint
     EP_MAX = 10

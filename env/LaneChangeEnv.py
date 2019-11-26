@@ -310,6 +310,8 @@ class LaneChangeEnv(gym.Env):
             while self.egoID not in self.veh_dict.keys():
                 # must ensure safety in preStpe
                 self.preStep()
+                for id in traci.edge.getLastStepVehicleIDs(self.rd.warmupEdge):
+                    traci.vehicle.setLaneChangeMode(id, 0)
                 if self.timestep > 1000:
                     raise Exception('cannot find ego after 1000 timesteps')
 

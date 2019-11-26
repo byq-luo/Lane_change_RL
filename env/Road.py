@@ -13,6 +13,7 @@ class Road:
         """
         assume all lanes have the same width
         """
+        self.warmupEdge = 'warm_up'
         self.entranceEdgeID = 'entranceEdge'
         self.rampExitEdgeID = 'rampExit'
         self.highwayKeepEdgeID = 'exit'

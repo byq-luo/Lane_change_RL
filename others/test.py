@@ -24,9 +24,9 @@ def normal(env):
     for i in range(10000):
         # ss += 1
         if env.timestep == 45:
-             # traci.vehicle.slowDown('lane1.0', 0, 3)
-             # traci.vehicle.setSpeed('lane1.0', 5)
-             # print('slowdown')
+            # traci.vehicle.slowDown('lane1.0', 0, 3)
+            # traci.vehicle.setSpeed('lane1.0', 5)
+            # print('slowdown')
             #env.ego.idm_obj.setSpeedLimit(80)
             env.ego.idm_obj.time_headway = 0.1
             print('set successssssss')

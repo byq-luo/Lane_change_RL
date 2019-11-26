@@ -2,79 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b0c90436-3db4-4a5e-b1d8-c94fa90c6d12" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/tf_model/3/model.ckpt-100.data-00000-of-00001" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/3/model.ckpt-100.index" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/3/model.ckpt-100.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/3/model.ckpt-110.data-00000-of-00001" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/3/model.ckpt-110.index" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/3/model.ckpt-110.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/3/model.ckpt-80.data-00000-of-00001" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/3/model.ckpt-80.index" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/3/model.ckpt-80.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/3/model.ckpt-90.data-00000-of-00001" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/3/model.ckpt-90.index" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/3/model.ckpt-90.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/4/checkpoint" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/4/events.out.tfevents.1574667464.MacBook-Pro.local" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/4/model.ckpt-10.data-00000-of-00001" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/4/model.ckpt-10.index" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/4/model.ckpt-10.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/4/model.ckpt-20.data-00000-of-00001" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/4/model.ckpt-20.index" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/4/model.ckpt-20.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/4/model.ckpt-30.data-00000-of-00001" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/4/model.ckpt-30.index" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/4/model.ckpt-30.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/5/checkpoint" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/5/events.out.tfevents.1574668455.MacBook-Pro.local" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/5/model.ckpt-260.data-00000-of-00001" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/5/model.ckpt-260.index" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/5/model.ckpt-260.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/5/model.ckpt-270.data-00000-of-00001" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/5/model.ckpt-270.index" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/5/model.ckpt-270.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/5/model.ckpt-280.data-00000-of-00001" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/5/model.ckpt-280.index" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/5/model.ckpt-280.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/5/model.ckpt-290.data-00000-of-00001" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/5/model.ckpt-290.index" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/5/model.ckpt-290.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/5/model.ckpt-300.data-00000-of-00001" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/5/model.ckpt-300.index" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/5/model.ckpt-300.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/5/model.ckpt-310.data-00000-of-00001" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/5/model.ckpt-310.index" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/5/model.ckpt-310.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/5/model.ckpt-320.data-00000-of-00001" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/5/model.ckpt-320.index" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/5/model.ckpt-320.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/5/model.ckpt-330.data-00000-of-00001" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/5/model.ckpt-330.index" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/5/model.ckpt-330.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/5/model.ckpt-340.data-00000-of-00001" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/5/model.ckpt-340.index" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/5/model.ckpt-340.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/5/model.ckpt-350.data-00000-of-00001" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/5/model.ckpt-350.index" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tf_model/5/model.ckpt-350.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tf_model/6/events.out.tfevents.1574725683.MacBook-Pro.local" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tf_model/7/checkpoint" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tf_model/7/events.out.tfevents.1574728677.MacBook-Pro.local" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tf_model/7/model.ckpt-10.data-00000-of-00001" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tf_model/7/model.ckpt-10.index" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tf_model/7/model.ckpt-10.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tf_model/7/model.ckpt-20.data-00000-of-00001" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tf_model/7/model.ckpt-20.index" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tf_model/7/model.ckpt-20.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/original.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/original.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/IDM.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/IDM.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/env/LaneChangeEnv.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/LaneChangeEnv.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/logg.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logs/logg.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/map/ramp3/map.net.xml" beforeDir="false" afterPath="$PROJECT_DIR$/map/ramp3/map.net.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/map/ramp3/map.rou.xml" beforeDir="false" afterPath="$PROJECT_DIR$/map/ramp3/map.rou.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/map/ramp3/mapDense.rou.xml" beforeDir="false" afterPath="$PROJECT_DIR$/map/ramp3/mapDense.rou.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/map/ramp3/mapFree.rou.xml" beforeDir="false" afterPath="$PROJECT_DIR$/map/ramp3/mapFree.rou.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/others/garbage.py" beforeDir="false" afterPath="$PROJECT_DIR$/others/garbage.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/others/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/others/test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ppo_new/ppo_sgd.py" beforeDir="false" afterPath="$PROJECT_DIR$/ppo_new/ppo_sgd.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ppo_new/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/ppo_new/run.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tf_model/3/checkpoint" beforeDir="false" afterPath="$PROJECT_DIR$/tf_model/3/checkpoint" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tf_model/3/events.out.tfevents.1574658432.MacBook-Pro.local" beforeDir="false" afterPath="$PROJECT_DIR$/tf_model/3/events.out.tfevents.1574658432.MacBook-Pro.local" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tf_model/3/model.ckpt-10.data-00000-of-00001" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tf_model/3/model.ckpt-10.index" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tf_model/3/model.ckpt-10.meta" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -132,7 +74,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.test">
+  <component name="RunManager" selected="Python.run">
     <configuration name="animate_result" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="SUMO" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -247,8 +189,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.test" />
         <item itemvalue="Python.run" />
+        <item itemvalue="Python.test" />
         <item itemvalue="Python.misc" />
         <item itemvalue="Python.animate_result" />
         <item itemvalue="Python.ppo_sgd" />
@@ -490,7 +432,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574659152518</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="improved performance">
+      <created>1574724768338</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1574724768338</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
