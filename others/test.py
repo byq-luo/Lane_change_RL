@@ -13,37 +13,42 @@ import traci
 
 
 def normal(env):
-    f = open('../data/original.csv', 'a')
-    f.write('egoid, lanePos, dis2leader, speed, acce\n')
-
-    egoid = 'lane1.1'
+    egoid = 'lane1.2'
     ss = 6
     env.reset(egoid=egoid, tfc=2, sumoseed=ss, randomseed=3)
     traci.vehicle.setColor(egoid, (255, 69, 0))
+    speedLimit = env.ego.speedLimit
+    TH = 1
+    env.ego.idm_obj.setSpeedLimit(speedLimit)
+    env.ego.idm_obj.time_headway = TH
+    f = open('../data/idm_para_speedLimit{}_T{}.csv'.format(speedLimit, TH), 'a')
+    f.write('egoid, lanePos, dis2leader, speed, acce, leader_lanePos, leader_speed\n')
 
     for i in range(10000):
         # ss += 1
-        if env.timestep == 45:
-            # traci.vehicle.slowDown('lane1.0', 0, 3)
-            # traci.vehicle.setSpeed('lane1.0', 5)
-            # print('slowdown')
-            #env.ego.idm_obj.setSpeedLimit(80)
-            env.ego.idm_obj.time_headway = 0.1
-            #print('set successssssss')
-        obs, rwd, done, info = env.step(action=0*3+2)
-        #print('speed:', env.ego.speed)
-        #if env.ego.curr_leader is not None:
-            #print('dis2leader:', env.ego.curr_leader.pos_longi - env.ego.pos_longi)
-        #print(env.ego.trgt_leader.veh_id)
-        if done is True and info['resetFlag'] == 1:
-            env.reset(egoid=egoid, tfc=2, sumoseed=ss, randomseed=3)
-            traci.vehicle.setColor(egoid, (255, 69, 0))
 
-        # f.write('%s, %s, %s, %s, %s\n' % (egoid, env.veh_dict[egoid].lanePos,
-        #                                   env.veh_dict[env.veh_dict[egoid].leaderID].lanePos - env.veh_dict[
-        #                                       egoid].lanePos,
-        #                                   env.veh_dict[egoid].speed, traci.vehicle.getAcceleration(egoid)))
+        obs, rwd, done, info = env.step(action=0*3+2)
+        if done is True and info['resetFlag'] == 1:
+            env.close()
+
+        f.write('%s, %s, %s, %s, %s, %s, %s\n' % (egoid, env.ego.pos_longi,
+                                          env.ego.curr_leader.pos_longi - env.ego.pos_longi,
+                                          env.ego.speed, env.ego.acce,
+                                          env.ego.curr_leader.pos_longi, env.ego.curr_leader.speed))
         f.flush()
+
+
+def changeLane(env):
+    egoid = 'lane1.2'
+    ss = 6
+    env.reset(egoid=egoid, tfc=0, sumoseed=ss, randomseed=3)
+    traci.vehicle.setColor(egoid, (255, 69, 0))
+    for i in range(10000):
+        # ss += 1
+        print(env.ego.pos_lat)
+        obs, rwd, done, info = env.step(action=0*3+1)
+        if done is True and info['resetFlag'] == 1:
+            env.close()
 
 
 def laneChange(low, high, origLane, tgtLane, rd):
@@ -59,38 +64,31 @@ def laneChange(low, high, origLane, tgtLane, rd):
             traci.vehicle.changeSublane(veh.veh_id, 0.0)
         veh.changeTimes += 1
 
-    def changeLane(mutiple, veh, cps):
-        traci.vehicle.setColor(veh.veh_id, (255, 69, 0))
-        if mutiple is True:
-            veh.changeLane(cps, veh.targetLane, rd)
-            # traci.vehicle.moveToXY('entranceEdge_1')
-            # traci.vehicle.changeLane(veh.veh_id, veh.targetLane, 1)
-            # todo: set route affects lc behavior, changeSublane doesn't work, changeLane works
-            # traci.vehicle.setRouteID(veh.veh_id, rd.rampExitRouteID)
 
-        elif veh.changeTimes == 0:
-            veh.changeLane(cps, veh.targetLane, rd)
-            veh.changeTimes += 1
 
-    for vehID in env.veh_dict.keys():
-        if int(vehID.split('.')[1]) % 2 == 0 and vehID.split('.')[0] == 'lane'+str(origLane):
-        #if vehID == 'lane1.0':
-            veh = env.veh_dict[vehID]
-            if veh.lcPos is None:
-                veh.lcPos = random.uniform(low, high)
-            veh.targetLane = tgtLane
+    #     elif veh.changeTimes == 0:
+    #         veh.changeLane(cps, veh.targetLane, rd)
+    #         veh.changeTimes += 1
+    #
+    # for vehID in env.veh_dict.keys():
+    #     if int(vehID.split('.')[1]) % 2 == 0 and vehID.split('.')[0] == 'lane'+str(origLane):
+    #     #if vehID == 'lane1.0':
+    #         veh = env.veh_dict[vehID]
+    #         if veh.lcPos is None:
+    #             veh.lcPos = random.uniform(low, high)
+    #         veh.targetLane = tgtLane
+    #
+    #         if veh.dis2entrance < veh.lcPos and abs(veh.pos_lat - (0.5+veh.targetLane)*rd.laneWidth) > 0.01:
+    #
+    #             if abs(veh.dis2entrance) > 20:
+    #                 changeNback(veh, True)
+    #
+    #             else:
+    #                 if not veh.laneIndex == 0:
+    #                     traci.vehicle.setRouteID(veh.veh_id, rd.highwayKeepRouteID)
+    #             # todo order of cmd, step, write
 
-            if veh.dis2entrance < veh.lcPos and abs(veh.pos_lat - (0.5+veh.targetLane)*rd.laneWidth) > 0.01:
-
-                if abs(veh.dis2entrance) > 20:
-                    changeNback(veh, True)
-
-                else:
-                    if not veh.laneIndex == 0:
-                        traci.vehicle.setRouteID(veh.veh_id, rd.highwayKeepRouteID)
-                # todo order of cmd, step, write
-
-            '''    
+'''    
             if (abs(veh.pos_lat - (0.5+tgtLane)*3.2) < 0.01 or veh.dis2entrance < 1.0) \
                and veh.change_times == 1:
 
@@ -188,5 +186,6 @@ if __name__ == '__main__':
 
     #badLongiCtrl(env)
     #IDMCtrl(env)
-    normal(env)
+    #normal(env)
+    changeLane(env)
     #doubleCtrl(env)

@@ -65,17 +65,16 @@ class LaneChangeEnv(gym.Env):
         self.ego = None
 
         self.is_success = False
+        self.success_timer = 0
         self.collision_num = 0
 
-        self.action_space = spaces.Discrete(6)
-        self.observation_space = spaces.Box(low=-np.inf, high=np.inf, shape=(20,))
-        self.observation = np.empty(20)
+        self.observation = np.empty(21)
         self.reward = None            # (float) : amount of reward returned after previous action
         self.done = True              # (bool): whether the episode has ended, in which case further step() calls will return undefined results
         self.info = {'resetFlag': 0}  # (dict): contains auxiliary diagnostic information (helpful for debugging, and sometimes learning)
         self.is_done_info = 0
         self.action_space = spaces.Discrete(6)
-        self.observation_space = spaces.Box(low=-np.inf, high=np.inf, shape=(20, ))
+        self.observation_space = spaces.Box(low=-np.inf, high=np.inf, shape=(21, ))
 
     def update_veh_dict(self, veh_id_tuple):
         for veh_id in veh_id_tuple:
@@ -98,21 +97,31 @@ class LaneChangeEnv(gym.Env):
         :param id: vehicle id corresponding to name
         :return:
         """
+        # todo difference
         if veh is not None:
-            self.observation[name*4+0] = veh.pos_longi
-            self.observation[name*4+1] = veh.speed
-            self.observation[name*4+2] = veh.pos_lat
-            self.observation[name*4+3] = veh.acce
+            self.observation[name*4+0+1] = veh.pos_longi - self.observation[0]
+            self.observation[name*4+1+1] = veh.speed
+            self.observation[name*4+2+1] = veh.pos_lat
+            self.observation[name*4+3+1] = veh.acce
         else:
             assert name != self.egoID
-            self.observation[name*4+0] = self.observation[0] + 300.
-            self.observation[name*4+1] = self.observation[1]
-            self.observation[name*4+2] = 4.8
-            self.observation[name*4+3] = 0
+            self.observation[name*4+0+1] = 300.
+            self.observation[name*4+1+1] = self.observation[1]
+            if name == 1 or name == 2:
+                self.observation[name*4+2+1] = 4.8
+            else:
+                self.observation[name*4+2+1] = 1.6
+            self.observation[name*4+3+1] = 0
             # todo check if rational
 
     def updateObservation(self):
-        self._updateObservationSingle(0, self.ego)
+        self.observation[0] = self.ego.pos_longi
+        self.observation[1] = self.ego.speed
+        self.observation[2] = self.ego.pos_lat
+        self.observation[3] = self.ego.acce
+        self.observation[4] = self.ego.speed_lat
+
+        #self._updateObservationSingle(0, self.ego)
         self._updateObservationSingle(1, self.ego.orig_leader)
         self._updateObservationSingle(2, self.ego.orig_follower)
         self._updateObservationSingle(3, self.ego.trgt_leader)
@@ -178,7 +187,7 @@ class LaneChangeEnv(gym.Env):
     def is_done(self):
         # lane change successfully executed, episode ends, reset env
         # todo modify
-        if self.is_success:
+        if self.is_success and self.success_timer*self.dt > 1:
             self.done = True
             # print('reset on: successfully lane change, dis2targetlane:',
             #       self.ego.dis2tgtLane)
@@ -248,15 +257,18 @@ class LaneChangeEnv(gym.Env):
         # lateral control-------------------------
         # episode in progress; 0:change back to original line; 1:lane change to target lane; 2:keep current
         # lane change to target lane
-        if not self.is_success:
-            if action_lateral == 1:
-                self.is_success = self.ego.changeLane(True, self.ego.trgt_laneIndex, self.rd)
-            # abort lane change, change back to ego's original lane
-            if action_lateral == 0:
-                self.is_success = self.ego.changeLane(True, self.ego.orig_laneIndex, self.rd)
-            # keep current lateral position
-            if action_lateral == 2:
-                self.is_success = self.ego.changeLane(True, -1, self.rd)
+
+        if action_lateral == 1:
+            self.is_success = self.ego.changeLane(True, self.ego.trgt_laneIndex, self.rd)
+        # abort lane change, change back to ego's original lane
+        if action_lateral == 0:
+            self.is_success = self.ego.changeLane(True, self.ego.orig_laneIndex, self.rd)
+        # keep current lateral position
+        if action_lateral == 2:
+            self.is_success = self.ego.changeLane(True, -1, self.rd)
+
+        if self.is_success:
+            self.success_timer += 1
 
         # longitudinal control2---------------------
         # clip minimum deceleration
