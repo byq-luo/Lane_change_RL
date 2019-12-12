@@ -13,7 +13,7 @@ else:
     sys.exit("please declare environment variable 'SUMO_HOME'")
 import traci
 ######################################################################
-# lane change environments
+# lane change environment
 
 
 class LaneChangeEnv(gym.Env):
@@ -21,13 +21,14 @@ class LaneChangeEnv(gym.Env):
         # todo check traffic flow density
         if traffic == 0:
             # average 9 vehicles
-            self.cfg = '/Users/cxx/Desktop/lcEnv/map/ramp3/mapFree.sumo.cfg'
+            #self.cfg = '/Users/cxx/Desktop/lcEnv/map/ramp3/mapFree.sumo.cfg'
+            self.cfg = '../map/ramp3/mapFree.sumo.cfg'
         elif traffic == 2:
             # average 19 vehicles
-            self.cfg = '/Users/cxx/Desktop/lcEnv/map/ramp3/mapDense.sumo.cfg'
+            self.cfg = '../map/ramp3/mapDense.sumo.cfg'
         else:
             # average 14 vehicles
-            self.cfg = '/Users/cxx/Desktop/lcEnv/map/ramp3/map.sumo.cfg'
+            self.cfg = '../map/ramp3/map.sumo.cfg'
 
         # arguments must be string, if float/int, must be converted to str(float/int), instead of '3.0'
         self.sumoBinary = "/usr/local/Cellar/sumo/1.2.0/bin/sumo"
@@ -177,9 +178,10 @@ class LaneChangeEnv(gym.Env):
             # collision occurs
             r_comf = 0
             r_effi = 0
-            r_safety = -100
+            r_safety = -300
             r_total = r_comf + r_effi + r_safety
-        return r_total, r_comf, r_effi, r_safety
+        reward_dict = {'r_comf': r_comf, 'r_effi': r_effi, 'r_safety': r_safety}
+        return r_total, reward_dict
 
     def updateReward3(self):
         return -self.ego.dis2tgtLane
@@ -212,7 +214,7 @@ class LaneChangeEnv(gym.Env):
         self.vehID_tuple_all = traci.edge.getLastStepVehicleIDs(self.rd.entranceEdgeID)
         self.update_veh_dict(self.vehID_tuple_all)
 
-    def step(self, action=2):
+    def step(self, action):
         """Run one timestep of the environment's dynamics. When end of
         episode is reached, call `reset()` outside env!! to reset this
         environment's state.
@@ -220,16 +222,11 @@ class LaneChangeEnv(gym.Env):
         Accepts an action and returns a tuple (observation, reward, done, info).
 
         Args:
-            action (object): longitudinal0: action[0] = 1: accelerate
-                                            action[0] = -1: decelerate
-                                            action[0] = 0: use SUMO default
-                                            action[0] = others: acce = 0.0
+            action (object):  longitudinal: action[0] = 1: accelerate
+                                            action[0] = 2: decelerate
+                                            action[0] = 0: acceleration = 0.0
 
-                             longitudinal1: action[0] = 0: follow original lane leader
-                                            action[0] = 1: follow closer leader
 
-                             longitudinal2: action[0] = 0: follow original lane leader
-                                            action[0] = 1: follow target lane leader
 
                              **important**: orginal/target lane leader will not change despite the lateral position of
                                             the ego may change
@@ -241,12 +238,18 @@ class LaneChangeEnv(gym.Env):
         Returns:
             described in __init__
         """
-
-        action_longi = action // 3
-        action_lateral = action % 3
-
-        # action_longi = action[0]
-        # action_lateral = action[1]
+        if action in [0, 1, 2]:
+            action_lateral = 2
+            action_longi = action
+        else:
+            assert action in [3, 4, 5]
+            action_longi = 3
+            if action == 3:
+                action_lateral = 1
+            elif action == 4:
+                action_lateral = 2
+            else:
+                action_lateral = 0
 
         assert self.done is False, 'self.done is not False'
         assert action is not None, 'action is None'
@@ -272,8 +275,8 @@ class LaneChangeEnv(gym.Env):
 
         # longitudinal control2---------------------
         # clip minimum deceleration
-        acceNext = max(self.ego.updateLongitudinalSpeedIDM(action_longi), -4.5)
-        vNext = self.ego.speed + acceNext * 0.1
+        acceNext = max(self.ego.get_acceNext(action_longi), -4.5)
+        vNext = max(self.ego.speed + acceNext * 0.1, 0.1)
         traci.vehicle.setSpeed(self.egoID, vNext)
 
         # update info------------------------------
@@ -284,19 +287,13 @@ class LaneChangeEnv(gym.Env):
         self.is_done()
         if self.done is True:
             self.info['resetFlag'] = True
-            reward_tuple = self.updateReward(action_lateral)
-            self.reward = reward_tuple[0]
-            self.info['r_comf'] = reward_tuple[1]
-            self.info['r_effi'] = reward_tuple[2]
-            self.info['r_safety'] = reward_tuple[3]
+            self.reward, reward_dict = self.updateReward(action_lateral)
+            self.info['reward_dict'] = reward_dict
             return self.observation, self.reward, self.done, self.info
         else:
             self.updateObservation()
-            reward_tuple = self.updateReward(action_lateral)
-            self.reward = reward_tuple[0]
-            self.info['r_comf'] = reward_tuple[1]
-            self.info['r_effi'] = reward_tuple[2]
-            self.info['r_safety'] = reward_tuple[3]
+            self.reward, reward_dict = self.updateReward(action_lateral)
+            self.info['reward_dict'] = reward_dict
             return self.observation, self.reward, self.done, self.info
 
     def seed(self, seed=None):

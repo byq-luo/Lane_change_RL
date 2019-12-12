@@ -60,6 +60,7 @@ def main():
         env = LaneChangeEnv()
         for ep in range(EP_MAX):
             egoid = 'lane1.' + str(random.randint(1, 5))
+            # todo set sumoseed and randomseed as fixed
             ob = env.reset(egoid=egoid, tlane=0, tfc=2, is_gui=True, sumoseed=None, randomseed=None)
             traci.vehicle.setColor(egoid, (255, 69, 0))
             ob_np = np.asarray(ob).flatten()

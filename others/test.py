@@ -21,21 +21,21 @@ def normal(env):
     TH = 1
     env.ego.idm_obj.setSpeedLimit(speedLimit)
     env.ego.idm_obj.time_headway = TH
-    f = open('../data/idm_para_speedLimit{}_T{}.csv'.format(speedLimit, TH), 'a')
-    f.write('egoid, lanePos, dis2leader, speed, acce, leader_lanePos, leader_speed\n')
+    # f = open('../data/idm_para_speedLimit{}_T{}.csv'.format(speedLimit, TH), 'a')
+    # f.write('egoid, lanePos, dis2leader, speed, acce, leader_lanePos, leader_speed\n')
 
     for i in range(10000):
         # ss += 1
 
-        obs, rwd, done, info = env.step(action=0*3+2)
+        obs, rwd, done, info = env.step(action=0)
         if done is True and info['resetFlag'] == 1:
             env.close()
 
-        f.write('%s, %s, %s, %s, %s, %s, %s\n' % (egoid, env.ego.pos_longi,
-                                          env.ego.curr_leader.pos_longi - env.ego.pos_longi,
-                                          env.ego.speed, env.ego.acce,
-                                          env.ego.curr_leader.pos_longi, env.ego.curr_leader.speed))
-        f.flush()
+        # f.write('%s, %s, %s, %s, %s, %s, %s\n' % (egoid, env.ego.pos_longi,
+        #                                   env.ego.curr_leader.pos_longi - env.ego.pos_longi,
+        #                                   env.ego.speed, env.ego.acce,
+        #                                   env.ego.curr_leader.pos_longi, env.ego.curr_leader.speed))
+        # f.flush()
 
 
 def changeLane(env):
@@ -186,6 +186,6 @@ if __name__ == '__main__':
 
     #badLongiCtrl(env)
     #IDMCtrl(env)
-    #normal(env)
-    changeLane(env)
+    normal(env)
+    #changeLane(env)
     #doubleCtrl(env)

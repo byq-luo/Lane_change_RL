@@ -130,6 +130,17 @@ class Ego(Vehicle):
     def setTrgtLane(self, trgtlane):
         self.trgt_laneIndex = trgtlane
 
+    def get_acceNext(self, action_longi):
+        if action_longi == 0:
+            return 1.5
+        elif action_longi == 1:
+            return -1.5
+        elif action_longi == 2:
+            return 0
+        else:
+            assert action_longi == 3
+            return self.updateLongitudinalSpeedIDM(2)
+
     def updateLongitudinalSpeedIDM(self, action):
         """
         use IDM to control vehicle speed
@@ -139,9 +150,11 @@ class Ego(Vehicle):
         # determine leader
         if action == 0:
             leader = self.orig_leader
-        else:
-            assert action == 1
+        elif action == 1:
             leader = self.trgt_leader
+        else:
+            assert action == 2
+            leader = self.curr_leader
         # compute acceNext
         if leader is not None:
             leaderDis = leader.pos_longi - self.pos_longi

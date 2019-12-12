@@ -21,7 +21,7 @@ def traj_segment_generator(pi, env, horizon, stochastic):
     # ob = env.reset()
 
     cur_ep_ret = 0  # return in current episode
-    cur_ep_ret_detail = np.zeros(3)
+    cur_ep_ret_detail = 0
     cur_ep_len = 0  # len of current episode
     ep_rets = []  # returns of completed episodes in this segment
     ep_rets_detail = []
@@ -63,7 +63,7 @@ def traj_segment_generator(pi, env, horizon, stochastic):
         rews[i] = rew
 
         cur_ep_ret += rew
-        cur_ep_ret_detail += np.array([info['r_comf'], info['r_effi'], info['r_safety']])
+        cur_ep_ret_detail += np.array(list(info['reward_dict'].values()))
         cur_ep_len += 1
         if new:
             ep_rets.append(cur_ep_ret)
@@ -104,7 +104,7 @@ def learn(env, policy_fn, *,
           callback=None,  # you can do anything in the callback, since it takes locals(), globals()
           adam_epsilon=1e-5,
           schedule='constant',  # annealing for stepsize parameters (epsilon and adam)
-          model_dir_base='../../tf_model/',
+          model_dir_base='../tf_models/',
           is_train=True):
 
     # tensorboard summary writer & model saving path
