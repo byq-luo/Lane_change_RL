@@ -37,7 +37,6 @@ def normal(env):
         #                                   env.ego.curr_leader.pos_longi, env.ego.curr_leader.speed))
         # f.flush()
 
-
 def changeLane(env):
     egoid = 'lane1.2'
     ss = 6

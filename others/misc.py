@@ -22,7 +22,20 @@ import numpy.random as random
 # dic = {'a': 1, 'b': 2}
 # print(dic['a', 'b'])
 
-a = np.array([1,2,3,])
-b = np.array([1,2,3])
-a += b
+# a = np.array([1,2,3,])
+# # b = np.array([1,2,3])
+# # a += b
+# # print(a)
+
+# aa = np.array([1, 2, 3])
+# b = np.array([2, 3, 4])
+# c = np.vstack([a, b])
+# d = np.append(np.empty((3, 0)), c)
+# print(d)
+# m = np.mean(d, axis=1)
+# print(m)
+
+a = 0
+a += [3, 4, 5]
+
 print(a)

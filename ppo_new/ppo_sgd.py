@@ -206,6 +206,7 @@ def learn(env, policy_fn, *,
     # Prepare for rollouts
     # ----------------------------------------
     seg_gen = traj_segment_generator(pi, env, timesteps_per_actorbatch, stochastic=True)
+    seg_gen_test = traj_segment_generator(pi, env, timesteps_per_actorbatch, stochastic=False)
 
     episodes_so_far = 0
     timesteps_so_far = 0
@@ -265,27 +266,47 @@ def learn(env, policy_fn, *,
                 losses_batch.append(newlosses)
             print(fmt_row(13, np.mean(losses_batch, axis=0)))
 
-        print("Evaluating losses...")
-        losses_batch = []
-        for batch in d.iterate_once(optim_batchsize):
-            newlosses = compute_losses(batch["ob"], batch["ac"], batch["atarg"], batch["vtarg"], cur_lrmult)
-            losses_batch.append(newlosses)
-        meanlosses, _, _ = mpi_moments(losses_batch, axis=0)
-        print(fmt_row(13, meanlosses))
-        for (lossval, name) in zipsame(meanlosses, loss_names):
-            print("loss_" + name, lossval)
+        if iters_so_far % 10 == 0:
+            # evaluate losses
+            print("Evaluating losses...")
+            losses_batch = []
+            for batch in d.iterate_once(optim_batchsize):
+                newlosses = compute_losses(batch["ob"], batch["ac"], batch["atarg"], batch["vtarg"], cur_lrmult)
+                losses_batch.append(newlosses)
+            meanlosses, _, _ = mpi_moments(losses_batch, axis=0)
+            print(fmt_row(13, meanlosses))
+            for (lossval, name) in zipsame(meanlosses, loss_names):
+                print("loss_" + name, lossval)
+            # write loss summaries
+            summary_eval_loss = sess.run(summary_merged_loss, feed_dict={i: d for i, d in zip(losses, meanlosses)})
+            summary_writer.add_summary(summary_eval_loss, iters_so_far)
 
-        # write loss summaries
-        summary_eval_loss = sess.run(summary_merged_loss, feed_dict={i: d for i, d in zip(losses, meanlosses)})
-        summary_writer.add_summary(summary_eval_loss, iters_so_far)
-        # write reward summaries
-        for ep_ret, ep_ret_detail in zip(seg['ep_rets'], seg['ep_rets_detail']):
-            summary_eval_reward = sess.run(summary_merged_reward, feed_dict={reward_total_ph: ep_ret,
-                                                                             reward_comf_ph: ep_ret_detail[0],
-                                                                             reward_effi_ph: ep_ret_detail[1],
-                                                                             reward_safety_ph: ep_ret_detail[2]})
-            summary_writer.add_summary(summary_eval_reward, episodes_so_far)
-            episodes_so_far += 1
+            # evaluate reward
+            ret_eval = 0
+            ret_det_eval = 0  # not a integer, will be broadcasted
+            for i in range(5):
+                seg_test = seg_gen_test.__next__()
+                ret_eval += np.mean(seg_test['ep_rets'])
+                ep_rets_detail_np = np.vstack([ep_ret_detail for ep_ret_detail in seg_test['ep_rets_detail']])
+                ret_det_eval += np.mean(ep_rets_detail_np, axis=0)
+            ret_eval /= 5.0
+            ret_det_eval /= 5.0
+            summary_eval_reward = sess.run(summary_merged_reward, feed_dict={reward_total_ph: ret_eval,
+                                                                             reward_comf_ph: ret_det_eval[0],
+                                                                             reward_effi_ph: ret_det_eval[1],
+                                                                             reward_safety_ph: ret_det_eval[2]})
+            summary_writer.add_summary(summary_eval_reward, iters_so_far)
+
+            # save model
+            saver.save(sess, model_dir + '/model.ckpt', global_step=iters_so_far)
+
+        # for ep_ret, ep_ret_detail in zip(seg['ep_rets'], seg['ep_rets_detail']):
+        #     summary_eval_reward = sess.run(summary_merged_reward, feed_dict={reward_total_ph: ep_ret,
+        #                                                                      reward_comf_ph: ep_ret_detail[0],
+        #                                                                      reward_effi_ph: ep_ret_detail[1],
+        #                                                                      reward_safety_ph: ep_ret_detail[2]})
+        #     summary_writer.add_summary(summary_eval_reward, episodes_so_far)
+        #     episodes_so_far += 1
         # write observation and action summaries
         assert len(seg['ac']) == len(seg['ob'])
         for ac, ob in zip(seg['ac'], seg['ob']):
@@ -306,10 +327,11 @@ def learn(env, policy_fn, *,
         lenbuffer.extend(lens)
         rewbuffer.extend(rews)
 
+        episodes_so_far += len(lens)
         iters_so_far += 1
 
-        if iters_so_far % 10 == 0:
-            saver.save(sess, model_dir + '/model.ckpt', global_step=iters_so_far)
+        # if iters_so_far % 10 == 0:
+        #     saver.save(sess, model_dir + '/model.ckpt', global_step=iters_so_far)
     return pi
 
 
